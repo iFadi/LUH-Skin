@@ -54,6 +54,6 @@ Falls auf dem produktiven System `lessc` nicht installiert ist, kann das oben ge
 Daher ist es vorteilhaft, die kompilierte LUH-Style.css zum Beispiel auf einem Testsystem in einer bestimmten Tag- oder Skin-Version hinzuzufügen.
 
 ## Dieses Release wurde mit den folgenden ILIAS-Versionen getestet:
-* v8.8
+* v8.9
 
 <strong>WICHTIG: Der Skin sollte für jede ILIAS Minor/Major Release auf funktionalität getestet werden.</strong>
