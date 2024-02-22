@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.3](https://github.com/iFadi/LUH-Skin/compare/v1.0.2...v1.0.3) (2024-02-22)
+
+
+### Bug Fixes
+
+* update login page ([b53c8cd](https://github.com/iFadi/LUH-Skin/commit/b53c8cd4f69d43b2b469327179d35aa5e5ffb6ac))
+* update to ILIAS 8.9 ([4fb3352](https://github.com/iFadi/LUH-Skin/commit/4fb33528602ecb3fcece876542b6bdbad392513a))
+
 ## [1.0.2](https://github.com/iFadi/LUH-Skin/compare/v1.0.1...v1.0.2) (2024-02-22)
 
 
