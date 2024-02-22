@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/iFadi/LUH-Skin/compare/v1.0.1...v1.0.2) (2024-02-22)
+
+
+### Bug Fixes
+
+* added missing js ([6015093](https://github.com/iFadi/LUH-Skin/commit/60150936ad6e8d461340669dd2ab259077c3bbf1))
+
 ## [1.0.1](https://github.com/iFadi/LUH-Skin/compare/v1.0.0...v1.0.1) (2024-02-22)
 
 
