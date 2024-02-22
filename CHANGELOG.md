@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1](https://github.com/iFadi/LUH-Skin/compare/v1.0.0...v1.0.1) (2024-02-22)
+
+
+### Bug Fixes
+
+* add screenshot ([2650393](https://github.com/iFadi/LUH-Skin/commit/2650393e951fbf3f5714ba68d7e284602df0ac51))
+* custom login page with shib ([3212ddc](https://github.com/iFadi/LUH-Skin/commit/3212ddcf2013cebcb50972df7112da8360e1d233))
+
 ## 1.0.0 (2024-02-22)
 
 
