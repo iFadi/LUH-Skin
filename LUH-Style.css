@@ -20037,16 +20037,20 @@ with the il- variable set here.
 /** nagtive or positive contrast color for text and glyph **/
 /** contrast threshold for contrast color **/
 /** three color variants for neutral, important, breaking Head Infos **/
-/*less/Login/*/
+/*less/LoginMask/*/
+div.ilStartupSection form.form-horizontal {
+  border: none;
+}
 /*.ilStartupSection #luhLogin{}*/
 #luhLogin {
   padding-top: 25px;
   margin-left: 2%;
-  width: 600px;
-  height: auto;
+  height: 400px;
   min-height: 400px;
+  width: 600px;
   background-color: rgba(0, 80, 155, 0.3);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+  overflow: auto;
 }
 #luhLogin:hover {
   box-shadow: none;
@@ -20064,69 +20068,16 @@ with the il- variable set here.
   background-color: #00509b;
   border: 1px solid #00509b;
 }
-@media only screen and (max-width: 768px) {
-  #luhLogin {
-    padding-top: 25px;
-    margin-left: 2%;
-    width: 400px;
-    height: auto;
-    min-height: 420px;
-    background-color: rgba(0, 80, 155, 0.3);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
-  }
-  #luhLogin:hover {
-    box-shadow: none;
-    box-shadow: 0 4px 8px 0 rgba(0, 80, 155, 0.3), 0 6px 20px 0 rgba(0, 80, 155, 0.25);
-  }
-  #luhLogin form.form-horizontal {
-    width: inherit;
-    background-color: inherit;
-    /*#form_{
-        padding-left: 55px;
-      }*/
-  }
-  #luhLogin div.ilFormLoginMask {
-    width: 300px;
-  }
-  #luhLogin #LUHLoginMask {
-    display: inline-grid;
-  }
-  #luhLogin #shib-button,
-  #luhLogin #ilias-login-button {
-    width: 250px;
-  }
-  #luhLogin footer.login_footer {
-    display: inline;
-    padding-top: 340px;
-  }
-  #luhLogin footer.login_footer #not-websso-warning {
-    display: inline-block;
-    font-size: 14px;
-    padding-top: 20px;
-  }
-  #luhLogin footer.login_footer #login_form_footer {
-    width: 300px;
-    padding-left: 50px;
-  }
-  #luhLogin footer.login_footer li {
-    display: flex;
-  }
-}
 div.index_main nav {
   margin-left: 50px;
   margin-top: 50px;
   height: auto;
   display: block;
 }
-.ilFormLoginMask {
-  float: left;
-  padding: 0 15px;
-}
-.ilFormLoginMask a:hover {
-  color: #00509b;
-}
-.ilFormLoginMask button {
-  text-align: center;
+#luhLogin.expanded {
+  height: auto;
+  min-height: 700px;
+  padding-top: 0;
 }
 div.ilFormLoginMask {
   display: inline-block;
@@ -20153,11 +20104,6 @@ div.ilFormLoginMask a {
   border: 1px solid rgba(0, 80, 155, 0.5);
   box-shadow: 0px 3px 6px rgba(0, 80, 155, 0.3);
   color: white;
-  /*a {
-      text-decoration: none;
-      color: white;
-      //color: white;
-    }*/
 }
 div.ilFormLoginMask p {
   font-size: 12px;
@@ -20166,74 +20112,27 @@ div.ilFormLoginMask p {
 #shib-form-login-mask form.form-horizontal {
   text-align: left;
 }
-#shib-button,
-#ilias-login-button {
-  text-align: center;
-  width: 200px;
-  border: 2px solid rgba(0, 80, 155, 0.4);
-  border-radius: 2px;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
-  background: transparent;
-  height: 42px;
-}
-#shib-button:hover,
-#ilias-login-button:hover {
-  background-color: rgba(0, 80, 155, 0.8);
-  border: 1px solid rgba(0, 80, 155, 0.5);
-  box-shadow: 0px 3px 6px rgba(0, 80, 155, 0.3);
-}
-#shib-button:hover a,
-#ilias-login-button:hover a {
-  text-decoration: none;
-  color: white;
-}
-/*div.ilFormLoginMask button {
-  background-color: transparent;
-  height: 35px;
-  border-radius: 5px;
-  border: 0 none;
-  //box-shadow: 0 3px 6px 0 rgb(0,0,0, 0.1), 0 4px 8px 0 rgb(0, 0, 0, 0.15);
-  &:hover{
-    background-color: #e6e6e6;
-    //box-shadow: 0 3px 6px 0 rgb(0,80,155, 0.1), 0 4px 8px 0 rgb(0, 80, 155, 0.15);
-  }
-}*/
-footer.login_footer {
-  background-color: transparent;
-  display: block;
-  padding-left: 20px;
-  padding-top: 300px;
-  width: 95%;
-}
-footer.login_footer #not-websso-warning {
+#not-websso-warning {
   display: inline-block;
   font-size: 14px;
+  text-align: center;
+  width: 100%;
 }
-footer.login_footer #login_form_footer {
+#login_form_footer .form-horizontal {
   background-color: transparent;
 }
-footer.login_footer .form-horizontal {
+#il_prop_cont_password {
   background-color: transparent;
 }
-footer.login_footer div.ilFormHeader {
-  padding-left: 15px;
-  color: #333;
+#il_prop_cont_username {
   background-color: transparent;
 }
-footer.login_footer div.ilFormFooter {
-  background-color: inherit;
-  color: #333;
+div.ilStartupSection form.form-horizontal .ilFormHeader {
+  background-color: transparent;
 }
-footer.login_footer div.ilFormFooter .ilFormCmds {
-  padding-right: 15px;
-  padding-bottom: 15px;
-}
-footer.login_footer ul {
-  display: inline-block;
-}
-footer.login_footer li {
-  display: inline-block;
-  margin-right: 20px;
+.ilFormHeader,
+.ilFormFooter {
+  background-color: transparent;
 }
 .focus_hovered_engaged_slate_trigger_mixin {
   background-color: white;
