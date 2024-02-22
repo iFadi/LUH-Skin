@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/iFadi/LUH-Skin/compare/v1.0.3...v1.0.4) (2024-02-22)
+
+
+### Bug Fixes
+
+* update mainbar ([b57debf](https://github.com/iFadi/LUH-Skin/commit/b57debf0913e6d70aefe211d3ef4f2767b245979))
+
 ## [1.0.3](https://github.com/iFadi/LUH-Skin/compare/v1.0.2...v1.0.3) (2024-02-22)
 
 
