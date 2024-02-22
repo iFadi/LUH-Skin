@@ -7173,7 +7173,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   z-index: 300;
 }
 .il-card .il-card-repository-head .icon {
-  filter: brightness(5);
+  filter: brightness(100);
 }
 .il-card .il-card-repository-head > div {
   padding: 6px 6px;
@@ -10121,7 +10121,7 @@ footer {
   align-items: center;
   background: #003668;
   border: 0;
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #f7f7f7;
   color: white;
   display: inline-flex;
   flex-flow: column wrap;
@@ -10134,7 +10134,7 @@ footer {
 }
 .il-mainbar-triggers .btn-bulky .icon,
 .il-mainbar-triggers .il-link.link-bulky .icon {
-  filter: brightness(5);
+  filter: brightness(100);
 }
 .il-mainbar-triggers .btn-bulky .icon.small,
 .il-mainbar-triggers .il-link.link-bulky .icon.small {
@@ -10257,7 +10257,7 @@ footer {
   }
   .il-mainbar-triggers .btn-bulky:hover .icon,
   .il-mainbar-triggers .il-link.link-bulky:hover .icon {
-    filter: brightness(5);
+    filter: brightness(100);
   }
   .il-mainbar-triggers .btn-bulky:hover .bulky-label,
   .il-mainbar-triggers .il-link.link-bulky:hover .bulky-label {
@@ -10303,7 +10303,7 @@ footer {
 }
 .il-mainbar-tools-button .btn-bulky .icon,
 .il-mainbar-tools-button .btn-bulky.engaged .icon {
-  filter: brightness(5);
+  filter: brightness(100);
 }
 .il-mainbar-tools-button .btn-bulky.engaged {
   background-color: #e2e8ef;
@@ -10330,7 +10330,7 @@ footer {
 .il-mainbar-tools-entries .btn-bulky .icon,
 .il-mainbar-tools-entries .btn-bulky .icon,
 .il-mainbar-tools-entries .il-link.link-bulky .icon {
-  filter: brightness(5);
+  filter: brightness(100);
 }
 .il-mainbar-tools-entries .btn-bulky .bulky-label,
 .il-mainbar-tools-entries .btn-bulky .bulky-label,
@@ -10395,7 +10395,7 @@ footer {
 }
 .il-mainbar-close-slates .btn-bulky {
   background-color: transparent;
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid #f7f7f7;
   display: flex;
   flex-direction: row;
   height: 45px;
@@ -20221,7 +20221,7 @@ div.ilStartupSection form.form-horizontal .ilFormHeader {
   align-items: center;
   background: #003668;
   border: 0;
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #f7f7f7;
   color: white;
   display: inline-flex;
   flex-flow: column wrap;
@@ -20234,7 +20234,7 @@ div.ilStartupSection form.form-horizontal .ilFormHeader {
 }
 .il-mainbar-triggers .btn-bulky .icon,
 .il-mainbar-triggers .il-link.link-bulky .icon {
-  filter: brightness(5);
+  filter: brightness(100);
 }
 .il-mainbar-triggers .btn-bulky .icon.small,
 .il-mainbar-triggers .il-link.link-bulky .icon.small {
@@ -20274,7 +20274,6 @@ div.ilStartupSection form.form-horizontal .ilFormHeader {
 .il-mainbar-triggers .btn-bulky:focus-visible,
 .il-mainbar-triggers .il-link.link-bulky:focus-visible {
   background-color: white;
-  background-color: #00509b;
   color: #003668;
 }
 .il-mainbar-triggers .btn-bulky:focus-visible .glyph,
@@ -20300,26 +20299,13 @@ div.ilStartupSection form.form-horizontal .ilFormHeader {
 .il-mainbar-triggers .btn-bulky:focus-visible .bulky-label,
 .il-mainbar-triggers .il-link.link-bulky:focus-visible .bulky-label {
   color: #003668;
-}
-.il-mainbar-triggers .btn-bulky:focus-visible .glyph,
-.il-mainbar-triggers .il-link.link-bulky:focus-visible .glyph {
-  color: #003668;
-}
-.il-mainbar-triggers .btn-bulky:focus-visible .icon,
-.il-mainbar-triggers .il-link.link-bulky:focus-visible .icon {
-  filter: invert(100%);
-}
-.il-mainbar-triggers .btn-bulky:focus-visible .bulky-label,
-.il-mainbar-triggers .il-link.link-bulky:focus-visible .bulky-label {
-  color: #00509b;
 }
 .il-mainbar-triggers .btn-bulky:hover,
 .il-mainbar-triggers .il-link.link-bulky:hover {
   transition: all 0.15s ease-in;
+  border-left: 5px solid #c8d317;
   background-color: white;
   color: #003668;
-  background-color: #e6e6e6;
-  border-left: 4px solid #c8d317;
 }
 .il-mainbar-triggers .btn-bulky:hover .glyph,
 .il-mainbar-triggers .il-link.link-bulky:hover .glyph {
@@ -20364,18 +20350,16 @@ div.ilStartupSection form.form-horizontal .ilFormHeader {
 }
 .il-mainbar-triggers.engaged {
   background: white;
-  border-left: 5px solid #c8d317;
 }
 @media (hover: none) {
   .il-mainbar-triggers .btn-bulky:hover,
   .il-mainbar-triggers .il-link.link-bulky:hover {
-    background-color: #e6e6e6;
-    border-left: 4px solid #c8d317;
+    background-color: #003668;
     color: white;
   }
   .il-mainbar-triggers .btn-bulky:hover .icon,
   .il-mainbar-triggers .il-link.link-bulky:hover .icon {
-    filter: brightness(5);
+    filter: brightness(100);
   }
   .il-mainbar-triggers .btn-bulky:hover .bulky-label,
   .il-mainbar-triggers .il-link.link-bulky:hover .bulky-label {
@@ -20421,7 +20405,7 @@ div.ilStartupSection form.form-horizontal .ilFormHeader {
 }
 .il-mainbar-tools-button .btn-bulky .icon,
 .il-mainbar-tools-button .btn-bulky.engaged .icon {
-  filter: brightness(5);
+  filter: brightness(100);
 }
 .il-mainbar-tools-button .btn-bulky.engaged {
   background-color: #e2e8ef;
@@ -20448,7 +20432,7 @@ div.ilStartupSection form.form-horizontal .ilFormHeader {
 .il-mainbar-tools-entries .btn-bulky .icon,
 .il-mainbar-tools-entries .btn-bulky .icon,
 .il-mainbar-tools-entries .il-link.link-bulky .icon {
-  filter: brightness(5);
+  filter: brightness(100);
 }
 .il-mainbar-tools-entries .btn-bulky .bulky-label,
 .il-mainbar-tools-entries .btn-bulky .bulky-label,
@@ -20513,7 +20497,7 @@ div.ilStartupSection form.form-horizontal .ilFormHeader {
 }
 .il-mainbar-close-slates .btn-bulky {
   background-color: transparent;
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid #f7f7f7;
   display: flex;
   flex-direction: row;
   height: 45px;
@@ -20605,6 +20589,12 @@ div.ilStartupSection form.form-horizontal .ilFormHeader {
   .il-mainbar-tool-trigger-item:nth-of-type(5):nth-last-of-type(1) .btn-bulky {
     width: 63px;
   }
+}
+.il-maincontrols-slate .btn-bulky:hover,
+.il-maincontrols-slate .link-bulky:hover,
+.il-maincontrols-slate .btn-bulky.engaged,
+.il-maincontrols-slate .link-bulky.engaged {
+  border-left: 5px solid #c8d317;
 }
 .breadcrumb_wrapper {
   width: 100%;

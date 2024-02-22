@@ -97,36 +97,21 @@
     &.engaged{
       .focus_hovered_engaged_slate_trigger_mixin;
       border-left: 5px solid @il-brand-green-luh; //LUH Custom
+      //background-color: @il-brand-primary; //LUH Custom
     }
     &:focus-visible{
       .focus_hovered_engaged_slate_trigger_mixin;
-      //=======================================
-      //LUH Custom
-      background-color: @il-brand-primary;
-      color: @il-mainbar-btn-bg-color;
-      .glyph{
-        color: @il-mainbar-btn-bg-color;
-      }
-      .icon {
-        filter: invert(100%);
-      }
-      .bulky-label {
-        //color: @il-main-btn-bulky-label-color-engaged;
-        color: @il-brand-primary;
-      }
-      //=======================================
     }
     &:hover {
       transition: all .15s ease-in;
+      border-left: 5px solid @il-brand-green-luh; //LUH Custom
       .focus_hovered_engaged_slate_trigger_mixin;
-      background-color: @il-brand-gray-luh-1; //LUH Custom
-      border-left: 4px solid @il-brand-green-luh; //LUH Custom
     }
     .glyph{
       color: @il-mainbar-btn-color;
     }
     .bulky-label {
-      color: @il-mainbar-btn-bg-color-engaged;
+      color: white; //LUH Custom
       display: -webkit-box;
       margin-top: @il-margin-large-vertical;
       white-space: normal;
@@ -140,16 +125,13 @@
   }
   &.engaged {
     background: @il-maincontrols-mainbar-bg-color;
-    border-left: 5px solid @il-brand-green-luh; //LUH Custom
   }
   // no hover on mobile devices
   @media (hover: none) {
     .btn-bulky,
     .il-link.link-bulky {
       &:hover {
-        background-color: @il-brand-gray-luh-1; //LUH Custom
-        border-left: 4px solid @il-brand-green-luh; //LUH Custom
-
+        background-color: @il-mainbar-btn-bg-color;
         color: @il-mainbar-btn-bg-color-engaged;
         .icon {
           filter: @il-mainbar-trigger-icon-filter;
@@ -399,4 +381,11 @@
       width: 63px;
     }
   }
+}
+
+//==============================================================
+//== LUH Custom
+//==============================================================
+.il-maincontrols-slate .btn-bulky:hover, .il-maincontrols-slate .link-bulky:hover, .il-maincontrols-slate .btn-bulky.engaged, .il-maincontrols-slate .link-bulky.engaged {
+  border-left: 5px solid @il-brand-green-luh;
 }
