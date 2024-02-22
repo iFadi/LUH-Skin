@@ -1,0 +1,260 @@
+/*less/Login/*/
+
+/*.ilStartupSection #luhLogin{}*/
+#luhLogin {
+  padding-top: 25px;
+  margin-left: 2%;
+  width: 600px;
+  height: auto;
+  min-height: 400px;
+  background-color: rgba(0, 80, 155, 0.3);
+  //background: linear-gradient(150deg,#00509b 0,#003668 100%);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+
+  &:hover {
+    box-shadow: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 80, 155, 0.3), 0 6px 20px 0 rgba(0, 80, 155, 0.25);
+  }
+  form.form-horizontal {
+    //768px width
+    width: inherit;
+    background-color: inherit;
+
+    #shib-button, #ilias-login-button{
+      text-align: center;
+    }
+
+    input.btn {
+      &:hover{
+        background-color: @il-brand-primary;
+        border: 1px solid @il-brand-primary;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: @grid-float-breakpoint-max){
+  #luhLogin {
+    padding-top: 25px;
+    margin-left: 2%;
+    width: 400px;
+    height: auto;
+    min-height: 420px;
+    background-color: rgba(0, 80, 155, 0.3);
+    //background: linear-gradient(150deg,#00509b 0,#003668 100%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+
+    &:hover {
+      box-shadow: none;
+      box-shadow: 0 4px 8px 0 rgba(0, 80, 155, 0.3), 0 6px 20px 0 rgba(0, 80, 155, 0.25);
+    }
+    //768px width
+    form.form-horizontal {
+      width: inherit;
+      background-color: inherit;
+      /*#form_{
+        padding-left: 55px;
+      }*/
+    }
+
+    div.ilFormLoginMask{
+      width: 300px;
+    }
+
+    #LUHLoginMask{
+      display: inline-grid;
+    }
+
+    #shib-button, #ilias-login-button {
+      width: 250px;
+    }
+
+    footer.login_footer {
+      display: inline;
+      padding-top: 340px;
+
+      #not-websso-warning {
+        display: inline-block;
+        font-size: 14px;
+        //padding-right: 275px;
+        padding-top: 20px;
+      }
+      #login_form_footer{
+        width: 300px;
+        //#footer_ilias_login {
+        padding-left: 50px;
+        //}
+      }
+      li{
+        display: flex;
+      }
+    }
+  }
+}
+
+div.index_main nav {
+  //background-color: rgba(0, 79, 153, 0.5);
+
+  margin-left: 50px;
+  margin-top: 50px;
+  //width: 600px;
+  height: auto;
+  display: block;
+}
+
+#LUHLoginMask {
+  //width: 500px;
+  //height: 250px;
+  //width: auto;
+  //background-color: rgba(0, 80, 155, 0.8);
+}
+
+.ilFormLoginMask {
+  float: left;
+  padding: 0 15px;
+  a{
+    &:hover{
+      color: @il-brand-primary;
+    }
+  }
+  button {
+    text-align: center;
+  }
+
+}
+
+div.ilFormLoginMask {
+  //background-color: inherit;
+  display: inline-block;
+  width: 250px;//200px;
+  vertical-align: top;
+  padding-right: 25px;
+  padding-left: 20px;
+  //margin-right: 65px;
+  font-size: 20px;
+}
+
+div.ilFormLoginMask a {
+  font-size: 23px;
+  background-color: transparent;
+}
+
+#shib_login, #ilias_login_link {
+  width: 200px;
+  border: 1px solid;
+  //border-radius: 3px;
+  text-align: center;
+  box-shadow: 0px 3px 6px rgba(0, 80, 155, 0.4);
+
+  &:hover{
+    background-color: rgba(0, 80, 155, 0.8);
+    //background-color: white;
+    //box-shadow: 0 1px 2px 0 rgba(200,211,23, 0.5);
+    //border-color: @il-brand-primary;
+    border: 1px solid rgba(0, 80, 155, 0.5);
+    box-shadow: 0px 3px 6px rgba(0, 80, 155, 0.3);
+    color: white;
+    /*a {
+      text-decoration: none;
+      color: white;
+      //color: white;
+    }*/
+  }
+}
+
+div.ilFormLoginMask p {
+  font-size: 12px;
+  color: #282828;
+}
+
+#shib-form-login-mask form.form-horizontal{
+  text-align: left;
+}
+
+#shib-button, #ilias-login-button {
+  text-align: center;
+  width: 200px;
+  border: 2px solid rgba(0, 80, 155, 0.4);//@il-brand-primary-dark-blue;
+  border-radius: 2px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+  //color: white;
+  //background: rgba(0, 80, 155, 0.1);
+  background: transparent;
+  height: 42px;
+
+  &:hover{
+    background-color: rgba(0, 80, 155, 0.8);
+    //background-color: white;
+    //box-shadow: 0 1px 2px 0 rgb(0,0,0, 0.1), 0 1px 2px 0 rgb(0, 0, 0, 0.15);
+    //border-color: @il-brand-primary;
+    border: 1px solid rgba(0, 80, 155, 0.5);
+    box-shadow: 0px 3px 6px rgba(0, 80, 155, 0.3);
+    a {
+      text-decoration: none;
+      color: white;
+      //color: white;
+    }
+  }
+}
+
+
+/*div.ilFormLoginMask button {
+  background-color: transparent;
+  height: 35px;
+  border-radius: 5px;
+  border: 0 none;
+  //box-shadow: 0 3px 6px 0 rgb(0,0,0, 0.1), 0 4px 8px 0 rgb(0, 0, 0, 0.15);
+  &:hover{
+    background-color: #e6e6e6;
+    //box-shadow: 0 3px 6px 0 rgb(0,80,155, 0.1), 0 4px 8px 0 rgb(0, 80, 155, 0.15);
+  }
+}*/
+
+footer.login_footer {
+  background-color: transparent;
+  display: block;
+  padding-left: 20px;
+  padding-top: 300px;//350px;
+  width: 95%;
+
+  #not-websso-warning {
+    display: inline-block;
+    font-size: 14px;
+    //padding-right: 275px;
+  }
+  #login_form_footer {
+    background-color: transparent;
+  }
+  .form-horizontal {
+    background-color: transparent;//inherit;
+  }
+  div.ilFormHeader {
+    //margin-left: 20px;
+    padding-left: 15px;
+    color: #333;//#00509b;
+    background-color: transparent;//inherit;//rgba(0, 79, 153, 0.4);
+  }
+  div.ilFormFooter {
+    background-color: inherit;
+    color: #333;
+
+    .ilFormCmds {
+      padding-right: 15px;
+      padding-bottom: 15px;
+    }
+
+  }
+  ul {
+    display: inline-block;
+  }
+  li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+}
+
+div.index_main footer {
+  //overflow: auto;
+  //padding: 15px;
+  //background-color: transparent;
+}
