@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/iFadi/LUH-Skin/compare/v1.0.4...v1.0.5) (2024-02-23)
+
+
+### Bug Fixes
+
+* custom icon colors ([c7ea480](https://github.com/iFadi/LUH-Skin/commit/c7ea4802259062fb36f647ccbcf2ba6d3e91b9fc))
+
 ## [1.0.4](https://github.com/iFadi/LUH-Skin/compare/v1.0.3...v1.0.4) (2024-02-22)
 
 
