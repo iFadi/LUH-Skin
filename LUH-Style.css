@@ -1117,7 +1117,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #a2bce0;
+  color: #3a4c65;
   text-decoration: underline;
 }
 a:focus {
@@ -2218,7 +2218,7 @@ fieldset[disabled] .btn-link {
 }
 .btn-link:hover,
 .btn-link:focus {
-  color: #a2bce0;
+  color: #3a4c65;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -2984,7 +2984,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .pagination > li > a:focus,
 .pagination > li > span:focus {
   z-index: 2;
-  color: #a2bce0;
+  color: #3a4c65;
   background-color: #eeeeee;
   border-color: #ddd;
 }
@@ -4095,7 +4095,7 @@ button.list-group-item-danger.active:focus {
   content: " \e606\00a0";
 }
 .breadcrumb > .active {
-  color: #a2bce0;
+  color: #3a4c65;
 }
 .modal-open {
   overflow: hidden;
@@ -7983,7 +7983,7 @@ ul.dropdown-menu > li > .btn:focus {
   color: #4c6586;
 }
 .breadcrumb_wrapper .breadcrumb span.crumb a:hover {
-  color: #a2bce0;
+  color: #3a4c65;
 }
 .breadcrumb_wrapper .breadcrumb span.crumb a:focus {
   border: 3px solid #0078D7;
@@ -8372,6 +8372,10 @@ select.form-control {
   .checkbox-inline input[type="checkbox"] {
     min-width: 16px;
   }
+}
+.radio input[type="radio"],
+.radio-inline input[type="radio"] {
+  margin-top: 0px;
 }
 .radio input[type="radio"],
 .radio-inline input[type="radio"] {
@@ -10841,7 +10845,7 @@ footer {
 }
 .glyph:hover,
 .glyph:focus {
-  color: #a2bce0;
+  color: #3a4c65;
   text-decoration: none;
 }
 .glyph .il-counter-spacer {
@@ -12310,27 +12314,21 @@ a {
   /* END WebDAV: Enable links with AnchorClick behavior for Internet Explorer. */
 }
 a:hover {
-  color: #a2bce0;
+  color: #3a4c65;
   text-decoration: underline;
 }
-a:focus-visible {
-  position: relative;
-  outline: 2px solid #FFFFFF;
-  outline-offset: 4px;
-}
-a:focus-visible::after {
-  content: " ";
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  border: 2px solid #FFFFFF;
-  outline: 3px solid #0078D7;
-}
-a:active,
-a.engaged {
+a:focus:focus-visible {
   outline: none;
+}
+a:focus-visible {
+  outline: none;
+  border: 3px solid #0078D7;
+  box-shadow: inset 0px 0px 0px 2px #FFFFFF, 0px 0px 0px 2px #FFFFFF;
+  outline-offset: initial;
+}
+a::after,
+a:focus:focus-visible::after {
+  content: none;
 }
 hr {
   margin-bottom: 0.8em;
@@ -15144,6 +15142,25 @@ li.ilWikiBlockItem {
   font-size: 0.875rem;
   margin: 0;
 }
+.nav-tabs > li > a:focus-visible {
+  position: relative;
+  outline: 2px solid #FFFFFF;
+  outline-offset: 4px;
+}
+.nav-tabs > li > a:focus-visible::after {
+  content: " ";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid #FFFFFF;
+  outline: 3px solid #0078D7;
+}
+.nav-tabs > li > a:active,
+.nav-tabs > li > a.engaged {
+  outline: none;
+}
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
@@ -15183,6 +15200,29 @@ li.ilWikiBlockItem {
 #ilSubTab > li > a:hover {
   text-decoration: underline;
   background-color: transparent;
+}
+#ilSubTab > li > a:focus-visible {
+  border: none;
+  box-shadow: none;
+}
+#ilSubTab > li > a:focus-visible {
+  position: relative;
+  outline: 2px solid #FFFFFF;
+  outline-offset: 4px;
+}
+#ilSubTab > li > a:focus-visible::after {
+  content: " ";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid #FFFFFF;
+  outline: 3px solid #0078D7;
+}
+#ilSubTab > li > a:active,
+#ilSubTab > li > a.engaged {
+  outline: none;
 }
 #ilSubTab > li.active > a,
 #ilSubTab > li.active > a:hover,
@@ -17033,6 +17073,11 @@ body.ilBodyPrint {
 }
 .il_InfoScreenPropertyValue .ilProfile {
   margin: 0;
+}
+.il_InfoScreenPropertyValue .breadcrumb {
+  padding: 0;
+  margin: 0;
+  font-size: 0.875rem;
 }
 /* Services/Init */
 @media only screen and (max-width: 768px) {
@@ -20617,7 +20662,7 @@ div.ilStartupSection form.form-horizontal .ilFormHeader {
   color: #4c6586;
 }
 .breadcrumb_wrapper .breadcrumb span.crumb a:hover {
-  color: #a2bce0;
+  color: #3a4c65;
 }
 .breadcrumb_wrapper .breadcrumb span.crumb a:focus {
   border: 3px solid #0078D7;
