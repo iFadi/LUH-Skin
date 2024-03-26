@@ -2,7 +2,7 @@
 Dieser Skin wurde dem [LUH-Stil](https://www.uni-hannover.de/) entsprechend angepasst.
 
 ## Version
-v1.0.5
+v1.0.6
 
 - [CHANGELOG](CHANGELOG.md)
 
