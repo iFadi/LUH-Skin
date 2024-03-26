@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.5](https://github.com/iFadi/LUH-Skin/compare/v1.0.4...v1.0.5) (2024-03-26)
+
+
+### Bug Fixes
+
+* complie less for release ([d35cf78](https://github.com/iFadi/LUH-Skin/commit/d35cf78beebe779f2b0a40d939b0f9cb2c542ee9))
+* LUH-ID Selbstregistrierung check ([2fc12e3](https://github.com/iFadi/LUH-Skin/commit/2fc12e3c4e6921bd14cf48c842657d1a26559820))
+* update ilAccountRegistrationGUI to ILIAS 8.9 ([a10e23d](https://github.com/iFadi/LUH-Skin/commit/a10e23d9eb647ad7907b449a0012226dbfce98bc))
+
 ## [1.0.4](https://github.com/iFadi/LUH-Skin/compare/v1.0.3...v1.0.4) (2024-02-22)
 
 
