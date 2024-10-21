@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.7](https://github.com/iFadi/LUH-Skin/compare/v1.0.6...v1.0.7) (2024-10-21)
+
+
+### Bug Fixes
+
+* compile skin for ILIAS v8.15 ([20fe6a5](https://github.com/iFadi/LUH-Skin/commit/20fe6a5bc19eec47b924969c8358d6c5e1a51750))
+
 ## [1.0.6](https://github.com/iFadi/LUH-Skin/compare/v1.0.5...v1.0.6) (2024-03-26)
 
 
