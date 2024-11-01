@@ -8,7 +8,7 @@
 $il-brand-primary:              #00509b;
 $il-brand-primary-luh-light:    #99b9d8;
 $il-brand-primary-luh-lighter:  #ccdceb;
-$il-brand-primary-luh-blue-transparent: rgba(0,80,155, 0.8);
+$il-brand-primary-luh-blue-transparent: rgba(0, 80, 155, 0.8);
 $il-brand-primary-dark-blue:    #003668;
 $il-brand-green-luh:            #c8d317;
 $il-brand-green-luh-calendar:   #abb24a;
@@ -27,7 +27,7 @@ $il-icon-font-path: "../../../../node_modules/bootstrap/fonts/";
 //== Mainbar
 //
 //## Custom LUH Mainbar Colors and Button sizes
-$il-mainbar-btn-bg-color: darken($il-brand-primary, 10%);
+$il-mainbar-btn-bg-color: color.adjust($il-brand-primary, $lightness: -10%); // replaces darken
 $il-mainbar-btn-bg-color-hover: $il-brand-primary;
 $il-mainbar-trigger-icon-filter: brightness(100);
 $il-mainbar-btn-border: 1px solid $il-brand-gray-luh-3;
