@@ -1,16 +1,16 @@
-// i.e. delos means delos.less
-// Order matters, we import delos as first.
-@import "../../../../templates/default/delos";
-@import "../../../../templates/default/less/variables";
+// i.e., delos means delos.scss
+// Order matters; we use delos as first.
+@use "../../../../templates/default/delos" as *;
+@use "../../../../templates/default/less/variables" as *;
 
-// Import our custom UI less files
-@import "scss/Login/loginMask";
-@import "scss/mainbar";
-@import "scss/breadcrumbs";
-@import "scss/header";
-@import "scss/footer";
-@import "scss/background";
+// Import our custom UI SCSS files
+@use "scss/Login/loginMask";
+@use "scss/mainbar";
+@use "scss/breadcrumbs";
+@use "scss/header";
+@use "scss/footer";
+@use "scss/background";
 
-// custom variables.less file have to be included after the delos.less file
-// in custom variables you can add/edit the colors, sizes, etc ...
-@import "luh-variables";
+// Custom variables file needs to be included after the delos file
+// In custom variables you can add/edit colors, sizes, etc.
+@use "luh-variables";
