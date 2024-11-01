@@ -1,0 +1,11 @@
+//== LUH Logo
+//
+//## Custom LUH Logo size
+$il-brand-logo-size:    40px;
+$il-brand-logo-top:     25px;
+
+
+.il-logo > span> a > img{
+  width:$il-standard-page-logo-width;
+  height:$il-standard-page-logo-height;
+}

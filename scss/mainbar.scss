@@ -1,16 +1,16 @@
 // mainbar
-//Mixin for hovered, engaged or visible focus for triggers for slates, neede due to: #31811
-.focus_hovered_engaged_slate_trigger_mixin{
-  background-color: @il-mainbar-btn-bg-color-engaged;
-  color: @il-mainbar-btn-bg-color;
-  .glyph{
-    color: @il-mainbar-btn-bg-color;
+// Mixin for hovered, engaged, or visible focus for triggers for slates, needed due to: #31811
+@mixin focus_hovered_engaged_slate_trigger_mixin {
+  background-color: $il-mainbar-btn-bg-color-engaged;
+  color: $il-mainbar-btn-bg-color;
+  .glyph {
+    color: $il-mainbar-btn-bg-color;
   }
   .icon {
-    filter: @il-mainbar-icon-filter;
+    filter: $il-mainbar-icon-filter;
   }
   .bulky-label {
-    color: @il-mainbar-btn-bg-color;
+    color: $il-mainbar-btn-bg-color;
   }
 }
 
@@ -18,15 +18,15 @@
 .il-maincontrols-metabar {
   .btn-bulky,
   .il-link.link-bulky {
-    font-size: @il-mainbar-btn-label-size;
-    line-height: @il-mainbar-btn-label-size * @line-height-large;
+    font-size: $il-mainbar-btn-label-size;
+    line-height: $il-mainbar-btn-label-size * $line-height-large;
     &:focus,
     &:active {
       box-shadow: none;
     }
     &:focus-visible,
     &:active:focus-visible {
-      border: @il-focus-outline-inner;
+      border: $il-focus-outline-inner;
       outline: none;
 
       &::after {
@@ -43,16 +43,16 @@
 .il-maincontrols-mainbar,
 .il-maincontrols-metabar {
   .il-item-shy {
-    margin-bottom: @il-slate-content-spacing;
+    margin-bottom: $il-slate-content-spacing;
     &:not(:hover) {
-      background: @il-main-dark-bg;
+      background: $il-main-dark-bg;
     }
   }
 }
 
 .il-maincontrols-mainbar,
 .il-maincontrols-metabar {
-  .btn,a {
+  .btn, a {
     &:active {
       outline: 0;
       outline-offset: 0;
@@ -66,53 +66,51 @@
 
 // mainbar triggers
 .il-mainbar-triggers {
-  background: @il-mainbar-btn-bg-color;
+  background: $il-mainbar-btn-bg-color;
   display: flex;
   position: relative;
-  width: @il-mainbar-btn-width;
+  width: $il-mainbar-btn-width;
   z-index: 1;
   .btn-bulky,
   .il-link.link-bulky {
     align-items: center;
-    background: @il-mainbar-btn-bg-color;
+    background: $il-mainbar-btn-bg-color;
     border: 0;
-    border-bottom: @il-mainbar-btn-border;
-    color: @il-mainbar-btn-bg-color-engaged;
+    border-bottom: $il-mainbar-btn-border;
+    color: $il-mainbar-btn-bg-color-engaged;
     display: inline-flex;
     flex-flow: column wrap;
-    height: @il-mainbar-btn-height;
+    height: $il-mainbar-btn-height;
     justify-content: center;
     margin-bottom: 0;
     padding: 0;
-    width: @il-mainbar-btn-height;
     width: 100%;
     .icon {
-      filter: @il-mainbar-trigger-icon-filter;
+      filter: $il-mainbar-trigger-icon-filter;
       &.small {
-        width: @il-mainbar-trigger-icon-size;
-        height: @il-mainbar-trigger-icon-size;
+        width: $il-mainbar-trigger-icon-size;
+        height: $il-mainbar-trigger-icon-size;
       }
     }
-    //Note, for some reason, safari needs this in a seperate section, see:
-    &.engaged{
-      .focus_hovered_engaged_slate_trigger_mixin;
-      border-left: 5px solid @il-brand-green-luh; //LUH Custom
+    &.engaged {
+      @include focus_hovered_engaged_slate_trigger_mixin;
+      border-left: 5px solid $il-brand-green-luh; // LUH Custom
     }
-    &:focus-visible{
-      .focus_hovered_engaged_slate_trigger_mixin;
+    &:focus-visible {
+      @include focus_hovered_engaged_slate_trigger_mixin;
     }
     &:hover {
       transition: all .15s ease-in;
-      border-left: 5px solid @il-brand-green-luh; //LUH Custom
-      .focus_hovered_engaged_slate_trigger_mixin;
+      border-left: 5px solid $il-brand-green-luh; // LUH Custom
+      @include focus_hovered_engaged_slate_trigger_mixin;
     }
-    .glyph{
-      color: @il-mainbar-btn-color;
+    .glyph {
+      color: $il-mainbar-btn-color;
     }
     .bulky-label {
-      color: white; //LUH Custom
+      color: white; // LUH Custom
       display: -webkit-box;
-      margin-top: @il-margin-large-vertical;
+      margin-top: $il-margin-large-vertical;
       white-space: normal;
       word-break: break-word;
       padding: 0 2px;
@@ -123,30 +121,29 @@
     }
   }
   &.engaged {
-    background: @il-maincontrols-mainbar-bg-color;
+    background: $il-maincontrols-mainbar-bg-color;
   }
-  // no hover on mobile devices
   @media (hover: none) {
     .btn-bulky,
     .il-link.link-bulky {
       &:hover {
-        background-color: @il-mainbar-btn-bg-color;
-        color: @il-mainbar-btn-bg-color-engaged;
+        background-color: $il-mainbar-btn-bg-color;
+        color: $il-mainbar-btn-bg-color-engaged;
         .icon {
-          filter: @il-mainbar-trigger-icon-filter;
+          filter: $il-mainbar-trigger-icon-filter;
         }
         .bulky-label {
-          color: @il-mainbar-btn-bg-color-engaged;
+          color: $il-mainbar-btn-bg-color-engaged;
         }
       }
       &.engaged {
-        background-color: @il-mainbar-btn-bg-color-engaged;
-        color: @il-mainbar-btn-bg-color;
-        .icon  {
-          filter: @il-mainbar-icon-filter;
+        background-color: $il-mainbar-btn-bg-color-engaged;
+        color: $il-mainbar-btn-bg-color;
+        .icon {
+          filter: $il-mainbar-icon-filter;
         }
         .bulky-label {
-          color: @il-mainbar-btn-bg-color;
+          color: $il-mainbar-btn-bg-color;
         }
       }
     }
@@ -164,33 +161,32 @@
 // mainbar slates
 .il-mainbar-slates {
   .shadow-right;
-  background: @il-mainbar-slates-bg-color;
+  background: $il-mainbar-slates-bg-color;
   display: none;
   position: relative;
-  width: @il-standard-page-slate-width;
+  width: $il-standard-page-slate-width;
 
-  .bulky-label{
+  .bulky-label {
     margin-top: auto;
     margin-bottom: auto;
   }
-
 }
 
 .il-mainbar-tools-button {
   .btn-bulky,
   .btn-bulky.engaged {
-    background-color: @il-mainbar-tools-btn-bg;
+    background-color: $il-mainbar-tools-btn-bg;
     border: 0;
     color: white;
     padding: 0;
-    .icon  {
-      filter: @il-mainbar-trigger-icon-filter;
+    .icon {
+      filter: $il-mainbar-trigger-icon-filter;
     }
   }
   .btn-bulky.engaged {
-    background-color: @il-mainbar-tools-btn-bg-engaged;
-    color: @il-mainbar-btn-color-engaged;
-    .icon  {
+    background-color: $il-mainbar-tools-btn-bg-engaged;
+    color: $il-mainbar-btn-color-engaged;
+    .icon {
       filter: invert(30%);
     }
   }
@@ -200,27 +196,27 @@
   display: none;
   &.engaged {
     display: flex;
-    height: @il-mainbar-btn-height;
+    height: $il-mainbar-btn-height;
     flex-shrink: 0;
   }
-  .btn-bulky,.btn-bulky,
+  .btn-bulky,
   .il-link.link-bulky {
-    background-color: @il-mainbar-tools-tab-btn-bg-disengaged;
-    color: @il-mainbar-btn-color;
+    background-color: $il-mainbar-tools-tab-btn-bg-disengaged;
+    color: $il-mainbar-btn-color;
     padding: 0;
     .icon {
-      filter: @il-mainbar-trigger-icon-filter;
+      filter: $il-mainbar-trigger-icon-filter;
     }
     .bulky-label {
       text-overflow: ellipsis;
       overflow: hidden;
     }
     &.engaged {
-      background-color: @il-mainbar-tools-tab-btn-bg-engaged;
-      &:not(:focus-visible){
+      background-color: $il-mainbar-tools-tab-btn-bg-engaged;
+      &:not(:focus-visible) {
         border: 0;
       }
-      color: @il-mainbar-btn-color-engaged;
+      color: $il-mainbar-btn-color-engaged;
       .icon {
         filter: invert(60%);
       }
@@ -228,7 +224,7 @@
   }
   .il-mainbar-tool-trigger-item {
     display: inline;
-    margin-right:@il-mainbar-tools-item-gap;
+    margin-right: $il-mainbar-tools-item-gap;
     .hidden {
       display: none;
     }
@@ -236,11 +232,10 @@
 }
 
 .il-mainbar-tools-entries-bg {
-  background-color: @il-mainbar-tools-btn-bg-engaged;
+  background-color: $il-mainbar-tools-btn-bg-engaged;
   display: flex;
-  height: @il-mainbar-btn-height;
+  height: $il-mainbar-btn-height;
   width: 100%;
-
   padding: 0;
   margin: 0;
 }
@@ -255,10 +250,10 @@
     right: 0;
   }
   .close {
-    color: @il-main-color;
+    color: $il-main-color;
     font-size: 2.8125rem;
-    font-weight: @il-font-weight-light;
-    height: @il-mainbar-btn-height;
+    font-weight: $il-font-weight-light;
+    height: $il-mainbar-btn-height;
     padding: 0 20px;
     width: auto;
   }
@@ -268,24 +263,24 @@
   align-items: flex-end;
   display: flex;
   flex-shrink: 0;
-  height: @il-mainbar-close-slate-btn-height;
+  height: $il-mainbar-close-slate-btn-height;
   margin-top: auto;
   .btn-bulky {
     background-color: transparent;
-    border-top: @il-mainbar-btn-border;
+    border-top: $il-mainbar-btn-border;
     display: flex;
     flex-direction: row;
-    height: @il-mainbar-close-slate-btn-height;
+    height: $il-mainbar-close-slate-btn-height;
     justify-content: center;
     align-items: center;
     .bulky-label {
-      .sr-only();
+      @include sr-only;
     }
     .glyph {
       &:before {
-        content:" \e605";
+        content: " \e605";
         display: block;
-        font-family: "il-icons"; // should be defined more general at .glyphicon
+        font-family: "il-icons";
         font-size: 1.5rem;
       }
       .glyphicon {
@@ -302,10 +297,10 @@
   position: relative;
 }
 .il-mainbar-slates > .il-maincontrols-slate.engaged > .il-maincontrols-slate-content {
-  >:first-child{
+  > :first-child {
     z-index: 1;
   }
-  height: 0px; // forcing scrollbars in slate content
+  height: 0px;
 
   .panel-secondary {
     margin-bottom: 0;
@@ -319,8 +314,7 @@
 **************************************************************
 */
 
-
-@media only screen and (max-width: @grid-float-breakpoint-max) {
+@media only screen and (max-width: $grid-float-breakpoint-max) {
   .il-mainbar-entries {
     display: flex;
     justify-content: space-evenly;
@@ -333,7 +327,7 @@
   }
 
   .il-mainbar-triggers {
-    background: @il-mainbar-btn-bg-color;
+    background: $il-mainbar-btn-bg-color;
     display: flex;
     position: relative;
     width: 100%;
@@ -342,41 +336,40 @@
     .il-link.link-bulky {
       flex-shrink: 0;
       border: 0;
-      height: @il-mainbar-small-btn-height;
-      width: @il-mainbar-small-btn-width;
+      height: $il-mainbar-small-btn-height;
+      width: $il-mainbar-small-btn-width;
       .icon.small {
-        height: @il-icon-size-small;
-        width: @il-icon-size-small;
+        height: $il-icon-size-small;
+        width: $il-icon-size-small;
       }
     }
   }
 
   .il-mainbar-tools-entries {
     &.engaged {
-      height: @il-mainbar-small-btn-height;
+      height: $il-mainbar-small-btn-height;
       .il-mainbar-remove-tool {
         top: 0;
         .close {
           font-size: 2.5rem;
-          height: @il-mainbar-small-btn-height;
+          height: $il-mainbar-small-btn-height;
         }
       }
     }
   }
 }
 
-//Note: There should never be more than 4 Tools open at once.
-//However, in ILIAS 6, we have a context with 5 tools. This
-//Fixes this issue for exactly five tools by making each tab slightly
-//smaller. See: #26566
-@media only screen and (min-width: @grid-float-breakpoint-max) {
+// Note: There should never be more than 4 Tools open at once.
+// However, in ILIAS 6, we have a context with 5 tools. This
+// Fixes this issue for exactly five tools by making each tab slightly
+// smaller. See: #26566
+@media only screen and (min-width: $grid-float-breakpoint-max) {
   .il-mainbar-tool-trigger-item:nth-of-type(1):nth-last-of-type(5),
   .il-mainbar-tool-trigger-item:nth-of-type(2):nth-last-of-type(4),
   .il-mainbar-tool-trigger-item:nth-of-type(3):nth-last-of-type(3),
   .il-mainbar-tool-trigger-item:nth-of-type(4):nth-last-of-type(2),
-  .il-mainbar-tool-trigger-item:nth-of-type(5):nth-last-of-type(1)
-  {
-    .btn-bulky{
+  .il-mainbar-tool-trigger-item:nth-of-type(5):nth-last-of-type(1) {
+    .btn-bulky {
       width: 63px;
     }
   }
@@ -385,6 +378,9 @@
 //==============================================================
 //== LUH Custom
 //==============================================================
-.il-maincontrols-slate .btn-bulky:hover, .il-maincontrols-slate .link-bulky:hover, .il-maincontrols-slate .btn-bulky.engaged, .il-maincontrols-slate .link-bulky.engaged {
-  border-left: 5px solid @il-brand-green-luh;
+.il-maincontrols-slate .btn-bulky:hover,
+.il-maincontrols-slate .link-bulky:hover,
+.il-maincontrols-slate .btn-bulky.engaged,
+.il-maincontrols-slate .link-bulky.engaged {
+  border-left: 5px solid $il-brand-green-luh;
 }

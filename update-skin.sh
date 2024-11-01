@@ -14,7 +14,7 @@ echo "Compile less files:"
 echo "Remove the old css-File LUH-Style.css..."
 sudo rm LUH-Style.css
 echo "Compile..."
-sudo lessc LUH-Style.less LUH-Style.css
+sudo lessc LUH-Style.scss LUH-Style.css
 #sudo chown www-data:www-data LUH-Style.css
 #sudo chown www-data:www-data template.xml
 echo "...done!"

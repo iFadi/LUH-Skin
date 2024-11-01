@@ -4,12 +4,12 @@
 @import "../../../../templates/default/less/variables";
 
 // Import our custom UI less files
-@import "less/Login/loginMask";
-@import "less/mainbar";
-@import "less/breadcrumbs";
-@import "less/header";
-@import "less/footer";
-@import "less/background";
+@import "scss/Login/loginMask";
+@import "scss/mainbar";
+@import "scss/breadcrumbs";
+@import "scss/header";
+@import "scss/footer";
+@import "scss/background";
 
 // custom variables.less file have to be included after the delos.less file
 // in custom variables you can add/edit the colors, sizes, etc ...
