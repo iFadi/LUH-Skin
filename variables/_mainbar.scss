@@ -1,0 +1,5 @@
+// _mainbar.scss
+$il-mainbar-btn-bg-color: color.adjust($il-brand-primary, $lightness: -10%);
+$il-mainbar-btn-bg-color-hover: $il-brand-primary;
+$il-mainbar-trigger-icon-filter: brightness(100);
+$il-mainbar-btn-border: 1px solid $il-brand-gray-luh-3;

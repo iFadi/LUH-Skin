@@ -1,4 +1,8 @@
 // scss/LoginMask
+@use "../../luh-variables.scss" as *;
+@use "sass:color";
+
+
 div.ilStartupSection form.form-horizontal {
   border: none; // Set the border to none
 }
