@@ -14,7 +14,7 @@ echo "Compile sass files:"
 echo "Remove the old css-File LUH-Style-1.css..."
 sudo rm LUH-Style-1/LUH-Style-1.css
 echo "Compile..."
-sudo sass LUH-Style-1/LUH-Style-1.scss LUH-Style-1/LUH-Style-1.css
+sudo sass LUH-Style-1/scss/LUH-Style-1.scss LUH-Style-1/LUH-Style-1.css
 #sudo chown www-data:www-data LUH-Style.css
 #sudo chown www-data:www-data template.xml
 echo "...done!"

@@ -803,72 +803,72 @@ table.mceToolbar tbody, table.mceToolbar tr, table.mceToolbar td {
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Regular.woff2") format("woff2"), url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Regular.woff") format("woff");
+  src: url("../../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Regular.woff2") format("woff2"), url("../../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Bold.woff2") format("woff2"), url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Bold.woff") format("woff");
+  src: url("../../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Bold.woff2") format("woff2"), url("../../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Italic.woff2") format("woff2"), url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Italic.woff") format("woff");
+  src: url("../../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Italic.woff2") format("woff2"), url("../../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Italic.woff") format("woff");
   font-weight: 400;
   font-style: italic;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-BoldItalic.woff2") format("woff2"), url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-BoldItalic.woff") format("woff");
+  src: url("../../../../../../templates/default/fonts/OpenSansWeb/OpenSans-BoldItalic.woff2") format("woff2"), url("../../../../../../templates/default/fonts/OpenSansWeb/OpenSans-BoldItalic.woff") format("woff");
   font-weight: 700;
   font-style: italic;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Light.woff2") format("woff2"), url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Light.woff") format("woff");
+  src: url("../../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Light.woff2") format("woff2"), url("../../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-LightItalic.woff2") format("woff2"), url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-LightItalic.woff") format("woff");
+  src: url("../../../../../../templates/default/fonts/OpenSansWeb/OpenSans-LightItalic.woff2") format("woff2"), url("../../../../../../templates/default/fonts/OpenSansWeb/OpenSans-LightItalic.woff") format("woff");
   font-weight: 300;
   font-style: italic;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Semibold.woff2") format("woff2"), url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Semibold.woff") format("woff");
+  src: url("../../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Semibold.woff2") format("woff2"), url("../../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Semibold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-SemiboldItalic.woff2") format("woff2"), url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-SemiboldItalic.woff") format("woff");
+  src: url("../../../../../../templates/default/fonts/OpenSansWeb/OpenSans-SemiboldItalic.woff2") format("woff2"), url("../../../../../../templates/default/fonts/OpenSansWeb/OpenSans-SemiboldItalic.woff") format("woff");
   font-weight: 600;
   font-style: italic;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-ExtraBold.woff2") format("woff2"), url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-ExtraBold.woff") format("woff");
+  src: url("../../../../../../templates/default/fonts/OpenSansWeb/OpenSans-ExtraBold.woff2") format("woff2"), url("../../../../../../templates/default/fonts/OpenSansWeb/OpenSans-ExtraBold.woff") format("woff");
   font-weight: 800;
   font-style: normal;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-ExtraBoldItalic.woff2") format("woff2"), url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-ExtraBoldItalic.woff") format("woff");
+  src: url("../../../../../../templates/default/fonts/OpenSansWeb/OpenSans-ExtraBoldItalic.woff2") format("woff2"), url("../../../../../../templates/default/fonts/OpenSansWeb/OpenSans-ExtraBoldItalic.woff") format("woff");
   font-weight: 800;
   font-style: italic;
 }
 @font-face {
   font-family: "Open Sans Emoji";
-  src: url("../../../../../templates/default/fonts/OpenSansEmoji/OpenSansEmoji.ttf") format("truetype"), url("../../../../../templates/default/fonts/OpenSansEmoji/OpenSansEmoji.otf") format("otf");
+  src: url("../../../../../../templates/default/fonts/OpenSansEmoji/OpenSansEmoji.ttf") format("truetype"), url("../../../../../../templates/default/fonts/OpenSansEmoji/OpenSansEmoji.otf") format("otf");
   font-style: normal;
 }
 @font-face {
   font-family: "il-icons";
-  src: url("../../../../../templates/default/fonts/Iconfont/il-icons.woff") format("woff"), url("../../../../../templates/default/fonts/Iconfont/il-icons.ttf") format("truetype");
+  src: url("../../../../../../templates/default/fonts/Iconfont/il-icons.woff") format("woff"), url("../../../../../../templates/default/fonts/Iconfont/il-icons.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
 }
@@ -7383,8 +7383,8 @@ div.alert ul > li:before {
 
 @font-face {
   font-family: "Glyphicons Halflings";
-  src: url("../../../../../templates/default/fonts/bootstrap/glyphicons-halflings-regular.eot");
-  src: url("../../../../../templates/default/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../../../../../templates/default/fonts/bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url("../../../../../templates/default/fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("../../../../../templates/default/fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("../../../../../templates/default/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
+  src: url("../../../../../../templates/default/fonts/bootstrap/glyphicons-halflings-regular.eot");
+  src: url("../../../../../../templates/default/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../../../../../../templates/default/fonts/bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url("../../../../../../templates/default/fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("../../../../../../templates/default/fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("../../../../../../templates/default/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
 }
 .glyphicon {
   position: relative;
@@ -18665,6 +18665,107 @@ div.Access {
 
 .light {
   color: rgb(111.25, 111.25, 111.25);
+}
+
+div.ilStartupSection form.form-horizontal {
+  border: none;
+}
+
+#luhLogin {
+  padding-top: 25px;
+  margin-left: 2%;
+  height: 400px;
+  min-height: 400px;
+  width: 600px;
+  background-color: rgba(0, 80, 155, 0.3);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+  overflow: auto;
+}
+#luhLogin:hover {
+  box-shadow: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 80, 155, 0.3), 0 6px 20px 0 rgba(0, 80, 155, 0.25);
+}
+#luhLogin form.form-horizontal {
+  width: inherit;
+  background-color: inherit;
+}
+#luhLogin form.form-horizontal #shib-button, #luhLogin form.form-horizontal #ilias-login-button {
+  text-align: center;
+}
+#luhLogin form.form-horizontal input.btn:hover {
+  background-color: #00509b;
+  border: 1px solid #00509b;
+}
+
+div.index_main nav {
+  margin-left: 50px;
+  margin-top: 50px;
+  height: auto;
+  display: block;
+}
+
+#luhLogin.expanded {
+  height: auto;
+  min-height: 700px;
+  padding-top: 0;
+}
+
+div.ilFormLoginMask {
+  display: inline-block;
+  width: 250px;
+  vertical-align: top;
+  padding-right: 25px;
+  padding-left: 20px;
+  font-size: 20px;
+}
+
+div.ilFormLoginMask a {
+  font-size: 23px;
+  background-color: transparent;
+}
+
+#shib_login, #ilias_login_link {
+  width: 200px;
+  border: 1px solid;
+  text-align: center;
+  box-shadow: 0px 3px 6px rgba(0, 80, 155, 0.4);
+}
+#shib_login:hover, #ilias_login_link:hover {
+  background-color: rgba(0, 80, 155, 0.8);
+  border: 1px solid rgba(0, 80, 155, 0.5);
+  box-shadow: 0px 3px 6px rgba(0, 80, 155, 0.3);
+  color: white;
+}
+
+div.ilFormLoginMask p {
+  font-size: 12px;
+  color: #282828;
+}
+
+#shib-form-login-mask form.form-horizontal {
+  text-align: left;
+}
+
+#not-websso-warning {
+  display: inline-block;
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+}
+
+#login_form_footer .form-horizontal,
+#il_prop_cont_password,
+#il_prop_cont_username,
+div.ilStartupSection form.form-horizontal .ilFormHeader,
+.ilFormHeader,
+.ilFormFooter {
+  background-color: transparent;
+}
+
+.il-layout-page-content > div {
+  background-image: url("../assets/images/Strichzeichung_Welfenschloss_inverted.png");
+  background-repeat: no-repeat;
+  background-position: right bottom;
 }
 
 .il-logo img {
