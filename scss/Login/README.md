@@ -1,1 +1,0 @@
-This folder should contain the less-Files which style the ILIAS Login-Mask. You should add a path to this file in the main less-File LUH-Style.less, which can be found in the root directory of this skin.
