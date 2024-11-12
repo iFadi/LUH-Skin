@@ -12,6 +12,8 @@
 // In custom variables you can add/edit colors, sizes, etc.
 @use "pages/login";
 @use "layout/background";
+@use "components/breadcrumb";
+@use "settings/mainbar";
 
 // Adjust logo size
 .il-logo img {
