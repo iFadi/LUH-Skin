@@ -18687,7 +18687,7 @@ div.ilStartupSection form.form-horizontal {
 }
 #luhLogin form.form-horizontal {
   width: inherit;
-  background-color: inherit;
+  background-color: transparent;
 }
 #luhLogin form.form-horizontal #shib-button, #luhLogin form.form-horizontal #ilias-login-button {
   text-align: center;
@@ -18762,6 +18762,13 @@ div.ilStartupSection form.form-horizontal .ilFormHeader,
   background-color: transparent;
 }
 
+.form-horizontal .form-group {
+  margin: 0px;
+  padding-top: 3px;
+  bottom: 3px;
+  background-color: transparent;
+}
+
 .il-layout-page-content > div {
   background-image: url("images/Strichzeichung_Welfenschloss_inverted.png");
   background-repeat: no-repeat;
@@ -18772,6 +18779,10 @@ div.ilStartupSection form.form-horizontal .ilFormHeader,
   margin: 0.8em 0 20px 0;
   font-size: 0.75rem;
   border-bottom: 4px solid #c8d317;
+}
+
+.btn-bulky:hover, .il-link.link-bulky:hover, .il-drilldown .menulevel:hover {
+  border-left: 5px solid #c8d317;
 }
 
 .il-mainbar-triggers .btn-bulky:hover, .il-mainbar-triggers .il-link.link-bulky:hover {
