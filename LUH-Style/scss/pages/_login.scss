@@ -65,11 +65,17 @@ div.ilFormLoginMask a {
   background-color: transparent;
 }
 
+div.ilFormLoginMask p {
+    margin: 10px 0 10px;
+}
+
 #shib_login, #ilias_login_link {
   width: 200px;
   border: 1px solid;
   text-align: center;
   box-shadow: 0px 3px 6px rgba(0, 80, 155, 0.4);
+  text-decoration: none;
+
 
   &:hover {
     background-color: rgba(0, 80, 155, 0.8);
@@ -98,8 +104,20 @@ div.ilFormLoginMask p {
 #login_form_footer .form-horizontal,
 #il_prop_cont_password,
 #il_prop_cont_username,
-div.ilStartupSection form.form-horizontal .ilFormHeader,
-.ilFormHeader,
-.ilFormFooter {
-  background-color: transparent;
+
+.il-standard-form .il-standard-form-header, .il-standard-form .il-standard-form-footer {
+    background: transparent;
+}
+
+.il-standard-form .il-standard-form-header {
+    display: none;
+    background: transparent;
+}
+
+div.ilStartupSection form.form-horizontal .form-group {
+    background: transparent;
+}
+
+.il-standard-form .il-standard-form-header + .il-section-input > .il-section-input-header {
+    background: transparent;
 }
