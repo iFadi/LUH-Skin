@@ -1,0 +1,22 @@
+// i.e., delos means delos.scss
+// Order matters; we use delos as first.
+@use "../../../../../../templates/default/delos" as delos with (
+		$il-web-font-path: "../../../../../../templates/default/fonts/",
+		$il-icon-font-path: "../../../../../../templates/default/fonts/bootstrap/",
+		$il-main-color: #00509b,
+		$il-mainbar-btn-bg-color: darken(#00509b, 10%),
+		$il-footer-bg-color: #999999,
+);
+
+// Custom variables file needs to be included after the delos file
+// In custom variables you can add/edit colors, sizes, etc.
+@use "pages/login";
+@use "layout/background";
+@use "components/breadcrumb";
+@use "components/maincontrols";
+@use "settings/mainbar";
+
+// Adjust logo size
+.il-logo img {
+		width: 40px;
+}
