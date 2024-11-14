@@ -7,7 +7,7 @@ v1.0.7
 - [CHANGELOG](CHANGELOG.md)
 
 ## Screenshot
-![Screenshot](screenshots/luh-skin-1.png)
+![Screenshot](screenshots/luh-skin-release_9-1.png)
 
 ## Installation
 
