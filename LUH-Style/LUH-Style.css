@@ -264,7 +264,7 @@
   cursor: pointer;
 }
 .bootstrap-datetimepicker-widget table thead tr:first-child th:hover {
-  background: rgb(155, 206.6129032258, 255);
+  background: rgb(251.9487179487, 252.9358974359, 236.0641025641);
   color: black;
 }
 .bootstrap-datetimepicker-widget table td {
@@ -284,7 +284,7 @@
   width: 20px;
 }
 .bootstrap-datetimepicker-widget table td.day:hover, .bootstrap-datetimepicker-widget table td.hour:hover, .bootstrap-datetimepicker-widget table td.minute:hover, .bootstrap-datetimepicker-widget table td.second:hover {
-  background: rgb(155, 206.6129032258, 255);
+  background: rgb(251.9487179487, 252.9358974359, 236.0641025641);
   color: black;
   cursor: pointer;
 }
@@ -328,7 +328,7 @@
   border-radius: 0px;
 }
 .bootstrap-datetimepicker-widget table td span:hover {
-  background: rgb(155, 206.6129032258, 255);
+  background: rgb(251.9487179487, 252.9358974359, 236.0641025641);
   color: black;
 }
 .bootstrap-datetimepicker-widget table td span.active {
@@ -404,7 +404,7 @@
   font-size: 0.875rem;
   text-align: left;
   list-style: none;
-  background-color: white;
+  background-color: #f7f7f7;
   background-clip: padding-box;
   border: 1px solid #dddddd;
   border-radius: 0px;
@@ -426,7 +426,7 @@
 }
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
-  color: white;
+  color: #f7f7f7;
   text-decoration: none;
   background-color: #00509b;
   outline: 0;
@@ -501,7 +501,7 @@
 }
 
 .dropdown-menu {
-  background-color: white;
+  background-color: #f7f7f7;
   font-weight: 400;
   border: 0 none;
   -webkit-box-shadow: 3px 9px 9px 0 rgba(0, 0, 0, 0.3);
@@ -532,7 +532,7 @@
 .dropdown-menu li > .btn-link:focus {
   text-decoration: none;
   color: black;
-  background-color: rgb(155, 206.6129032258, 255);
+  background-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
 }
 .dropdown-menu img {
   border: 0;
@@ -572,7 +572,7 @@
   margin: 0;
   display: block;
   float: left;
-  background-color: white;
+  background-color: #f7f7f7;
   border: 1px solid #dddddd;
   font-size: 0.75rem;
   z-index: 5;
@@ -596,7 +596,7 @@
   background-color: transparent;
 }
 .ui-menu .ui-menu-item > *:hover, .ui-menu .ui-menu-item > *.ui-state-hover, .ui-menu .ui-menu-item > *.ui-state-active {
-  background-color: rgb(155, 206.6129032258, 255);
+  background-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
   color: #161616;
 }
 .ui-menu .ui-menu-item a {
@@ -2027,7 +2027,7 @@ body {
   font-size: 0.875rem;
   line-height: 1.428571429;
   color: #161616;
-  background-color: white;
+  background-color: #f7f7f7;
 }
 
 /* see bug ILIAS bug #17589 and http://stackoverflow.com/questions/17045132/scrollbar-overlay-in-ie10-how-do-you-stop-that */
@@ -2414,7 +2414,7 @@ code {
   border: 2px solid #757575;
   border-radius: 0.25em;
   color: #161616;
-  background: #f9f9f9;
+  background: #ccdceb;
   width: max-content;
   max-width: 50vw;
   max-height: 40vh;
@@ -2441,7 +2441,7 @@ code {
 .breadcrumb_wrapper {
   width: 100%;
   display: inline-grid;
-  background: white;
+  background: #f7f7f7;
 }
 .breadcrumb_wrapper .breadcrumb {
   white-space: nowrap;
@@ -2713,11 +2713,11 @@ input.btn, input.il-link.link-bulky,
   font-size: 0.75rem;
   padding: 3px 6px;
   gap: 6px;
-  background-color: rgb(155, 206.6129032258, 255);
+  background-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
   color: #00509b;
   border-width: 1px;
   border-style: solid;
-  border-color: rgb(155, 206.6129032258, 255);
+  border-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
   border-radius: 10px;
 }
 .btn-ctrl + .btn-ctrl, .il-viewcontrol-section > .btn-default + .btn-ctrl, .il-viewcontrol-section > .btn-link + .btn-ctrl,
@@ -2930,7 +2930,7 @@ input.btn, input.il-link.link-bulky,
 .ilTableNav > table > tbody > tr > td > .dropdown > .btn-default:hover,
 .ilTableNav > table > tbody > tr > td > .dropdown.navbar-form > a:hover {
   text-decoration: none;
-  background-color: rgb(206, 231.2903225806, 255);
+  background-color: white;
   color: #00509b;
   border-width: 1px;
   border-style: solid;
@@ -3022,10 +3022,10 @@ input.btn, input.il-link.link-bulky,
 .ilTableNav > table > tbody > tr > td > .btn-group > .btn-link fieldset[disabled],
 .ilTableNav > table > tbody > tr > td > .dropdown > .btn-default fieldset[disabled],
 .ilTableNav > table > tbody > tr > td > .dropdown.navbar-form > a fieldset[disabled] {
-  background-color: rgb(225.6, 230.6580645161, 235.4);
+  background-color: hsl(63.5106382979, 0.3418803419%, 105.8823529412%);
   border-width: 1px;
   border-style: solid;
-  border-color: rgb(225.6, 230.6580645161, 235.4);
+  border-color: hsl(63.5106382979, 0.3418803419%, 105.8823529412%);
   color: rgba(0, 80, 155, 0.9);
   cursor: not-allowed;
   transform: none;
@@ -3051,7 +3051,7 @@ input.btn, input.il-link.link-bulky,
   background-color: white;
   border-width: 3px;
   border-style: solid;
-  border-color: rgb(155, 206.6129032258, 255);
+  border-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
   color: #000;
 }
 .btn-ctrl.engaged, .il-viewcontrol-section > .engaged.btn-default, .il-viewcontrol-section > .engaged.btn-link,
@@ -3097,7 +3097,7 @@ input.btn, input.il-link.link-bulky,
 .open .ilTableNav > table > tbody > tr > td > .dropdown > .btn-default,
 .open .ilTableNav > table > tbody > tr > td > .dropdown.navbar-form > a {
   border: 1px solid #00509b;
-  background-color: white;
+  background-color: #f7f7f7;
 }
 .open .btn-ctrl, .open .il-viewcontrol-section > .btn-default, .open .il-viewcontrol-section > .btn-link,
 .open .il-viewcontrol-section .btn-group > .btn-default,
@@ -3167,7 +3167,7 @@ input.btn, input.il-link.link-bulky,
 }
 .btn-link.engaged {
   color: #161616;
-  background-color: rgb(155, 206.6129032258, 255);
+  background-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
 }
 
 .btn-bulky, .il-link.link-bulky,
@@ -3187,11 +3187,11 @@ input.btn, input.il-link.link-bulky,
 .btn-bulky:hover, .il-link.link-bulky:hover,
 .il-drilldown .menulevel:hover {
   text-decoration: none;
-  background-color: rgb(155, 206.6129032258, 255);
+  background-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
   color: #161616;
   border-width: 1px;
   border-style: solid;
-  border-color: rgb(155, 206.6129032258, 255);
+  border-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
 }
 .btn-bulky:active, .il-link.link-bulky:active,
 .il-drilldown .menulevel:active {
@@ -3220,7 +3220,7 @@ input.btn, input.il-link.link-bulky,
 }
 .btn-bulky.engaged, .engaged.il-link.link-bulky,
 .il-drilldown .engaged.menulevel {
-  background-color: rgb(155, 206.6129032258, 255);
+  background-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
   border-width: 1px;
   border-style: solid;
   border-color: #f0f0f0;
@@ -3331,7 +3331,7 @@ button .minimize, button .close {
   padding: 3px 6px;
   gap: 6px;
   background-color: #00509b;
-  color: white;
+  color: #f7f7f7;
   border-width: 1px;
   border-style: solid;
   border-color: #00509b;
@@ -3368,7 +3368,7 @@ button .minimize, button .close {
 .btn-tag:hover {
   text-decoration: none;
   background-color: rgb(0, 53.6774193548, 104);
-  color: white;
+  color: #f7f7f7;
   border-width: 1px;
   border-style: solid;
   border-color: rgb(0, 53.6774193548, 104);
@@ -3376,13 +3376,13 @@ button .minimize, button .close {
 .btn-tag:active {
   transform: none;
   background-color: rgb(0, 27.3548387097, 53);
-  color: white;
+  color: #f7f7f7;
   border-width: 1px;
   border-style: solid;
   border-color: rgb(0, 27.3548387097, 53);
 }
 .btn-tag:focus {
-  color: white;
+  color: #f7f7f7;
   text-decoration: none;
 }
 .btn-tag[disabled],
@@ -3434,12 +3434,12 @@ button .minimize, button .close {
   left: 9px;
   font-weight: 600;
   font-size: 0.75rem;
-  color: white;
+  color: #f7f7f7;
 }
 .il-toggle-button.on .il-toggle-switch {
   left: 63%;
-  background: white;
-  border: 1px solid white;
+  background: #f7f7f7;
+  border: 1px solid #f7f7f7;
 }
 .il-toggle-button.off {
   background: #dddddd;
@@ -3453,8 +3453,8 @@ button .minimize, button .close {
   font-size: 0.75rem;
 }
 .il-toggle-button.off .il-toggle-switch {
-  background: white;
-  border: 1px solid white;
+  background: #f7f7f7;
+  border: 1px solid #f7f7f7;
 }
 .il-toggle-button.unavailable {
   background: #737373;
@@ -3487,7 +3487,7 @@ button .minimize, button .close {
   padding: 0 0 6px 0;
   width: 100%;
   position: relative;
-  background-color: white;
+  background-color: #f7f7f7;
   border: 1px solid #dddddd;
   border-radius: 0;
   box-shadow: none;
@@ -3582,7 +3582,7 @@ button .minimize, button .close {
 }
 
 .il-panel-report .il-card {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 
 @media (min-width: 768px) {
@@ -3777,7 +3777,7 @@ button .minimize, button .close {
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
-  color: white;
+  color: #f7f7f7;
   line-height: 1;
   border-radius: 10px;
 }
@@ -3842,7 +3842,7 @@ button .minimize, button .close {
 .engaged ~ ul > li > h4.il-divider {
   padding: 3px 6px;
   margin-bottom: 0px;
-  background-color: white;
+  background-color: #f7f7f7;
   display: block;
   font-size: 0.75rem;
   line-height: 1.5;
@@ -3862,7 +3862,7 @@ hr.il-divider-with-label {
 .ui-dropzone {
   border: 1px dashed #757575;
   border-radius: 0px;
-  background: white;
+  background: #f7f7f7;
   display: inline-block;
   margin-bottom: 3px;
   width: 100%;
@@ -3870,7 +3870,7 @@ hr.il-divider-with-label {
 .ui-dropzone.ui-dropzone-bulky {
   border: 1px dashed #757575;
   border-radius: 4px;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   padding-top: 15px;
   padding-bottom: 15px;
 }
@@ -3913,7 +3913,7 @@ hr.il-divider-with-label {
   grid-template-areas: "f-blocking f-blocking f-blocking f-blocking actions" "second-id f-prop f-prop f-prop actions" "second-id prim-id prim-id prim-id actions" "second-id status status status status" "second-id f-details f-details f-details f-details" "second-id availab availab availab availab" "second-id details details details details" "second-id reaction reaction f-reaction f-reaction";
   grid-template-columns: min-content auto auto min-content min-content;
   border: 1px solid #dddddd;
-  background-color: white;
+  background-color: #f7f7f7;
   padding: 4.5px 7.5px;
 }
 .c-entity.__container > *:not(:empty) {
@@ -4081,7 +4081,7 @@ hr.il-divider-with-label {
   width: 100%;
   height: 33px;
   border: 1px solid #757575;
-  background-color: white;
+  background-color: #f7f7f7;
 }
 .il-filter .input-group input {
   height: 33px;
@@ -4119,7 +4119,7 @@ hr.il-divider-with-label {
 .il-filter-bar {
   display: flex;
   padding: 3px 9px;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 .il-filter-bar .il-filter-bar-opener {
   flex: 1;
@@ -4160,7 +4160,7 @@ hr.il-divider-with-label {
 }
 
 .il-filter-inputs-active {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   padding: 3px 9px;
 }
 .il-filter-inputs-active span {
@@ -4168,7 +4168,7 @@ hr.il-divider-with-label {
   margin: 3px 9px 3px 0;
   padding: 0 9px;
   float: left;
-  background-color: white;
+  background-color: #f7f7f7;
   font-size: 0.75rem;
   overflow: hidden;
   white-space: nowrap;
@@ -4181,7 +4181,7 @@ hr.il-divider-with-label {
   position: relative;
   padding-right: 9px;
   margin: 0;
-  background: #f9f9f9;
+  background: #ccdceb;
 }
 .il-filter-input-section .leftaddon {
   font-size: 0.75rem;
@@ -4300,7 +4300,7 @@ hr.il-divider-with-label {
 
 .c-input-markdown__actions .glyph,
 .c-input-markdown__actions .glyph:hover {
-  color: white;
+  color: #f7f7f7;
 }
 
 .c-input-markdown__preview {
@@ -4318,7 +4318,7 @@ hr.il-divider-with-label {
 }
 
 .il-standard-form {
-  background-color: white;
+  background-color: #f7f7f7;
   margin-top: 6px;
   padding: 12px 0 12px 15px;
 }
@@ -4336,7 +4336,7 @@ hr.il-divider-with-label {
   }
 }
 .il-standard-form .il-standard-form-footer, .il-standard-form .il-standard-form-header, .il-standard-form .il-section-input-header {
-  background-color: white;
+  background-color: #f7f7f7;
   color: #161616;
 }
 .il-standard-form .il-standard-form-header, .il-standard-form .il-standard-form-footer {
@@ -4392,7 +4392,7 @@ hr.il-divider-with-label {
   line-height: 1;
   color: #161616;
   text-align: center;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   border: 1px solid #a6a6a6;
   border-radius: 0;
 }
@@ -4420,7 +4420,7 @@ td.form-inline > div.form-group {
 }
 
 .il-item {
-  background-color: white;
+  background-color: #f7f7f7;
   position: relative;
   padding: 15px;
 }
@@ -4496,7 +4496,7 @@ td.form-inline > div.form-group {
 
 .il-item-group {
   clear: both;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 .il-item-group > h3 {
   float: left;
@@ -4666,7 +4666,7 @@ td.form-inline > div.form-group {
   cursor: not-allowed;
 }
 .c-launcher .btn-bulky:not([disabled]) .glyph {
-  color: white;
+  color: #f7f7f7;
 }
 @media screen and (max-width: 991px) {
   .c-launcher .btn-bulky {
@@ -4704,7 +4704,7 @@ grid-based layout
 *********************
 */
 .il-layout-page {
-  background: white;
+  background: #f7f7f7;
   display: grid;
   grid-gap: 0px;
   grid-template-columns: auto 1fr;
@@ -4753,7 +4753,7 @@ header {
   top: 0;
   min-height: 33px;
   align-items: center;
-  background-color: white;
+  background-color: #f7f7f7;
   display: flex;
   flex-direction: row;
   z-index: 995;
@@ -4769,7 +4769,7 @@ div.il-system-infos {
 
 .header-inner {
   align-items: center;
-  background: white;
+  background: #f7f7f7;
   display: flex;
   flex-direction: row;
   height: 60px;
@@ -4881,7 +4881,7 @@ footer {
 }
 @media only screen and (max-width: 991px) {
   .il-layout-page {
-    background: white;
+    background: #f7f7f7;
     display: block;
     overflow: initial;
     width: 100%;
@@ -5013,8 +5013,8 @@ footer {
   .il-header-locator .open > .dropdown-toggle.btn-default:hover .open > .dropdown-toggle.btn-default:active,
   .il-header-locator .open > .dropdown-toggle.btn-default:active:hover,
   .il-header-locator .open > .dropdown-toggle.btn-default:active:focus {
-    background: white;
-    border-color: white;
+    background: #f7f7f7;
+    border-color: #f7f7f7;
     color: #2c2c2c;
     outline: none;
   }
@@ -5228,7 +5228,7 @@ footer {
 }
 
 .il-workflow-header .il-workflow-title {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   color: #161616;
   font-size: 1.115rem;
   font-weight: 400;
@@ -5267,7 +5267,7 @@ footer {
 .il-workflow-container .not-available:before,
 .il-workflow-container .no-longer-available:before {
   content: "\e033";
-  background-color: white;
+  background-color: #f7f7f7;
   border: 2px solid #737373;
 }
 .il-workflow-container .not-available.in-progress:before,
@@ -5344,7 +5344,7 @@ footer {
   box-shadow: none;
 }
 #il_right_col .il-workflow .il-workflow-header {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   margin: 0;
   padding: 9px 15px;
 }
@@ -5393,7 +5393,7 @@ footer {
   }
 }
 .il-maincontrols-slate .il-maincontrols-slate .btn-bulky {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 .il-maincontrols-slate.il-maincontrols-slate-notification .il-maincontrols-slate-notification-title {
   padding: 12px;
@@ -5402,7 +5402,7 @@ footer {
   margin: -12px;
   border: none;
   border-right: solid 3px;
-  border-right-color: #f9f9f9;
+  border-right-color: #ccdceb;
   padding: 12px;
   background-color: transparent;
   width: 50%;
@@ -5428,15 +5428,15 @@ footer {
 
 .il-maincontrols-slate.engaged[data-depth-level="2"] .btn-bulky:not(:hover),
 .il-maincontrols-slate.engaged[data-depth-level="2"] .link-bulky:not(:hover) {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 .il-maincontrols-slate.engaged[data-depth-level="3"] .btn-bulky:not(:hover),
 .il-maincontrols-slate.engaged[data-depth-level="3"] .link-bulky:not(:hover) {
-  background-color: rgba(249, 249, 249, 0.15);
+  background-color: rgba(204, 220, 235, 0.15);
 }
 .il-maincontrols-slate.engaged[data-depth-level="4"] .btn-bulky:not(:hover),
 .il-maincontrols-slate.engaged[data-depth-level="4"] .link-bulky:not(:hover) {
-  background-color: rgba(249, 249, 249, 0.1);
+  background-color: rgba(204, 220, 235, 0.1);
 }
 
 .il-maincontrols-slate-content > ul {
@@ -5490,7 +5490,7 @@ footer {
   display: none;
 }
 .il-maincontrols-slate-close .btn-bulky {
-  background-color: white;
+  background-color: #f7f7f7;
   width: 100%;
   height: 100%;
   padding: 0;
@@ -5501,7 +5501,7 @@ footer {
   padding-right: 20px;
 }
 .il-maincontrols-slate-close .btn-bulky.engaged {
-  background-color: white;
+  background-color: #f7f7f7;
   border: 0;
 }
 .il-maincontrols-slate-close .btn-bulky:active {
@@ -5845,7 +5845,7 @@ footer {
 }
 .il-mainbar-triggers .btn-bulky .bulky-label,
 .il-mainbar-triggers .il-link.link-bulky .bulky-label {
-  color: white;
+  color: #f7f7f7;
   text-align: center;
 }
 .il-mainbar-triggers .btn-bulky .icon,
@@ -5865,7 +5865,7 @@ footer {
 }
 .il-mainbar-triggers .btn-bulky.engaged,
 .il-mainbar-triggers .il-link.link-bulky.engaged {
-  background-color: white;
+  background-color: #f7f7f7;
   color: #2c2c2c;
 }
 .il-mainbar-triggers .btn-bulky.engaged .glyph,
@@ -5888,7 +5888,7 @@ footer {
 }
 .il-mainbar-triggers .btn-bulky:focus-visible,
 .il-mainbar-triggers .il-link.link-bulky:focus-visible {
-  background-color: white;
+  background-color: #f7f7f7;
   color: #2c2c2c;
 }
 .il-mainbar-triggers .btn-bulky:focus-visible .glyph,
@@ -5912,7 +5912,7 @@ footer {
 .il-mainbar-triggers .btn-bulky:hover,
 .il-mainbar-triggers .il-link.link-bulky:hover {
   transition: all 0.15s ease-in;
-  background-color: white;
+  background-color: #f7f7f7;
   color: #2c2c2c;
 }
 .il-mainbar-triggers .btn-bulky:hover .glyph,
@@ -5935,7 +5935,7 @@ footer {
 }
 .il-mainbar-triggers .btn-bulky .glyph,
 .il-mainbar-triggers .il-link.link-bulky .glyph {
-  color: white;
+  color: #f7f7f7;
 }
 .il-mainbar-triggers.engaged {
   background: rgb(0, 53.6774193548, 104);
@@ -5960,11 +5960,11 @@ footer {
 @media (hover: none) {
   .il-mainbar-triggers .btn-bulky:hover .bulky-label,
   .il-mainbar-triggers .il-link.link-bulky:hover .bulky-label {
-    color: white;
+    color: #f7f7f7;
   }
   .il-mainbar-triggers .btn-bulky.engaged,
   .il-mainbar-triggers .il-link.link-bulky.engaged {
-    background-color: white;
+    background-color: #f7f7f7;
     color: #2c2c2c;
   }
   .il-mainbar-triggers .btn-bulky.engaged .icon,
@@ -5987,7 +5987,7 @@ footer {
 
 .il-mainbar-slates {
   box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.1);
-  background: white;
+  background: #f7f7f7;
   display: none;
   position: relative;
 }
@@ -6002,7 +6002,7 @@ footer {
 }
 .il-maincontrols-mainbar .il-item-shy:not(:hover),
 .il-maincontrols-metabar .il-item-shy:not(:hover) {
-  background: #f9f9f9;
+  background: #ccdceb;
 }
 
 .il-maincontrols-mainbar > .il-metabar-slate-auxillary,
@@ -6047,7 +6047,7 @@ footer {
 .il-mainbar-tools-entries .btn-bulky, .il-mainbar-tools-entries .btn-bulky,
 .il-mainbar-tools-entries .il-link.link-bulky {
   background-color: #00509b;
-  color: white;
+  color: #f7f7f7;
 }
 .il-mainbar-tools-entries .btn-bulky .icon, .il-mainbar-tools-entries .btn-bulky .icon,
 .il-mainbar-tools-entries .il-link.link-bulky .icon {
@@ -6573,7 +6573,7 @@ footer {
 .il-drilldown .btn-bulky:hover,
 .il-drilldown .link-bulky:hover,
 .il-drilldown .menulevel:hover {
-  background-color: rgb(155, 206.6129032258, 255);
+  background-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
   color: inherit;
 }
 .il-drilldown .btn-bulky .icon,
@@ -6593,7 +6593,7 @@ div.alert div {
 }
 div.alert ul {
   margin-top: 15px;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   padding: 6px 12px;
   font-size: 0.75rem;
   color: rgb(111.25, 111.25, 111.25);
@@ -6644,16 +6644,16 @@ div.alert ul > li:before {
 }
 .modal.il-modal-lightbox-dark .modal-content {
   background-color: #2c2c2c;
-  color: white;
+  color: #f7f7f7;
 }
 .modal.il-modal-lightbox-dark .modal-content .modal-header {
-  border-bottom-color: white;
+  border-bottom-color: #f7f7f7;
 }
 .modal.il-modal-lightbox-dark .modal-content .carousel-control {
-  color: white;
+  color: #f7f7f7;
 }
 .modal.il-modal-lightbox-dark .close {
-  color: white;
+  color: #f7f7f7;
   background-color: #2c2c2c;
   opacity: 1;
 }
@@ -6818,7 +6818,7 @@ div.alert ul > li:before {
 }
 .panel .panel-heading.ilHeader,
 .panel .panel-heading.ilBlockHeader {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   margin: 0;
   border: none;
 }
@@ -6862,7 +6862,7 @@ div.alert ul > li:before {
 }
 .panel .panel-body {
   padding: 15px 15px;
-  background-color: white;
+  background-color: #f7f7f7;
 }
 .panel .panel-body::after {
   display: block;
@@ -6872,7 +6872,7 @@ div.alert ul > li:before {
 
 .panel-footer {
   padding: 9px 15px;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   border-top: 1px solid #dddddd;
   border-bottom-right-radius: 2px;
   border-bottom-left-radius: 2px;
@@ -6991,7 +6991,7 @@ div.alert ul > li:before {
 }
 
 .il-panel-listing-std-container {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   margin-bottom: 20px;
 }
 .il-panel-listing-std-container > h2 {
@@ -8839,7 +8839,7 @@ div.alert ul > li:before {
 }
 
 .il-table-presentation-row {
-  background-color: white;
+  background-color: #f7f7f7;
   border-top: 1px solid #dddddd;
   padding-top: 12px;
   padding-bottom: 12px;
@@ -8907,7 +8907,7 @@ div.alert ul > li:before {
   background-color: #f0f0f0;
   border: 1px solid #dddddd;
   border-radius: 0px;
-  text-color: white;
+  text-color: #f7f7f7;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   min-height: 20px;
@@ -8925,7 +8925,7 @@ div.alert ul > li:before {
 }
 
 .c-table-data__table {
-  background-color: white;
+  background-color: #f7f7f7;
 }
 .c-table-data__table-wrapper {
   box-shadow: inset 0 0 1px 1px #dddddd;
@@ -8933,7 +8933,7 @@ div.alert ul > li:before {
 }
 
 .c-table-data__cell {
-  background-color: white;
+  background-color: #f7f7f7;
   padding: 6px 12px;
   border: 1px solid #dddddd;
 }
@@ -9079,7 +9079,7 @@ td.c-table-data__cell--number {
 }
 
 td.c-table-data__cell--highlighted {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 
 @media screen and (min-width: 769px) {
@@ -9229,7 +9229,7 @@ td.c-table-data__cell--highlighted {
   width: 100%;
 }
 .c-tree li.c-tree__node.highlighted > .c-tree__node__line {
-  background-color: rgb(155, 206.6129032258, 255);
+  background-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
 }
 .c-tree li.c-tree__node.expandable > .c-tree__node__line:before {
   color: #737373;
@@ -9261,9 +9261,9 @@ td.c-table-data__cell--highlighted {
   width: fit-content;
   min-height: 2.2rem;
   min-width: 2.2rem;
-  border: 1px solid rgb(155, 206.6129032258, 255);
+  border: 1px solid rgb(251.9487179487, 252.9358974359, 236.0641025641);
   padding: 3px;
-  background-color: rgb(155, 206.6129032258, 255);
+  background-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
   border-radius: 10px;
 }
 
@@ -9497,7 +9497,7 @@ div#bot_center_area {
   height: 300px;
   position: fixed;
   padding: 5px;
-  background-color: white;
+  background-color: #f7f7f7;
   border-top: 3px solid #dddddd;
   -webkit-overflow-scrolling: touch; /* Bug 11209 */
   overflow: auto; /* Bug 11209 */
@@ -9850,7 +9850,7 @@ div.ilCommandRow.one_side_col {
 
 table.std {
   color: #161616;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   border-spacing: 0;
   border-collapse: collapse;
   border: 1px solid #9eadba;
@@ -9858,7 +9858,7 @@ table.std {
 
 .fullwidth_invisible {
   color: #161616;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   width: 100%;
   border-spacing: 0;
 }
@@ -9912,7 +9912,7 @@ td.std, th.std {
 }
 
 th.option, td.option {
-  background-color: white;
+  background-color: #f7f7f7;
   color: #161616;
   padding: 3px;
   font-weight: 600;
@@ -10051,7 +10051,7 @@ div.il_info {
   background-color: #f0f0f0;
   border: 1px solid #dddddd;
   border-radius: 0px;
-  text-color: white;
+  text-color: #f7f7f7;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
@@ -10062,10 +10062,10 @@ div.il_info {
 .php {
   min-height: auto;
   padding: 18px;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   border: 1px solid #dddddd;
   border-radius: 0px;
-  text-color: white;
+  text-color: #f7f7f7;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
@@ -10716,7 +10716,7 @@ span.bibl_text_inline_Emph {
 div.ilBlogList {
   padding: 10px;
   margin-bottom: 20px;
-  background-color: white;
+  background-color: #f7f7f7;
 }
 
 div.ilBlogListItem {
@@ -10773,7 +10773,7 @@ td.ilBlogSideBlockCommand {
   color: rgb(111.25, 111.25, 111.25);
   border-bottom: 1px solid #dddddd;
   padding: 1px 3px;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   text-align: right;
 }
 
@@ -10800,7 +10800,7 @@ div.ilBlogSideBlockNavigationSelection {
   font-size: 0.75rem;
   margin-top: -19px;
   padding: 2px 5px;
-  background-color: white;
+  background-color: #f7f7f7;
 }
 
 .ilBlogNavigationItemDraft {
@@ -11045,7 +11045,7 @@ td.chatroom {
   white-space: nowrap;
 }
 .ilChatroomUser .dropdown-menu {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   padding: 10px 0;
   font-size: 0.75rem;
 }
@@ -11065,7 +11065,7 @@ td.chatroom {
   margin-left: 100px;
 }
 .ilChatroomUser .media:hover {
-  background-color: rgb(155, 206.6129032258, 255);
+  background-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
 }
 .ilChatroomUser .dropdown-menu {
   position: static;
@@ -11287,7 +11287,7 @@ tr.dcl_comments_active > td {
 }
 
 .ilExcReportFeedback {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   padding: 9px;
 }
 
@@ -11374,7 +11374,7 @@ div.ilForumQuoteHead {
   list-style: none;
   margin: 0;
   padding: 0;
-  background-color: white;
+  background-color: #f7f7f7;
 }
 
 .ilFrmPostImage {
@@ -11463,7 +11463,7 @@ li.ilFrmPostRow {
   border-left: 6px solid #dddddd;
 }
 li.ilFrmPostRow.tblrowmarked {
-  background-color: white;
+  background-color: #f7f7f7;
   border-left: 6px solid #B54F00;
 }
 li.ilFrmPostRow div.ilForm {
@@ -11628,7 +11628,7 @@ div#right_area {
   top: 117px;
   position: fixed;
   /* padding: 5px; */
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   border-left: 3px solid #dddddd;
   /* box-shadow: inset 0px 2px 2px #d0d0d0; */
   -webkit-overflow-scrolling: touch; /* Bug 11209 */
@@ -11710,7 +11710,7 @@ div#right_bottom_area iframe {
 }
 
 .ilLSOLearnerView { /*ILIAS-GUI, "startpage" of LSO*/
-  background-color: white;
+  background-color: #f7f7f7;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -11727,7 +11727,7 @@ div#right_bottom_area iframe {
 
 .ilLSOKioskModeNavigation {
   margin-bottom: 10px;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 .ilLSOKioskModeNavigation .navbar-form {
   line-height: 25px;
@@ -11741,7 +11741,7 @@ div#right_bottom_area iframe {
 }
 
 .ilLSOKioskModeCurriculum {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 .ilLSOKioskModeCurriculum .il-workflow-container {
   padding: 5px;
@@ -11831,7 +11831,7 @@ div#right_bottom_area iframe {
 }
 
 .ilMediaPoolPagePreviewBody {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   height: auto;
 }
 
@@ -12021,13 +12021,13 @@ body.ilPrtfPdfBody .ilPCMyCoursesToggle img {
 /* Modules/ScormAicc */
 table.il_ScormTable {
   color: #161616;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   border-spacing: 1px;
   border: none;
 }
 
 td.il_ScormTableKey {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   color: #161616;
   padding: 1px 3px;
   vertical-align: top;
@@ -12035,7 +12035,7 @@ td.il_ScormTableKey {
 }
 
 td.il_ScormTableValue {
-  background: none #f9f9f9;
+  background: none #ccdceb;
   color: #161616;
   padding: 1px 3px;
   vertical-align: top;
@@ -12179,7 +12179,7 @@ div.ilSurveyPageEditDropAreaSelected {
 
 div.ilSurveyPageEditAreaDragging {
   border: 2px dashed #2c2c2c;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   padding: 5px;
 }
 
@@ -12794,7 +12794,7 @@ div.ilc_Page.readonly textarea[disabled] {
   flex-grow: 1;
 }
 #tst_output #tst_right .ilc_Page {
-  background-color: white;
+  background-color: #f7f7f7;
   padding: 6px 12px;
 }
 @media screen and (max-width: 991px) {
@@ -12816,7 +12816,7 @@ div.ilc_Page.readonly textarea[disabled] {
   display: flex;
   padding: 6px 12px;
   justify-content: space-between;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 
 #tst_output #tst_left ul.shortlist {
@@ -12906,7 +12906,7 @@ li.ilWikiBlockItem {
 }
 
 .ilWspContainerListFooter {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   margin: 0px -15px -15px -15px;
   padding: 5px 25px;
 }
@@ -12924,7 +12924,7 @@ li.ilWikiBlockItem {
 }
 .c-prg-statusinfo__headline,
 .c-prg-actionnote__headline {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   padding: 9px 15px;
   font-weight: 400;
   text-align: left;
@@ -12938,7 +12938,7 @@ li.ilWikiBlockItem {
 .c-prg-statusinfo__content,
 .c-prg-actionnote__content {
   border-bottom: 1px solid #dddddd;
-  background-color: white;
+  background-color: #f7f7f7;
 }
 .c-prg-statusinfo__icon,
 .c-prg-actionnote__icon {
@@ -12971,13 +12971,13 @@ li.ilWikiBlockItem {
   font-size: 1rem;
   background-image: url("./images/nav/tree_col.svg");
   background-repeat: no-repeat;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   background-position: 15px 9px;
   background-size: 20px 20px;
   border: 0;
 }
 .il_VAccordionHead:hover, .il_HAccordionHead:hover {
-  background-color: rgb(155, 206.6129032258, 255);
+  background-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
 }
 
 .il_VAccordionHead {
@@ -12997,7 +12997,7 @@ li.ilWikiBlockItem {
 
 .il_HAccordionHeadActive, .il_VAccordionHeadActive {
   background-image: url("./images/nav/tree_exp.svg");
-  background-color: rgb(155, 206.6129032258, 255);
+  background-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
 }
 
 .ilAccHideContent {
@@ -13021,7 +13021,7 @@ div.ilc_va_icont_VAccordICont {
   overflow: auto;
 }
 #awareness-list .dropdown-header {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   margin-bottom: 0px;
 }
 
@@ -13046,7 +13046,7 @@ div.ilc_va_icont_VAccordICont {
   display: table;
 }
 #awareness-content .media:hover {
-  background-color: rgb(155, 206.6129032258, 255);
+  background-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
 }
 #awareness-content .glyphicon {
   font-size: inherit;
@@ -13070,7 +13070,7 @@ div.ilc_va_icont_VAccordICont {
 
 .ilAwarenessItem {
   border-bottom: 1px solid #dddddd;
-  background-color: white;
+  background-color: #f7f7f7;
 }
 .ilAwarenessItem > div[role=button]:focus-visible:focus {
   outline: none;
@@ -13126,7 +13126,7 @@ div.ilc_va_icont_VAccordICont {
 }
 
 #awareness-content .dropdown-menu {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   padding: 10px 0;
   font-size: 0.75rem;
 }
@@ -13209,7 +13209,7 @@ div.ilc_va_icont_VAccordICont {
 }
 
 #awareness-content .ilHighlighted {
-  background-color: rgb(155, 206.6129032258, 255);
+  background-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
   color: rgb(111.25, 111.25, 111.25);
 }
 
@@ -13289,14 +13289,14 @@ div.il_Block, table.il_Block {
   clear: both;
   table-layout: fixed;
   word-wrap: break-word;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   border: none;
   text-align: left;
   padding: 9px;
 }
 
 #il_center_col div.il_Block {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 
 div.ilBlockHeader, div.ilBlockHeaderBig,
@@ -13342,7 +13342,7 @@ div.ilBlockInfo {
   font-size: 0.75rem;
   color: rgb(111.25, 111.25, 111.25);
   padding: 1px 3px;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   text-align: right;
 }
 
@@ -13373,7 +13373,7 @@ div.ilBlockPropertyCaption {
 /* Services/Calendar */
 td.even {
   color: #161616;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   padding: 3px;
 }
 
@@ -13388,11 +13388,11 @@ td.today {
 }
 
 td.date {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 
 td.prevMonth {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 
 div#block_cal_sel_0 div.ilBlockContent {
@@ -13463,7 +13463,7 @@ table.calmini {
   width: 100%;
   font-size: 0.75rem;
   border-collapse: collapse;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   border: none;
   margin-bottom: 12px;
 }
@@ -13481,7 +13481,7 @@ table.calmini tr, table.calmini td, table.calmini th {
   }
 }
 table.calmini tr {
-  background-color: white;
+  background-color: #f7f7f7;
 }
 table.calmini th.calmini, table.calmini th.calminiweek {
   font-weight: 600;
@@ -13531,12 +13531,12 @@ table.calstd {
 .calheader {
   color: #161616;
   font-weight: 400;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 
 th.calstd {
   text-align: center;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   font-weight: 400;
   border-spacing: 0px;
   border-collapse: collapse;
@@ -13546,7 +13546,7 @@ th.calstd {
 }
 
 .calheadertime {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   border-spacing: 0px;
   border-collapse: collapse;
   border-width: 1px;
@@ -13595,7 +13595,7 @@ tr.calstd {
 
 table.il-cal-day tr.calstd + tr.calstdtime td.calempty,
 table.il-cal-week tr.calstd + tr.calstdtime td.calempty {
-  background-color: white;
+  background-color: #f7f7f7;
 }
 
 table.il-cal-day tr.calstd, table.il-cal-week tr.calstd {
@@ -13627,7 +13627,7 @@ tr.calstdtime {
 
 td.calstd {
   vertical-align: top;
-  background-color: white;
+  background-color: #f7f7f7;
   border-spacing: 0px;
   border-collapse: collapse;
   border-width: 1px;
@@ -13658,7 +13658,7 @@ td.calnow {
 
 td.calnext {
   vertical-align: top;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   border-spacing: 0px;
   border-collapse: collapse;
   border-width: 1px;
@@ -13668,7 +13668,7 @@ td.calnext {
 
 td.calprev {
   vertical-align: top;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   border-spacing: 0px;
   border-collapse: collapse;
   border-width: 1px;
@@ -13733,14 +13733,14 @@ table.calmini {
 
 .calminiheader {
   color: #161616;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 
 th.calmini {
   text-align: center;
   font-size: 0.75rem;
   font-weight: 400;
-  background-color: white;
+  background-color: #f7f7f7;
 }
 
 a.calminiapp {
@@ -13755,7 +13755,7 @@ p.il_calmini_monthday, div.il_calmini_monthday {
 td.calministd {
   vertical-align: top;
   border-collapse: collapse;
-  background-color: white;
+  background-color: #f7f7f7;
   border-spacing: 0px;
   border-width: 1px;
   border-style: solid;
@@ -13789,7 +13789,7 @@ td.calmininow {
 
 td.calmininext {
   vertical-align: top;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   border-width: 1px;
   border-style: solid;
   border-color: #dddddd;
@@ -13800,7 +13800,7 @@ td.calmininext {
 
 td.calminiprev {
   vertical-align: top;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   border-width: 1px;
   border-style: solid;
   border-color: #dddddd;
@@ -13811,7 +13811,7 @@ td.calminiprev {
 
 td.calminiweek, th.calminiweek {
   vertical-align: top;
-  background-color: white;
+  background-color: #f7f7f7;
   font-size: 0.625rem;
   text-align: center;
   vertical-align: middle;
@@ -13900,7 +13900,7 @@ div.ilListItemSection {
 }
 
 div.ilContainerListItemOuterHighlight {
-  background-color: rgb(155, 206.6129032258, 255);
+  background-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
   zoom: 1;
 }
 
@@ -13962,7 +13962,7 @@ div.il_ContainerListItem {
 }
 
 .ilContainerBlockHeader {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   padding: 9px 15px;
   font-weight: 400;
   text-align: left;
@@ -13983,7 +13983,7 @@ div.il_ContainerListItem {
   background-size: 20px 20px;
   padding-left: 45px;
   /* padding-top: 6px; */
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   cursor: pointer;
 }
 
@@ -14021,17 +14021,17 @@ div#ilContRepIntro img {
 }
 
 .ilContObjectiveObjectListItem {
-  background-color: white;
+  background-color: #f7f7f7;
 }
 
 .ilContObjectivesViewTestItem {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   margin-bottom: 10px;
 }
 
 .ilContainerTileRows {
   padding: 6px 15px;
-  background-color: white;
+  background-color: #f7f7f7;
 }
 
 .ilContainerTileRows .card-no-highlight {
@@ -14048,7 +14048,7 @@ div#ilContRepIntro img {
 
 .ilContainerShowMore {
   padding: 15px 10px;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   text-align: center;
   margin: 0 -15px;
 }
@@ -14107,12 +14107,12 @@ div.ilEditHelpline {
   margin: 3px 0;
   padding: 0;
   font-size: 0.625rem;
-  background-color: white;
+  background-color: #f7f7f7;
   color: black;
 }
 
 select.ilEditSelect {
-  background: none white;
+  background: none #f7f7f7;
   border: 1px solid #bbb;
   padding: 1px;
   text-decoration: none;
@@ -14248,7 +14248,7 @@ div.il_editarea_disabled, div.copg-disabled-page {
   font-size: 0.75rem;
   margin-top: -13px;
   padding: 2px 5px;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 
 div.il_editarea_selected, div.copg-current-edit, #tinytarget_ifr {
@@ -14272,7 +14272,7 @@ div.il_editarea_active_selected {
 }
 
 .il_editmenu {
-  background-color: white;
+  background-color: #f7f7f7;
   color: black;
   font-weight: normal;
   text-align: left;
@@ -14292,7 +14292,7 @@ div.ilEditVAccordCntr {
 }
 
 div.ilEditVAccordICntr {
-  background-color: white;
+  background-color: #f7f7f7;
   margin-bottom: 15px;
   border: 1px solid #9eadba;
 }
@@ -14307,7 +14307,7 @@ div.ilEditVAccordIHead {
 
 div.ilEditVAccordICont {
   padding: 10px;
-  background-color: white;
+  background-color: #f7f7f7;
 }
 
 .ilTinyMenuSection .dropdown, .il-copg-button-group .dropdown {
@@ -14337,12 +14337,12 @@ div.ilTinyMenuSection, .il-copg-button-group {
 div.ilTinyMenuSection p, .il-copg-button-group p {
   margin-bottom: 5px;
   padding: 2px 5px;
-  background-color: rgb(238.8, 238.8, 238.8);
+  background-color: rgb(189.3464788732, 209.9436619718, 229.2535211268);
 }
 
 div.ilTinyMenuSection button.btn {
   display: inline-block;
-  background: white;
+  background: #f7f7f7;
   border: 0;
   color: black;
 }
@@ -14425,7 +14425,7 @@ a.ilTinyMenuDropDown {
 div.ilc_page_toc_PageTOC {
   font-size: 0.75rem;
   padding: 5px 5px 10px;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   border: 1px solid #f0f0f0;
   float: left;
 }
@@ -14480,7 +14480,7 @@ div.ilc_DefinitionHeader {
 }
 
 table.ilc_Fullscreen {
-  background-color: white;
+  background-color: #f7f7f7;
   position: absolute;
   margin: 0;
   padding: 0;
@@ -14516,7 +14516,7 @@ a.ilc_LMMenu {
 }
 
 div.ilc_TableOfContents {
-  background-color: white;
+  background-color: #f7f7f7;
   padding: 20px;
   border-spacing: 1px;
   border: 1px solid #dddddd;
@@ -14524,7 +14524,7 @@ div.ilc_TableOfContents {
 }
 
 table.ilc_media {
-  background-color: white;
+  background-color: #f7f7f7;
 }
 
 h1.il_LMHead {
@@ -14535,7 +14535,7 @@ h1.il_LMHead {
 
 table.ilc_Table {
   border-collapse: collapse;
-  background-color: white;
+  background-color: #f7f7f7;
   margin: 10px 0;
   border-color: #9eadba;
 }
@@ -14602,7 +14602,7 @@ a.nostyle:hover {
   width: 40px;
   border-color: #d0d0d0;
   color: #d0d0d0;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   cursor: default;
   height: 21px;
 }
@@ -14641,12 +14641,12 @@ a.nostyle:hover {
 
 .ilCOPgEditStyleSelectionItem {
   padding: 10px;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   cursor: pointer;
 }
 
 .ilCOPgEditStyleSelectionItem:hover {
-  background-color: rgb(155, 206.6129032258, 255);
+  background-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
 }
 
 ul#ilAdvSelListTable_style_selection {
@@ -14681,7 +14681,7 @@ div.ilc_question_MultipleChoice .ilc_qanswer_Answer > div:first-child {
 }
 
 div.ilCOPGMediaPrint {
-  background-color: #f9f9f9 !important;
+  background-color: #ccdceb !important;
   position: relative !important;
   background-image: url("./images/media/play.svg") !important;
   background-position: 50% 50% !important;
@@ -14793,7 +14793,7 @@ div.ilCOPGMediaPrint {
 }
 #copg-editor-slate-content form.form-horizontal .ilFormFooter {
   padding: 3px 15px;
-  background-color: white;
+  background-color: #f7f7f7;
 }
 #copg-editor-slate-content > .btn-link {
   padding: 0px 15px;
@@ -14849,13 +14849,13 @@ p#copg-auto-save {
 }
 
 #ed_datatable {
-  background-color: white;
+  background-color: #f7f7f7;
 }
 #ed_datatable th {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 #ed_datatable th .dropdown button {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   text-align: center;
   color: #161616;
   width: 100%;
@@ -15024,7 +15024,7 @@ input[type=checkbox]:focus-visible::after {
   font-size: 0.75rem;
   line-height: 1.428571429;
   color: #161616;
-  background-color: white;
+  background-color: #f7f7f7;
   background-image: none;
   border: 1px solid #757575;
   border-radius: 0px;
@@ -15063,7 +15063,7 @@ input[type=checkbox]:focus-visible::after {
   background-color: transparent;
 }
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   opacity: 1;
 }
 .form-control[disabled], fieldset[disabled] .form-control {
@@ -15258,7 +15258,7 @@ fieldset[disabled] .checkbox label {
 
 .form-horizontal {
   margin-bottom: 15px;
-  background: white;
+  background: #f7f7f7;
   /*
   // Reset spacing and right align labels, but scope to media queries so that
   // labels on narrow viewports stack the same as a default form example.
@@ -15274,7 +15274,7 @@ fieldset[disabled] .checkbox label {
   margin: 0px;
   padding-top: 3px;
   bottom: 3px;
-  background-color: white;
+  background-color: #f7f7f7;
 }
 .form-horizontal .row > input.form-control, .form-horizontal .row > textarea.form-control, .form-horizontal .row > select.form-control {
   margin-left: 15px;
@@ -15341,7 +15341,7 @@ fieldset[disabled] .checkbox label {
 .ilFormHeader,
 .ilFormFooter {
   color: #161616;
-  background-color: white;
+  background-color: #f7f7f7;
 }
 
 .ilSubForm {
@@ -15404,7 +15404,7 @@ div[id^=ilFormField] {
 div.ilHFormHeader,
 div.ilHFormFooter {
   color: #161616;
-  background-color: white;
+  background-color: #f7f7f7;
   padding: 4px 0 4px 22px;
 }
 
@@ -15621,7 +15621,7 @@ div.ilStartupSection form.form-horizontal {
 }
 div.ilStartupSection form.form-horizontal .ilFormHeader {
   padding: 9px 15px;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 div.ilStartupSection form.form-horizontal .form-group {
   margin: 9px 0;
@@ -15637,7 +15637,7 @@ div.ilStartupSection form.form-horizontal .form-group {
 }
 
 .ilPCLearnHist {
-  background-color: white;
+  background-color: #f7f7f7;
   padding: 3px 9px;
 }
 
@@ -16030,7 +16030,7 @@ span.ilNewsRssIcon:hover {
   float: left;
   padding: 20px;
   position: relative;
-  background: #f9f9f9;
+  background: #ccdceb;
   border: 1px solid #dddddd;
 }
 @media only screen and (max-width: 991px) {
@@ -16126,7 +16126,7 @@ span.ilNewsRssIcon:hover {
   margin-top: 8px;
 }
 .ilTimeline div.ilNotesHeader {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 
 .ilNewsTimelineTruncatedText {
@@ -16234,12 +16234,12 @@ span.ilNewsRssIcon:hover {
 }
 
 div.ilNotes {
-  background-color: white;
+  background-color: #f7f7f7;
   padding: 15px;
 }
 
 #ilRightPanel div.ilNotes {
-  background-color: white;
+  background-color: #f7f7f7;
 }
 
 div.ilNotes .fullwidth_invisible {
@@ -16266,7 +16266,7 @@ div.ilNoteText {
 }
 
 div.ilNotesHeader {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   margin-bottom: 5px;
   padding: 3px 9px;
 }
@@ -16357,7 +16357,7 @@ div.ilCreationFormSection .form-horizontal {
 
 .ilObjListRow {
   border-bottom: 1px solid #dddddd;
-  background-color: white;
+  background-color: #f7f7f7;
 }
 .ilObjListRow:last-child {
   border-bottom: none;
@@ -16367,13 +16367,13 @@ div.ilCreationFormSection .form-horizontal {
   border-collapse: separate;
 }
 .table-striped > tbody > tr.ilObjListRow > td {
-  background-color: white;
+  background-color: #f7f7f7;
 }
 .table-striped > tbody > tr.ilObjListRow:hover > td {
-  background-color: rgb(180.5, 218.9516129032, 255);
+  background-color: white;
 }
 .table-striped > tbody > tr.ilObjListRow:hover:nth-child(2n+1) > td {
-  background-color: rgb(180.5, 218.9516129032, 255);
+  background-color: white;
 }
 
 #il-add-new-item-gl {
@@ -16436,7 +16436,7 @@ div.ilCreationFormSection .form-horizontal {
   padding-right: 5px;
   width: 278px;
   height: 377px;
-  background-color: white;
+  background-color: #f7f7f7;
 }
 #onscreenchat-container .chat-window-wrapper:last-child {
   padding-left: 0;
@@ -16530,7 +16530,7 @@ div.ilCreationFormSection .form-horizontal {
 }
 #onscreenchat-container .chat-window-wrapper .chat li.separator {
   text-align: center;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 #onscreenchat-container .chat-window-wrapper .chat li.separator p {
   font-size: 0.75rem;
@@ -16701,7 +16701,7 @@ input.ilMainMenuSearch {
 }
 
 #mm_search_menu_head {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   padding: 5px;
   font-size: 0.625rem;
 }
@@ -16754,7 +16754,7 @@ div.il_SearchFragment {
 
 /* Services/Skill */
 div.ilSkill {
-  background: #f9f9f9;
+  background: #ccdceb;
   padding: 15px;
   margin-bottom: 20px;
   margin-top: 10px;
@@ -16814,7 +16814,7 @@ td.ilSkillLevel {
 }
 
 th.ilSkill, td.ilSkillLevel {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 
 td.ilSkillSelf {
@@ -16917,7 +16917,7 @@ th.ilSkillEntryHead {
   width: 160px;
   height: 120px;
   margin: 3px;
-  background-color: white;
+  background-color: #f7f7f7;
   border: 0;
   box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3);
 }
@@ -16931,7 +16931,7 @@ div.ilc_PredTextPlaceHolderThumb {
   border: 1px solid #2c2c2c;
   font-size: 0.625rem;
   background: url("./images/placeholder/question_placeholder_thumb.png") no-repeat center;
-  background-color: white;
+  background-color: #f7f7f7;
   font-weight: 600;
 }
 
@@ -17014,7 +17014,7 @@ th {
   border-top: 2px solid #dddddd;
 }
 .table .table {
-  background-color: white;
+  background-color: #f7f7f7;
 }
 
 .table-condensed > thead > tr > th,
@@ -17027,7 +17027,7 @@ th {
 }
 
 .table-striped > tbody > tr:nth-of-type(odd) {
-  background-color: white;
+  background-color: #f7f7f7;
 }
 
 .table-responsive {
@@ -17058,7 +17058,7 @@ th {
 /* Services/Table */
 div.tblfooter {
   font-weight: 400;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   padding: 3px;
   font-size: 0.625rem;
   text-align: right;
@@ -17091,14 +17091,14 @@ div.ilTableNav .ilFloatRight .ilOverlay {
 tr.tblfooter {
   color: #161616;
   font-weight: 400;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   border-top: 1px solid #f0f0f0;
 }
 
 td.submit {
   padding: 3px;
   vertical-align: top;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 
 div.ilTableHeaderTitleBlock {
@@ -17131,11 +17131,11 @@ h3.ilTableHeaderTitle {
 
 div.ilTableOuter {
   padding: 0;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 
 div.ilTableSelectAll {
-  background-color: white;
+  background-color: #f7f7f7;
   padding: 6px 15px;
   font-size: 0.75rem;
   border-top: 1px solid #dddddd;
@@ -17146,7 +17146,7 @@ div.ilTableSelectAll label {
 }
 
 div.ilTableCommandRow, div.ilTableCommandRowTop {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   padding: 6px 12px;
   font-size: 0.75rem;
 }
@@ -17183,14 +17183,14 @@ legend.ilTableFilter > a.btn {
 }
 
 fieldset.ilTableFilter {
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   padding: 12px 15px;
   margin: 6px 0 15px 0;
 }
 
 div.ilTableFilterLabel {
   font-style: italic;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   padding: 3px 0px;
 }
 
@@ -17239,7 +17239,7 @@ div.ilTableContainer {
 
 tr.tblheader {
   font-weight: 400;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   font-size: 0.75rem;
   border-bottom: 1px solid #dddddd;
 }
@@ -17252,7 +17252,7 @@ tr.tblheader {
 }
 
 .tblrow1_mo {
-  background-color: white;
+  background-color: #f7f7f7;
   color: #161616;
   padding: 3px;
 }
@@ -17262,7 +17262,7 @@ tr.tblheader {
 }
 
 .tblrowmarked {
-  background-color: rgb(155, 206.6129032258, 255);
+  background-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
   color: #161616;
   padding: 3px;
 }
@@ -17275,14 +17275,14 @@ tr.tblheader {
 }
 
 .tblrow1top {
-  background-color: white;
+  background-color: #f7f7f7;
   color: #161616;
   padding: 3px;
   vertical-align: top;
 }
 
 .tblrowmarkedtop {
-  background-color: rgb(155, 206.6129032258, 255);
+  background-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
   color: #161616;
   padding: 3px;
   vertical-align: top;
@@ -17290,11 +17290,11 @@ tr.tblheader {
 
 .table > thead > tr > th {
   border-bottom: 1px solid #dddddd;
-  background-color: white;
+  background-color: #f7f7f7;
 }
 
 .ilTableOuter .table {
-  background-color: white;
+  background-color: #f7f7f7;
 }
 .ilTableOuter .table tr td:first-child input[type=checkbox] {
   margin-left: 6px;
@@ -17357,7 +17357,7 @@ td > img[src$="icon_custom.svg"] {
 }
 .ilTag.ilHighlighted, .ilTag.ilHighlighted:hover {
   background-color: #B54F00;
-  color: white;
+  color: #f7f7f7;
 }
 .ilTag.ilHighlighted:hover, .ilTag.ilHighlighted:hover:hover {
   background-color: rgb(155.5, 67.8701657459, 0);
@@ -17386,7 +17386,7 @@ div.il_adv_sel {
 
 table.il_adv_sel {
   color: #161616;
-  background-color: white;
+  background-color: #f7f7f7;
   border-spacing: 0;
   cursor: pointer;
 }
@@ -17433,7 +17433,7 @@ span[id^=ilAdvSelListAnchorElement_] + div {
 
 div[id^=ilAdvSelListTable_] {
   overflow: auto;
-  background-color: white;
+  background-color: #f7f7f7;
   clear: both;
   display: none;
   position: absolute;
@@ -17482,7 +17482,7 @@ div[id^=ilAdvSelListTable_] {
 @media only screen and (max-width: 768px) {
   #ilAdvSelListAnchorText_asl + ul.dropdown-menu {
     position: absolute;
-    background-color: white;
+    background-color: #f7f7f7;
   }
 }
 
@@ -17537,7 +17537,7 @@ div.ilChecklist ul a:hover {
 }
 
 div.ilChecklist ul li a:hover {
-  background-color: rgb(155, 206.6129032258, 255);
+  background-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
 }
 
 div.ilChecklist ul li p, div.ilChecklist ul li p:hover {
@@ -17561,11 +17561,11 @@ div.ilChecklist ul li img {
 /* Services/UI/Explorer2 */
 table.ilExplorer {
   width: 100%;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 
 body.il_Explorer {
-  background: none #f9f9f9;
+  background: none #ccdceb;
 }
 
 div.il_Explorer {
@@ -17581,7 +17581,7 @@ div.ilExpH {
 
 td.ilExpBody {
   border-top: 1px solid #dddddd;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
 }
 
 h1.ilExplorerHead {
@@ -17617,14 +17617,14 @@ li.il_Explorer {
 }
 
 a.il_HighlightedNode, .ilHighlighted {
-  background-color: rgb(155, 206.6129032258, 255);
+  background-color: rgb(251.9487179487, 252.9358974359, 236.0641025641);
   padding: 0 5px;
 }
 
 li.ilExplSecHighlight {
-  background-color: #f9f9f9 !important;
-  border-top: solid 2px rgb(0, 93.1612903226, 180.5);
-  border-bottom: solid 2px rgb(0, 93.1612903226, 180.5);
+  background-color: #ccdceb !important;
+  border-top: solid 2px rgb(218.6025641026, 230.3782051282, 29.1217948718);
+  border-bottom: solid 2px rgb(218.6025641026, 230.3782051282, 29.1217948718);
 }
 
 div.il_ExplorerItemDescription {
@@ -17853,7 +17853,7 @@ a.ilMediaLightboxClose:hover {
   border-radius: 0px 0px 0 0;
 }
 #ilTab > li > a:hover {
-  border-color: white white white;
+  border-color: #f7f7f7 #f7f7f7 #f7f7f7;
 }
 #ilTab > li > a:focus {
   border: inherit;
@@ -17893,7 +17893,7 @@ a.ilMediaLightboxClose:hover {
   outline: 3px solid #0078D7;
 }
 #ilTab > li.active > a, #ilTab > li.active > a:hover, #ilTab > li.active > a:focus {
-  color: white;
+  color: #f7f7f7;
   cursor: default;
   background-color: #161616;
   border: 0 none;
@@ -17996,10 +17996,10 @@ a.ilMediaLightboxClose:hover {
   background-color: #f0f0f0;
 }
 .nav > li.disabled > a {
-  color: #f9f9f9;
+  color: #ccdceb;
 }
 .nav > li.disabled > a:hover, .nav > li.disabled > a:focus {
-  color: #f9f9f9;
+  color: #ccdceb;
   text-decoration: none;
   cursor: not-allowed;
   background-color: transparent;
@@ -18026,7 +18026,7 @@ a.ilMediaLightboxClose:hover {
 
 .c-toolbar {
   padding: 9px 15px;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   margin-bottom: 15px;
 }
 .c-toolbar .ilToolbarSeparator {
@@ -18065,7 +18065,7 @@ a.ilMediaLightboxClose:hover {
 div.ilProfile {
   max-width: 450px;
   margin: 0 auto;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   padding: 15px;
 }
 div.ilProfile + div.ilProfile {
@@ -18104,7 +18104,7 @@ h3.ilProfileSectionHead {
 }
 
 table.il_user_quota_disk_usage_overview {
-  background-color: white;
+  background-color: #f7f7f7;
 }
 
 img.ilUserXXSmall {
@@ -18361,7 +18361,7 @@ div.ilFrame {
   -webkit-box-shadow: 0 0 40px #808080;
   box-shadow: 0 0 40px #808080;
   padding-top: 129px;
-  background-color: #f9f9f9;
+  background-color: #ccdceb;
   min-height: 100%;
 }
 @media only screen and (max-width: 991px) {

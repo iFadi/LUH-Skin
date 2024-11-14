@@ -4,8 +4,13 @@
 		$il-web-font-path: "../../../../../../templates/default/fonts/",
 		$il-icon-font-path: "../../../../../../templates/default/fonts/bootstrap/",
 		$il-main-color: #00509b,
+		$il-main-bg: #f7f7f7,
+		$il-main-dark-bg: #ccdceb,
 		$il-mainbar-btn-bg-color: darken(#00509b, 10%),
 		$il-footer-bg-color: #999999,
+		$il-page-bg: #f7f7f7,
+		$il-standard-page-header-bg-color: #f7f7f7,
+		$il-highlight-bg: lighten(#c8d317, 50%),
 );
 
 // Custom variables file needs to be included after the delos file
