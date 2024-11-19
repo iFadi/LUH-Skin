@@ -7,7 +7,7 @@
 		$il-main-bg: #f7f7f7,
 		$il-main-dark-bg: #ccdceb,
 		$il-mainbar-btn-bg-color: darken(#00509b, 10%),
-		$il-footer-bg-color: #999999,
+		$il-footer-bg-color: #cccccc,
 		$il-page-bg: #f7f7f7,
 		$il-standard-page-header-bg-color: #f7f7f7,
 		$il-highlight-bg: lighten(#c8d317, 50%),
@@ -24,4 +24,8 @@
 // Adjust logo size
 .il-logo img {
 		width: 40px;
+}
+// remove white box above the main content
+.ilc_media_cont_BlockStartseiteOben {
+	margin-bottom: 0; /* Add this line to remove the white box */
 }

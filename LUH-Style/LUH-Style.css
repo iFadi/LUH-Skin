@@ -3996,6 +3996,7 @@ hr.il-divider-with-label {
   border: none;
   box-shadow: none;
   outline: none;
+  height: auto;
   line-height: 1.428571429;
   font-weight: 600 !important;
 }
@@ -4847,7 +4848,7 @@ main {
 
 /* Footer */
 footer {
-  background-color: #999999;
+  background-color: #cccccc;
   min-height: auto;
   text-align: center;
   height: 45px;
@@ -6210,7 +6211,7 @@ footer {
 }
 footer {
   text-align: left;
-  background-color: #999999;
+  background-color: #cccccc;
   padding: 10px 0 10px 5px;
   border-top: 1px solid #dddddd;
 }
@@ -13839,6 +13840,15 @@ span.ilIcalIcon .btn {
   padding-right: 4px;
 }
 
+.calrecurrenceinput.form-inline label {
+  padding-right: unset;
+  vertical-align: unset;
+}
+
+.calrecurrenceinput.form-inline .form-control {
+  vertical-align: middle;
+}
+
 /* Services/Chart */
 td.legendColorBox, td.legendLabel {
   padding: 3px;
@@ -18803,6 +18813,10 @@ div.ilStartupSection form.form-horizontal .form-group {
 
 .il-logo img {
   width: 40px;
+}
+
+.ilc_media_cont_BlockStartseiteOben {
+  margin-bottom: 0; /* Add this line to remove the white box */
 }
 
 /*# sourceMappingURL=LUH-Style.css.map */
