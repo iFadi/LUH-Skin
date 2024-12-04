@@ -7,7 +7,7 @@ v1.0.7
 - [CHANGELOG](CHANGELOG.md)
 
 ## Screenshot
-![Screenshot](screenshots/xmas-2024-1.png)
+![Screenshot](screenshots/xmas-2024-0.png)
 ![Screenshot](screenshots/xmas-2024-2.png)
 
 ## Installation
