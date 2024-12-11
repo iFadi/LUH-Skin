@@ -20986,8 +20986,37 @@ div.ilStartupSection form.form-horizontal .ilFormHeader {
   width: 45px;
   height: 45px;
 }
-.il-layout-page-content > div {
-  background-image: url("images/Strichzeichung_Welfenschloss_inverted.png");
+.header-inner {
+  align-items: center;
+  background-image: url("images/xmas-header-2024.png");
+  background-size: auto 150%;
+  background-position: left top;
+  /* Align the image to the top-left corner */
   background-repeat: no-repeat;
+  /* Prevent the image from repeating */
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  padding: 0 15px;
+  position: fixed;
+  width: 100%;
+  justify-content: space-between;
+}
+footer {
+  background-image: url("images/xmas-footer-2024.png");
+  background-size: auto 200%;
+  /* Adjust size as necessary */
   background-position: right bottom;
+  /* Align the image to the bottom-right corner */
+  background-repeat: no-repeat;
+  /* Prevent the image from repeating */
+  padding: 10px 0 10px 5px;
+  border-top: 1px solid #dddddd;
+  height: 45px;
+  text-align: left;
+}
+.il-layout-page-content > div {
+  background-image: url("images/Strichzeichung_Welfenschloss_inverted.png"), url("images/xmas-tree-2024-1.png");
+  background-repeat: no-repeat, no-repeat;
+  background-position: right bottom, left bottom;
 }
