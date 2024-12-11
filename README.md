@@ -7,7 +7,8 @@ v1.0.7
 - [CHANGELOG](CHANGELOG.md)
 
 ## Screenshot
-![Screenshot](screenshots/luh-skin-1.png)
+![Screenshot](screenshots/xmas-2024-0.png)
+![Screenshot](screenshots/xmas-2024-2.png)
 
 ## Installation
 
@@ -54,7 +55,7 @@ Falls auf dem produktiven System `lessc` nicht installiert ist, kann das oben ge
 Daher ist es vorteilhaft, die kompilierte LUH-Style.css zum Beispiel auf einem Testsystem in einer bestimmten Tag- oder Skin-Version hinzuzufügen.
 
 ## Dieses Release wurde mit den folgenden ILIAS-Versionen getestet:
-* v8.9 - v8.15
+* v8.9 - v8.16
 
 **WICHTIG**: Der Skin sollte bei jeder ILIAS Minor- und Major-Release auf Funktionalität getestet werden. Bei jedem ILIAS-Update muss der Skin neu kompiliert werden.
 
