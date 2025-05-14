@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.1.0](https://github.com/iFadi/LUH-Skin/compare/v1.0.7...v1.1.0) (2025-05-14)
+
+
+### Features
+
+* initial release for ilias 9 ([f52d91f](https://github.com/iFadi/LUH-Skin/commit/f52d91f4817a9f1ae211eb545d4fd2b13873f188))
+
+
+### Bug Fixes
+
+* changed footer color, fixed white box issue in magazin ([27b77e3](https://github.com/iFadi/LUH-Skin/commit/27b77e37710479663f7fe5fe695fe8c4ceacafc3))
+* colors style ([17925e7](https://github.com/iFadi/LUH-Skin/commit/17925e7c7654b4b0bac5b160a546ed7703ad6ff2))
+* hotfix ([cc4377c](https://github.com/iFadi/LUH-Skin/commit/cc4377cda65b7a9086bd38d639c16b80093d9141))
+* hotfix 2 ([52b8aba](https://github.com/iFadi/LUH-Skin/commit/52b8aba31aa897ed459e4eacad88ba686c6e37ba))
+* update colors ([d386409](https://github.com/iFadi/LUH-Skin/commit/d3864097abbaaa0279bcfd4fc55c7d4da153930a))
+* update LUH colors ([3b07ce5](https://github.com/iFadi/LUH-Skin/commit/3b07ce55ff146c9478dfe59c8c272dbb2f71d6c6))
+
 ## [1.0.7](https://github.com/iFadi/LUH-Skin/compare/v1.0.6...v1.0.7) (2024-10-21)
 
 
