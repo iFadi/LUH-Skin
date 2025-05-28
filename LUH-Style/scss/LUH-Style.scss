@@ -1,31 +1,41 @@
-// i.e., delos means delos.scss
-// Order matters; we use delos as first.
+// --------------------------------------------
+// LUH-Style.scss
+// Custom ILIAS skin styles for LUH
+// --------------------------------------------
+
+// Define the base path for static files
+// Default: "/" for production
+// This value is dynamically replaced in dev by the build script
+$base-path: "/";
+
+// Construct font paths based on the base path
+$web-font-path: "#{$base-path}/templates/default/fonts/";
+$icon-font-path: "#{$base-path}/templates/default/fonts/bootstrap/";
+
+// Import base delos theme with custom variables
 @use "../../../../../../templates/default/delos" as delos with (
-		$il-web-font-path: "../../../../../../templates/default/fonts/",
-		$il-icon-font-path: "../../../../../../templates/default/fonts/bootstrap/",
-		//$il-main-color: #00509b,
-		//$il-main-bg: #f7f7f7,
-		//$il-main-dark-bg: #ccdceb,
-		$il-mainbar-btn-bg-color: darken(#00509b, 10%),
-		$il-footer-bg-color: #cccccc,
-		//$il-page-bg: #f7f7f7,
-		$il-standard-page-header-bg-color: #f7f7f7,
-		//$il-highlight-bg: rgba(76, 101, 134, 0.3),
+  $il-web-font-path: $web-font-path,
+  $il-icon-font-path: $icon-font-path,
+  $il-mainbar-btn-bg-color: darken(#00509b, 10%),
+  $il-footer-bg-color: #cccccc,
+  $il-standard-page-header-bg-color: #f7f7f7
 );
 
-// Custom variables file needs to be included after the delos file
-// In custom variables you can add/edit colors, sizes, etc.
+// Import custom modules in correct order
 @use "pages/login";
 @use "layout/background";
 @use "components/breadcrumb";
 @use "components/maincontrols";
 @use "settings/mainbar";
 
+// Custom styling
+
 // Adjust logo size
 .il-logo img {
-		width: 40px;
+	width: 40px;
 }
-// remove white box above the main content
+
+// Remove white box above main content
 .ilc_media_cont_BlockStartseiteOben {
-	margin-bottom: 0; /* Add this line to remove the white box */
+	margin-bottom: 0;
 }
