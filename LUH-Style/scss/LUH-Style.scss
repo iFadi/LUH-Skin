@@ -4,13 +4,14 @@
 // --------------------------------------------
 
 // Define the base path for static files
-// Default: "/" for production
-// This value is dynamically replaced in dev by the build script
-$base-path: "/";
+// Default: "" for production
+// This value is dynamically replaced in dev by the update script
+$base-path: "";
 
 // Construct font paths based on the base path
 $web-font-path: "#{$base-path}/templates/default/fonts/";
 $icon-font-path: "#{$base-path}/templates/default/fonts/bootstrap/";
+$background-images-path: "#{$base-path}/templates/default/images/";
 
 // Import base delos theme with custom variables
 @use "../../../../../../templates/default/delos" as delos with (

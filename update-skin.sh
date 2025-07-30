@@ -20,13 +20,32 @@ echo "Compiling SASS files for ILIAS skin..."
 echo "Removing old LUH-Style.css..."
 rm -f LUH-Style/LUH-Style.css
 
-# Set base path depending on argument
-if [[ "$1" == "dev" ]]; then
-    echo "⚙️  Using development base path: /ilias-luh"
-    base_path="/ilias-luh"
+# Read environment and base path from arguments
+env="$1"
+base_path="$2"
+
+# Default values if not provided
+if [[ -z "$env" ]]; then
+    echo "⚠️  No environment specified (dev or prod), defaulting to prod"
+    env="prod"
+fi
+
+if [[ -z "$base_path" ]]; then
+    if [[ "$env" == "dev" ]]; then
+        base_path="/ilias-luh/"
+    else
+        base_path=""
+    fi
+    echo "ℹ️  No base path provided, using default: $base_path"
 else
-    echo "⚙️  Using production base path: /"
-    base_path="/"
+    echo "ℹ️  Using provided base path: $base_path"
+fi
+
+# Set build mode
+if [[ "$env" == "dev" ]]; then
+    build_mode="Development"
+else
+    build_mode="Production"
 fi
 
 # Replace the $base-path value dynamically
@@ -41,5 +60,7 @@ sass LUH-Style/scss/LUH-Style.compiled.scss LUH-Style/LUH-Style.css
 # Cleanup
 rm LUH-Style/scss/LUH-Style.compiled.scss
 
-echo "...done!"
+echo "✅ Compilation completed!"
+echo "👉 Output: LUH-Style/LUH-Style.css"
+echo "🔧 Mode: $build_mode"
 echo "--------------------"
