@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/iFadi/LUH-Skin/compare/v1.1.0...v1.1.1) (2025-07-30)
+
+
+### Bug Fixes
+
+* path for dev env ([d5d22ab](https://github.com/iFadi/LUH-Skin/commit/d5d22abda22687284c3c46a11a91cc4fbe1244a7))
+* refactor update script ([a9a0e22](https://github.com/iFadi/LUH-Skin/commit/a9a0e22e755d2bc96f3286d330450870586298c7))
+
 ## [1.1.0](https://github.com/iFadi/LUH-Skin/compare/v1.0.7...v1.1.0) (2025-05-14)
 
 
