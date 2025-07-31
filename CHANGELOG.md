@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/iFadi/LUH-Skin/compare/v1.1.1...v1.1.2) (2025-07-31)
+
+
+### Bug Fixes
+
+* reademe ([08ffc7f](https://github.com/iFadi/LUH-Skin/commit/08ffc7fd6ab2046f4780727e6170df8e98b4c06d))
+
 ## [1.1.1](https://github.com/iFadi/LUH-Skin/compare/v1.1.0...v1.1.1) (2025-07-30)
 
 
