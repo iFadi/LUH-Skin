@@ -32,7 +32,7 @@ fi
 
 if [[ -z "$base_path" ]]; then
     if [[ "$env" == "dev" ]]; then
-        base_path="/ilias-luh/"
+        base_path=".."
     else
         base_path=""
     fi
@@ -50,7 +50,7 @@ fi
 
 # Replace the $base-path value dynamically
 echo "Injecting base path..."
-sed "s|\$base-path: \"/\";|\$base-path: \"$base_path\";|" \
+sed "s|\$base-path: \".*\";|\$base-path: \"$base_path\";|" \
     LUH-Style/scss/LUH-Style.scss > LUH-Style/scss/LUH-Style.compiled.scss
 
 # Compile with SASS

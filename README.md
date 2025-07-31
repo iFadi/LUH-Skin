@@ -44,7 +44,7 @@ cd LUH-Skin
 Beispiel für einen stabilen Release-Tag:
 
 ```bash
-git checkout tags/v2.0.0
+git checkout tags/v1.1.1
 ```
 
 Falls du dich auf dem `release_9`-Branch befindest, kannst du einfach ein Pull durchführen:
@@ -81,7 +81,7 @@ Kompiliere die `LUH-Style.css` auf einem **Testsystem** (z. B. mit definierter
 
 Dieses Release wurde erfolgreich getestet mit:
 
-* **ILIAS v9.15**
+* **ILIAS v9.12**
 
 ---
 
