@@ -1,0 +1,5 @@
+@use "../settings/colors" as *;
+
+.btn-bulky:hover, .il-link.link-bulky:hover, .il-drilldown .menulevel:hover {
+		border-left: 5px solid $il-brand-green-luh;
+}

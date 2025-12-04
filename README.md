@@ -34,9 +34,9 @@ Nun werden wir den LUH-Skin innerhalb des Skin-Ordners installieren; dazu führe
 
 Dann den entsprechenden Branch bzw. Tag auswählen z.B.:
 
-`git checkout tags/v1.0.0`
+`git checkout tags/v2.0.0`
 
-bzw. falls man auf dem ilias-8x branch ist, dann kann man einfach git pull machen.
+bzw. falls man auf dem release_9 branch ist, dann kann man einfach git pull machen.
 
 `git pull`
 
@@ -45,17 +45,20 @@ Das war es.
 
 ## Für die Implementierung
 
-Less-Dateien anpassen. Danach das Skript `update-skin.sh` als root ausführen, um die Less-Dateien zu kompilieren.
+Zur Anpassung des Skins müssen die `.scss`-Dateien bearbeitet werden. Anschließend ist das Skript `update-skin.sh` **als root** auszuführen, um die **SCSS-Dateien zu kompilieren**.
 
 ```sudo ./update-skin.sh```
 
 Dieses Skript benutzt die Systemzeit, um die CSS-Dateien mit einer eindeutigen ID zu versehen. 
 Diese ID wird an den Hauptdateinamen des Skins LUH-Style.css angehängt, um das Neuladen der Skin-Änderungen im Browser zu erzwingen.
-Falls auf dem produktiven System `lessc` nicht installiert ist, kann das oben genannte Skript nicht ausgeführt werden.
+Falls auf dem produktiven System `dart-sass` nicht installiert ist, kann das oben genannte Skript nicht ausgeführt werden.
 Daher ist es vorteilhaft, die kompilierte LUH-Style.css zum Beispiel auf einem Testsystem in einer bestimmten Tag- oder Skin-Version hinzuzufügen.
 
-## Dieses Release wurde mit den folgenden ILIAS-Versionen getestet:
-* v8.9 - v8.16
+## ✅ Kompatibilität
+
+Dieses Release wurde erfolgreich getestet mit:
+
+* **ILIAS v9.12**
 
 **WICHTIG**: Der Skin sollte bei jeder ILIAS Minor- und Major-Release auf Funktionalität getestet werden. Bei jedem ILIAS-Update muss der Skin neu kompiliert werden.
 
