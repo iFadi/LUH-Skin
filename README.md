@@ -2,7 +2,7 @@
 Dieser Skin wurde dem [LUH-Stil](https://www.uni-hannover.de/) entsprechend angepasst.
 
 ## Version
-v1.0.7
+v2.0.0
 
 - [CHANGELOG](CHANGELOG.md)
 
@@ -58,7 +58,7 @@ Daher ist es vorteilhaft, die kompilierte LUH-Style.css zum Beispiel auf einem T
 
 Dieses Release wurde erfolgreich getestet mit:
 
-* **ILIAS v9.12**
+* **ILIAS v9.15**
 
 **WICHTIG**: Der Skin sollte bei jeder ILIAS Minor- und Major-Release auf Funktionalität getestet werden. Bei jedem ILIAS-Update muss der Skin neu kompiliert werden.
 

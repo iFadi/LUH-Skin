@@ -14,10 +14,11 @@ $icon-font-path: "#{$base-path}/templates/default/fonts/bootstrap/";
 $background-images-path: "#{$base-path}/templates/default/images/";
 
 // Import base delos theme with custom variables
+@use "sass:color";
 @use "../../../../../../templates/default/delos" as delos with (
   $il-web-font-path: $web-font-path,
   $il-icon-font-path: $icon-font-path,
-  $il-mainbar-btn-bg-color: darken(#00509b, 10%),
+  $il-mainbar-btn-bg-color: color.adjust(#00509b, $lightness: -10%),
   $il-footer-bg-color: #cccccc,
   $il-standard-page-header-bg-color: #f7f7f7
 );
