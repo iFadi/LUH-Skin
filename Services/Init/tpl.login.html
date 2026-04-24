@@ -24,39 +24,31 @@
                 <span>Weitere Anmeldeoptionen</span>
             </div>
 
-            <!-- Secondary row: ILIAS login + Erstanmeldung -->
+            <!-- Secondary row: Gasthörende | ILIAS login | Erstanmeldung -->
             <div class="luh-secondary-row">
 
-                <!-- ILIAS login + Stud.IP login column -->
-                <div class="ilFormLoginMask" id="ilias_login">
-
-                    <!-- Notice for Gasthörende -->
+                <!-- Gasthörende — standalone block -->
+                <div class="ilFormLoginMask luh-gasthoerender-block">
                     <p class="luh-gasthoerender-notice">
-                        Gasthörende melden sich bitte über
-                        <a href="https://studip.uni-hannover.de/"
-                           target="_blank" rel="noopener noreferrer"
-                           class="luh-link-muted">Stud.IP</a>
-                        in ILIAS an.
+                        Gasthörende können sich bitte über Stud.IP und von da zu ILIAS bewegen.
                     </p>
+                    <a class="btn luh-btn-studip"
+                       href="https://studip.uni-hannover.de/"
+                       target="_blank" rel="noopener noreferrer"
+                       aria-label="Stud.IP Login öffnen">Stud.IP Login</a>
+                </div>
 
-                    <!-- Login buttons side by side -->
-                    <div class="luh-login-buttons">
-                        <a class="btn luh-btn-secondary"
-                           data-scroll-focus="#username"
-                           data-scroll-to="#login_form_footer"
-                           href="#"
-                           id="ilias_login_link"
-                           aria-expanded="false"
-                           aria-controls="login_form_footer"
-                           aria-label="ILIAS Login öffnen">ILIAS Login</a>
-
-                        <a class="btn luh-btn-studip"
-                           href="https://studip.uni-hannover.de/"
-                           target="_blank" rel="noopener noreferrer"
-                           aria-label="Stud.IP Login öffnen">Stud.IP Login</a>
-                    </div>
-
-                    <p>Personen ohne LUH-ID, Gasthörende, Gäste und Administrierende,
+                <!-- ILIAS login toggle -->
+                <div class="ilFormLoginMask" id="ilias_login">
+                    <a class="btn luh-btn-secondary"
+                       data-scroll-focus="#username"
+                       data-scroll-to="#login_form_footer"
+                       href="#"
+                       id="ilias_login_link"
+                       aria-expanded="false"
+                       aria-controls="login_form_footer"
+                       aria-label="ILIAS Login öffnen">ILIAS Login</a>
+                    <p>Personen ohne LUH-ID, Gäste und Administrierende,
                         <a class="luh-link-muted"
                            data-scroll-focus="#not-websso-warning"
                            data-scroll-to="#login_form_footer"

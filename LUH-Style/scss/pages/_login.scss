@@ -188,26 +188,21 @@ div.ilFormLoginMask {
     width: 220px;
 }
 
-// ── ILIAS login column (wider to hold two side-by-side buttons) ───────────
+// ── ILIAS login column ────────────────────────────────────────────────────
 #ilias_login {
-    width: 340px;
+    width: 200px;
 }
 
-// ── Gasthörende notice ────────────────────────────────────────────────────
+// ── Gasthörende standalone block ──────────────────────────────────────────
+.luh-gasthoerender-block {
+    width: 220px;
+}
+
 .luh-gasthoerender-notice {
-    margin: 0 0 12px;
-    font-size: 12px;
+    margin: 0 0 14px;
+    font-size: 13px;
     color: #555;
-    line-height: 1.5;
-}
-
-// ── Button pair container ─────────────────────────────────────────────────
-.luh-login-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 4px;
+    line-height: 1.55;
 }
 
 // ── Stud.IP login button ──────────────────────────────────────────────────
@@ -401,8 +396,9 @@ div.ilStartupSection form.form-horizontal .form-group {
         padding: 0 16px 20px 0;
     }
 
-    #ilias_login {
-        width: 300px;
+    #ilias_login,
+    .luh-gasthoerender-block {
+        width: 180px;
     }
 }
 
@@ -425,28 +421,18 @@ div.ilStartupSection form.form-horizontal .form-group {
         flex-direction: column;
     }
 
-    div.ilFormLoginMask {
+    div.ilFormLoginMask,
+    .luh-gasthoerender-block {
         width: 100%;
-        max-width: 340px;
+        max-width: 300px;
         padding: 0 0 16px;
-    }
-
-    #ilias_login {
-        width: 100%;
-        max-width: 340px;
-    }
-
-    // Stack the two login buttons vertically on small screens
-    .luh-login-buttons {
-        flex-direction: column;
-        gap: 8px;
     }
 
     .luh-btn-secondary,
     #ilias_login_link,
     .luh-btn-studip {
         width: 100%;
-        max-width: 300px;
+        max-width: 280px;
         text-align: center;
     }
 
