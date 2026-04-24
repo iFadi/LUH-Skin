@@ -205,39 +205,6 @@ div.ilFormLoginMask {
     line-height: 1.5;
 }
 
-// ── Stud.IP login button ──────────────────────────────────────────────────
-.luh-btn-studip {
-    display: block;
-    width: 100%;
-    padding: 12px 18px;
-    font-size: 15px;
-    font-weight: 500;
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-    background-color: #28497c;
-    border: 1.5px solid #28497c;
-    border-radius: 8px;
-    box-shadow: none;
-    white-space: nowrap;
-    transition:
-        background-color 0.15s ease,
-        border-color 0.15s ease;
-
-    &:hover,
-    &:focus {
-        background-color: #1d3860;
-        border-color: #1d3860;
-        color: #fff;
-        text-decoration: none;
-        outline: none;
-    }
-
-    &:focus-visible {
-        outline: 3px solid $il-brand-primary-luh-light;
-        outline-offset: 2px;
-    }
-}
 
 // ── Secondary (ghost) button ─────────────────────────────────────────────
 .luh-btn-secondary,
@@ -428,8 +395,7 @@ div.ilStartupSection form.form-horizontal .form-group {
     }
 
     .luh-btn-secondary,
-    #ilias_login_link,
-    .luh-btn-studip {
+    #ilias_login_link {
         width: 100%;
         max-width: 280px;
         text-align: center;

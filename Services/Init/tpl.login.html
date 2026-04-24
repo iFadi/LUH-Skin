@@ -36,23 +36,18 @@
                        id="ilias_login_link"
                        aria-expanded="false"
                        aria-controls="login_form_footer"
-                       aria-label="ILIAS Login öffnen">ILIAS Login</a>
-                    <p>Personen ohne LUH-ID, Gäste und Administrierende,
-                        <a class="luh-link-muted"
-                           data-scroll-focus="#not-websso-warning"
-                           data-scroll-to="#login_form_footer"
-                           href="#">Selbstregistrierung</a>
-                    </p>
+                       aria-label="Login ohne WebSSO öffnen">Login</a>
+                    <p>Login ohne WebSSO</p>
                 </div>
 
-                <!-- 2: Gasthörende / Stud.IP -->
+                <!-- 2: Gasthörende / Stud.IP (plain link, no button) -->
                 <div class="ilFormLoginMask luh-gasthoerender-block">
-                    <a class="btn luh-btn-studip"
-                       href="https://studip.uni-hannover.de/"
-                       target="_blank" rel="noopener noreferrer"
-                       aria-label="Stud.IP Login öffnen">Stud.IP Login</a>
                     <p class="luh-gasthoerender-notice">
-                        Gasthörende können sich bitte über Stud.IP und von da zu ILIAS bewegen.
+                        Gasthörende können sich bitte über
+                        <a href="https://studip.uni-hannover.de/"
+                           target="_blank" rel="noopener noreferrer"
+                           class="luh-info-link">Stud.IP</a>
+                        und von da zu ILIAS bewegen.
                     </p>
                 </div>
 
