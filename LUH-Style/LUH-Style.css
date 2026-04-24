@@ -372,15 +372,6 @@
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
 }
-@media (prefers-contrast: more) {
-  .caret {
-    border: none;
-  }
-  .caret:before {
-    font-family: il-icons;
-    content: "\e604";
-  }
-}
 
 .dropup,
 .dropdown {
@@ -392,15 +383,14 @@
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
   z-index: 1000;
   display: none;
   float: left;
   overflow: auto;
-  min-width: 160px;
+  min-width: 200px;
   max-height: 50vh;
-  padding: 5px 0;
-  margin: 2px 0 0;
+  padding: 6px 0;
+  margin: 3px 0 0;
   font-size: 0.875rem;
   text-align: left;
   list-style: none;
@@ -415,6 +405,14 @@
   right: 0;
   left: auto;
 }
+.dropdown-menu.dropdown-menu__right {
+  right: auto;
+  left: 0;
+}
+.dropdown-menu.dropdown-menu__left {
+  right: 0;
+  left: auto;
+}
 .dropdown-menu .divider {
   height: 1px;
   margin: 9px 0;
@@ -423,6 +421,12 @@
 }
 .dropdown-menu hr {
   margin: 6px 0;
+}
+.dropdown-menu > .dropdown-menu-list {
+  padding: 6px 0;
+  margin: 3px 0 0;
+  text-align: left;
+  list-style-type: none;
 }
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
@@ -513,26 +517,33 @@
 .dropdown-menu .row > ul[class*=col-] {
   padding-left: 15px;
 }
-.dropdown-menu li > a,
-.dropdown-menu li > .btn-link {
-  display: block;
+.dropdown-menu li a,
+.dropdown-menu li .btn-link {
+  display: flex;
+  align-items: center;
   width: 100%;
-  clear: both;
   border: none;
-  padding: 3px 15px;
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.428571429;
   background-color: transparent;
   color: #161616;
+  min-height: 28px;
+  width: 100%;
+  padding: 3px 15px;
+  justify-content: start;
   white-space: nowrap;
 }
-.dropdown-menu li > a:hover, .dropdown-menu li > a:focus,
-.dropdown-menu li > .btn-link:hover,
-.dropdown-menu li > .btn-link:focus {
-  text-decoration: none;
+.dropdown-menu li a:hover, .dropdown-menu li a:focus,
+.dropdown-menu li .btn-link:hover,
+.dropdown-menu li .btn-link:focus {
   color: black;
   background-color: rgb(226.2857142857, 231.6428571429, 238.7142857143);
+  text-decoration: none;
+}
+.dropdown-menu li a[disabled],
+.dropdown-menu li .btn-link[disabled] {
+  background-color: #b0b0b0;
 }
 .dropdown-menu img {
   border: 0;
@@ -2523,22 +2534,6 @@ ol.breadcrumb > li + li:before {
 .il-drilldown .menulevel, .navbar-form > a {
   display: inline-flex;
   vertical-align: middle;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  user-select: none;
-  touch-action: manipulation;
-  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
-  text-align: center;
-  line-height: inherit;
-  font-size: inherit;
-  font-weight: 400;
-  text-decoration: none;
-  min-height: 28px;
-  min-width: 28px;
-  font-size: 0.75rem;
-  padding: 3px 6px;
-  gap: 6px;
 }
 .btn + .btn, .il-link.link-bulky + .btn,
 .il-drilldown .menulevel + .btn, .btn + .il-link.link-bulky, .il-link.link-bulky + .il-link.link-bulky,
@@ -2550,10 +2545,32 @@ ol.breadcrumb > li + li:before {
 .il-drilldown .navbar-form > .menulevel + a, .navbar-form > a + a {
   margin-left: 3px;
 }
+.btn, .il-link.link-bulky,
+.il-drilldown .menulevel, .navbar-form > a {
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  text-align: center;
+  line-height: inherit;
+  font-size: inherit;
+  font-weight: 400;
+  text-decoration: none;
+}
 .btn:focus-visible, .il-link.link-bulky:focus-visible,
 .il-drilldown .menulevel:focus-visible, .navbar-form > a:focus-visible {
   outline: 3px solid #0078D7;
   box-shadow: inset 0px 0px 0px 2px #FFFFFF, 0px 0px 0px 5px #FFFFFF;
+}
+.btn, .il-link.link-bulky,
+.il-drilldown .menulevel, .navbar-form > a {
+  min-height: 28px;
+  min-width: 28px;
+  font-size: 0.75rem;
+  padding: 3px 6px;
+  gap: 6px;
 }
 
 a.btn.disabled, a.disabled.il-link.link-bulky,
@@ -2697,28 +2714,6 @@ input.btn, input.il-link.link-bulky,
 .ilTableNav > table > tbody > tr > td > .dropdown.navbar-form > a {
   display: inline-flex;
   vertical-align: middle;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  user-select: none;
-  touch-action: manipulation;
-  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
-  text-align: center;
-  line-height: inherit;
-  font-size: inherit;
-  font-weight: 400;
-  text-decoration: none;
-  min-height: 2.2rem;
-  min-width: 2.2rem;
-  font-size: 0.75rem;
-  padding: 3px 6px;
-  gap: 6px;
-  background-color: rgb(226.2857142857, 231.6428571429, 238.7142857143);
-  color: #4c6586;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(226.2857142857, 231.6428571429, 238.7142857143);
-  border-radius: 10px;
 }
 .btn-ctrl + .btn-ctrl, .il-viewcontrol-section > .btn-default + .btn-ctrl, .il-viewcontrol-section > .btn-link + .btn-ctrl,
 .il-viewcontrol-section .btn-group > .btn-default + .btn-ctrl,
@@ -3224,6 +3219,36 @@ input.btn, input.il-link.link-bulky,
 .ilTableNav > table > tbody > tr > td > .dropdown.navbar-form > a + a {
   margin-left: 3px;
 }
+.btn-ctrl, .il-viewcontrol-section > .btn-default, .il-viewcontrol-section > .btn-link,
+.il-viewcontrol-section .btn-group > .btn-default,
+.il-viewcontrol-section .btn-group > .btn-link,
+.il-viewcontrol-pagination__sectioncontrol > .btn-default,
+.il-viewcontrol-pagination__sectioncontrol > .btn-link,
+.il-viewcontrol-pagination__num-of-items > .btn-default,
+.il-viewcontrol-pagination__num-of-items > .btn-link,
+.il-viewcontrol-pagination > .btn-default,
+.il-viewcontrol-pagination > .btn-link,
+.il-viewcontrol-pagination .dropdown > .btn-default,
+.il-viewcontrol-pagination .dropdown > .btn-link,
+.il-viewcontrol-pagination .last > .btn-default,
+.il-viewcontrol-pagination .last > .btn-link,
+.il-viewcontrol-mode > .btn-default,
+.il-viewcontrol-mode > .btn-link, .il-viewcontrol-sortation .dropdown > .btn-default.btn,
+.il-table-presentation-viewcontrols .l-bar__space-keeper .l-bar__group .l-bar__element > .btn-default.btn, .ilTableNav > table > tbody > tr > td > .btn-group > .btn-link,
+.ilTableNav > table > tbody > tr > td > .dropdown > .btn-default,
+.ilTableNav > table > tbody > tr > td > .dropdown.navbar-form > a {
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  text-align: center;
+  line-height: inherit;
+  font-size: inherit;
+  font-weight: 400;
+  text-decoration: none;
+}
 .btn-ctrl:focus-visible, .il-viewcontrol-section > .btn-default:focus-visible, .il-viewcontrol-section > .btn-link:focus-visible,
 .il-viewcontrol-section .btn-group > .btn-default:focus-visible,
 .il-viewcontrol-section .btn-group > .btn-link:focus-visible,
@@ -3244,6 +3269,36 @@ input.btn, input.il-link.link-bulky,
 .ilTableNav > table > tbody > tr > td > .dropdown.navbar-form > a:focus-visible {
   outline: 3px solid #0078D7;
   box-shadow: inset 0px 0px 0px 2px #FFFFFF, 0px 0px 0px 5px #FFFFFF;
+}
+.btn-ctrl, .il-viewcontrol-section > .btn-default, .il-viewcontrol-section > .btn-link,
+.il-viewcontrol-section .btn-group > .btn-default,
+.il-viewcontrol-section .btn-group > .btn-link,
+.il-viewcontrol-pagination__sectioncontrol > .btn-default,
+.il-viewcontrol-pagination__sectioncontrol > .btn-link,
+.il-viewcontrol-pagination__num-of-items > .btn-default,
+.il-viewcontrol-pagination__num-of-items > .btn-link,
+.il-viewcontrol-pagination > .btn-default,
+.il-viewcontrol-pagination > .btn-link,
+.il-viewcontrol-pagination .dropdown > .btn-default,
+.il-viewcontrol-pagination .dropdown > .btn-link,
+.il-viewcontrol-pagination .last > .btn-default,
+.il-viewcontrol-pagination .last > .btn-link,
+.il-viewcontrol-mode > .btn-default,
+.il-viewcontrol-mode > .btn-link, .il-viewcontrol-sortation .dropdown > .btn-default.btn,
+.il-table-presentation-viewcontrols .l-bar__space-keeper .l-bar__group .l-bar__element > .btn-default.btn, .ilTableNav > table > tbody > tr > td > .btn-group > .btn-link,
+.ilTableNav > table > tbody > tr > td > .dropdown > .btn-default,
+.ilTableNav > table > tbody > tr > td > .dropdown.navbar-form > a {
+  min-height: 2.2rem;
+  min-width: 2.2rem;
+  font-size: 0.75rem;
+  padding: 3px 6px;
+  gap: 6px;
+  background-color: rgb(226.2857142857, 231.6428571429, 238.7142857143);
+  color: #4c6586;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(226.2857142857, 231.6428571429, 238.7142857143);
+  border-radius: 10px;
 }
 .btn-ctrl:hover, .il-viewcontrol-section > .btn-default:hover, .il-viewcontrol-section > .btn-link:hover,
 .il-viewcontrol-section .btn-group > .btn-default:hover,
@@ -3495,6 +3550,7 @@ input.btn, input.il-link.link-bulky,
   background-color: #b0b0b0;
   color: black;
   border: 1px solid #b0b0b0;
+  cursor: not-allowed;
 }
 .btn-link[disabled]:hover, fieldset[disabled] .btn-link:hover {
   text-decoration: none;
@@ -3622,13 +3678,15 @@ button > .glyphicon {
   background-image: url("./images/media/loader.svg");
   background-color: #b0b0b0;
   border-color: #b0b0b0;
-  background-repeat: no-repeat;
-  background-position: right center;
-  padding-right: 18px;
 }
 .il-btn-with-loading-animation:hover {
   background-color: #b0b0b0;
   border-color: #b0b0b0;
+}
+.il-btn-with-loading-animation {
+  background-repeat: no-repeat;
+  background-position: right center;
+  padding-right: 18px;
 }
 
 .minimize, .close {
@@ -3659,17 +3717,6 @@ button .minimize, button .close {
   white-space: nowrap;
   padding: 1px 3px;
   margin: 3px 6px 3px 0;
-  min-height: 28px;
-  min-width: 28px;
-  font-size: 0.75rem;
-  padding: 3px 6px;
-  gap: 6px;
-  background-color: #4c6586;
-  color: white;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #4c6586;
-  border-radius: 3px;
 }
 .btn-tag.btn-tag-inactive {
   cursor: default !important;
@@ -3698,6 +3745,19 @@ button .minimize, button .close {
   color: #161616;
   background-color: #75deea;
   border-color: rgb(132.9, 209.3615384615, 218.1);
+}
+.btn-tag {
+  min-height: 28px;
+  min-width: 28px;
+  font-size: 0.75rem;
+  padding: 3px 6px;
+  gap: 6px;
+  background-color: #4c6586;
+  color: white;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #4c6586;
+  border-radius: 3px;
 }
 .btn-tag:hover {
   text-decoration: none;
@@ -3825,7 +3885,6 @@ button .minimize, button .close {
   border: 1px solid #dddddd;
   border-radius: 0;
   box-shadow: none;
-  /* see bug #24947 */
 }
 .il-card .il-card-image-container {
   width: 100%;
@@ -3838,6 +3897,9 @@ button .minimize, button .close {
   width: 100%;
   max-height: 100%;
   margin: auto;
+}
+.il-card {
+  /* see bug #24947 */
 }
 .il-card a {
   overflow: hidden;
@@ -4286,9 +4348,6 @@ hr.il-divider-with-label {
 .c-entity.__actions .dropdown {
   height: max-content;
 }
-.c-entity.__secondary-identifier {
-  grid-area: second-id;
-}
 .c-entity.__secondary-identifier.--string, .c-entity.__secondary-identifier.--shy, .c-entity.__secondary-identifier.--shylink {
   width: 10rem;
 }
@@ -4297,6 +4356,9 @@ hr.il-divider-with-label {
 }
 .c-entity.__secondary-identifier.--image {
   width: 15rem;
+}
+.c-entity.__secondary-identifier {
+  grid-area: second-id;
 }
 .c-entity.__primary-identifier {
   grid-area: prim-id;
@@ -4983,8 +5045,6 @@ td.form-inline > div.form-group {
   border-style: solid;
   border-color: rgb(84.5, 122.9090909091, 46.0909090909);
   border-radius: 10px;
-  min-width: 50%;
-  width: max-content;
 }
 .c-launcher .btn-bulky:hover {
   text-decoration: none;
@@ -5022,6 +5082,10 @@ td.form-inline > div.form-group {
   border-style: solid;
   border-color: rgb(84.5, 122.9090909091, 46.0909090909);
   color: #000;
+}
+.c-launcher .btn-bulky {
+  min-width: 50%;
+  width: max-content;
 }
 .c-launcher .btn-bulky[disabled] {
   cursor: not-allowed;
@@ -5193,13 +5257,13 @@ main {
   display: block;
 }
 
+.il-layout-page-content:focus-visible {
+  outline: none;
+}
 .il-layout-page-content {
   display: flex;
   flex-flow: column;
   overflow: auto;
-}
-.il-layout-page-content:focus-visible {
-  outline: none;
 }
 .il-layout-page-content #mainspacekeeper {
   flex-grow: 1;
@@ -5522,15 +5586,15 @@ footer {
 }
 
 /* common css for characteristic value listing */
-.il-listing-characteristic-value-row {
-  /* i tried .ilClearFloat, did not work as expected */
-  border-top: solid #dddddd 1px;
-  padding: 12px 0;
-}
 .il-listing-characteristic-value-row::after {
   display: block;
   clear: both;
   content: "";
+}
+.il-listing-characteristic-value-row {
+  /* i tried .ilClearFloat, did not work as expected */
+  border-top: solid #dddddd 1px;
+  padding: 12px 0;
 }
 
 .il-listing-characteristic-value-row:first-child {
@@ -5759,6 +5823,12 @@ footer {
 .il-maincontrols-slate.il-maincontrols-slate-notification .il-maincontrols-slate-notification-title {
   padding: 12px;
 }
+.il-maincontrols-slate.il-maincontrols-slate-notification .il-maincontrols-slate-notification-title .btn-bulky .glyph :before {
+  content: " \e605";
+  font-family: "il-icons";
+  font-size: 1.0625rem;
+  margin-right: 10px;
+}
 .il-maincontrols-slate.il-maincontrols-slate-notification .il-maincontrols-slate-notification-title .btn-bulky {
   margin: -12px;
   border: none;
@@ -5767,12 +5837,6 @@ footer {
   padding: 12px;
   background-color: transparent;
   width: 50%;
-}
-.il-maincontrols-slate.il-maincontrols-slate-notification .il-maincontrols-slate-notification-title .btn-bulky .glyph :before {
-  content: " \e605";
-  font-family: "il-icons";
-  font-size: 1.0625rem;
-  margin-right: 10px;
 }
 .il-maincontrols-slate #il-tag-slate-container .btn-bulky .glyph :before, .il-maincontrols-slate #ilHelpPanel .btn-bulky .glyph :before {
   content: " \e605";
@@ -5897,17 +5961,17 @@ footer {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+@media (prefers-contrast: more) {
+  .il-maincontrols-metabar .glyphicon {
+    filter: none;
+  }
+}
 .il-maincontrols-metabar .glyphicon {
   filter: invert(50%);
   font-family: "il-icons";
   font-size: 1.0625rem;
   margin-right: 6px;
   position: relative;
-}
-@media (prefers-contrast: more) {
-  .il-maincontrols-metabar .glyphicon {
-    filter: none;
-  }
 }
 .il-maincontrols-metabar .input-group {
   display: block;
@@ -5980,13 +6044,15 @@ footer {
   background-color: #fafafa;
   position: absolute;
   max-width: 500px;
+}
+.il-metabar-slates .il-maincontrols-slate {
+  min-width: 500px;
+}
+.il-metabar-slates {
   max-height: 90vh;
   overflow-y: auto;
   right: 0;
   top: 60px;
-}
-.il-metabar-slates .il-maincontrols-slate {
-  min-width: 500px;
 }
 .il-metabar-slates .bulky-label {
   margin-top: auto;
@@ -6103,22 +6169,6 @@ footer {
 .il-mainbar-tool-trigger-item .il-link.link-bulky .bulky-label,
 .il-maincontrols-metabar > li > .btn-bulky .bulky-label,
 .il-maincontrols-metabar > li > .il-link.link-bulky .bulky-label {
-  /* edge, chrome, safari go here... */
-  /* may come with next firefox 68, https://caniuse.com/#search=clamp */
-  word-break: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
-}
-.il-mainbar-triggers .btn-bulky .bulky-label,
-.il-mainbar-triggers .il-link.link-bulky .bulky-label,
-.il-mainbar-tools-button .btn-bulky .bulky-label,
-.il-mainbar-tools-button .il-link.link-bulky .bulky-label,
-.il-mainbar-tool-trigger-item .btn-bulky .bulky-label,
-.il-mainbar-tool-trigger-item .il-link.link-bulky .bulky-label,
-.il-maincontrols-metabar > li > .btn-bulky .bulky-label,
-.il-maincontrols-metabar > li > .il-link.link-bulky .bulky-label {
   position: relative;
   max-height: 3em;
   overflow: hidden;
@@ -6140,6 +6190,16 @@ footer {
   width: 30%;
   height: 1.5em;
   background: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255) 80%);
+}
+.il-mainbar-triggers .btn-bulky .bulky-label,
+.il-mainbar-triggers .il-link.link-bulky .bulky-label,
+.il-mainbar-tools-button .btn-bulky .bulky-label,
+.il-mainbar-tools-button .il-link.link-bulky .bulky-label,
+.il-mainbar-tool-trigger-item .btn-bulky .bulky-label,
+.il-mainbar-tool-trigger-item .il-link.link-bulky .bulky-label,
+.il-maincontrols-metabar > li > .btn-bulky .bulky-label,
+.il-maincontrols-metabar > li > .il-link.link-bulky .bulky-label {
+  /* edge, chrome, safari go here... */
 }
 @supports (-webkit-line-clamp: 2) {
   .il-mainbar-triggers .btn-bulky .bulky-label,
@@ -6167,6 +6227,16 @@ footer {
     display: none;
   }
 }
+.il-mainbar-triggers .btn-bulky .bulky-label,
+.il-mainbar-triggers .il-link.link-bulky .bulky-label,
+.il-mainbar-tools-button .btn-bulky .bulky-label,
+.il-mainbar-tools-button .il-link.link-bulky .bulky-label,
+.il-mainbar-tool-trigger-item .btn-bulky .bulky-label,
+.il-mainbar-tool-trigger-item .il-link.link-bulky .bulky-label,
+.il-maincontrols-metabar > li > .btn-bulky .bulky-label,
+.il-maincontrols-metabar > li > .il-link.link-bulky .bulky-label {
+  /* may come with next firefox 68, https://caniuse.com/#search=clamp */
+}
 @supports (-moz-line-clamp: 2) {
   .il-mainbar-triggers .btn-bulky .bulky-label,
   .il-mainbar-triggers .il-link.link-bulky .bulky-label,
@@ -6192,6 +6262,20 @@ footer {
   .il-maincontrols-metabar > li > .il-link.link-bulky .bulky-label:after {
     display: none;
   }
+}
+.il-mainbar-triggers .btn-bulky .bulky-label,
+.il-mainbar-triggers .il-link.link-bulky .bulky-label,
+.il-mainbar-tools-button .btn-bulky .bulky-label,
+.il-mainbar-tools-button .il-link.link-bulky .bulky-label,
+.il-mainbar-tool-trigger-item .btn-bulky .bulky-label,
+.il-mainbar-tool-trigger-item .il-link.link-bulky .bulky-label,
+.il-maincontrols-metabar > li > .btn-bulky .bulky-label,
+.il-maincontrols-metabar > li > .il-link.link-bulky .bulky-label {
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 .il-mainbar-triggers .il-mainbar-entries {
@@ -6428,11 +6512,14 @@ footer {
 .il-mainbar-tools-entries .btn-bulky.engaged, .il-mainbar-tools-entries .btn-bulky.engaged,
 .il-mainbar-tools-entries .il-link.link-bulky.engaged {
   background-color: white;
-  color: #2c2c2c;
 }
 .il-mainbar-tools-entries .btn-bulky.engaged:not(:focus-visible), .il-mainbar-tools-entries .btn-bulky.engaged:not(:focus-visible),
 .il-mainbar-tools-entries .il-link.link-bulky.engaged:not(:focus-visible) {
   border: 0;
+}
+.il-mainbar-tools-entries .btn-bulky.engaged, .il-mainbar-tools-entries .btn-bulky.engaged,
+.il-mainbar-tools-entries .il-link.link-bulky.engaged {
+  color: #2c2c2c;
 }
 .il-mainbar-tools-entries .btn-bulky.engaged .icon, .il-mainbar-tools-entries .btn-bulky.engaged .icon,
 .il-mainbar-tools-entries .il-link.link-bulky.engaged .icon {
@@ -6508,11 +6595,11 @@ footer {
   position: relative;
 }
 
-.il-mainbar-slates > .il-maincontrols-slate.engaged > .il-maincontrols-slate-content {
-  height: 0px;
-}
 .il-mainbar-slates > .il-maincontrols-slate.engaged > .il-maincontrols-slate-content > :first-child {
   z-index: 1;
+}
+.il-mainbar-slates > .il-maincontrols-slate.engaged > .il-maincontrols-slate-content {
+  height: 0px;
 }
 .il-mainbar-slates > .il-maincontrols-slate.engaged > .il-maincontrols-slate-content .panel-secondary {
   margin-bottom: 0;
@@ -6685,11 +6772,6 @@ footer {
   color: white;
 }
 .c-mode-info__label {
-  /* edge, chrome, safari go here... */
-  /* may come with next firefox 68, https://caniuse.com/#search=clamp */
-  flex-grow: 1;
-}
-.c-mode-info__label {
   position: relative;
   max-height: 1.5em;
   overflow: hidden;
@@ -6705,6 +6787,9 @@ footer {
   height: 1.5em;
   background: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255) 80%);
 }
+.c-mode-info__label {
+  /* edge, chrome, safari go here... */
+}
 @supports (-webkit-line-clamp: 2) {
   .c-mode-info__label {
     overflow: hidden;
@@ -6717,6 +6802,9 @@ footer {
     display: none;
   }
 }
+.c-mode-info__label {
+  /* may come with next firefox 68, https://caniuse.com/#search=clamp */
+}
 @supports (-moz-line-clamp: 2) {
   .c-mode-info__label {
     overflow: hidden;
@@ -6728,6 +6816,9 @@ footer {
   .c-mode-info__label:after {
     display: none;
   }
+}
+.c-mode-info__label {
+  flex-grow: 1;
 }
 @media only screen and (max-width: 991px) {
   .c-mode-info__mobile-padding {
@@ -6757,16 +6848,6 @@ footer {
 /** nagtive or positive contrast color for text and glyph **/
 /** contrast threshold for contrast color **/
 /** three color variants for neutral, important, breaking Head Infos **/
-.il-system-info {
-  line-height: 20px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  height: 32px;
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  justify-content: flex-start;
-}
 .il-system-info.il-system-info-neutral {
   -webkit-box-shadow: inset 0px -10px 4px -10px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: inset 0px -10px 4px -10px rgba(0, 0, 0, 0.25);
@@ -6776,10 +6857,13 @@ footer {
   border-bottom: #dddddd none;
   border-left: #dddddd none;
   border-right: #dddddd none;
-  color: contrast(greyscale(rgb(226.2857142857, 231.6428571429, 238.7142857143)), rgb(57.5428571429, 76.4714285714, 101.4571428571), white, 43%);
+  color: #161616;
+}
+.il-system-info.il-system-info-neutral a {
+  color: #4c6586;
 }
 .il-system-info.il-system-info-neutral a.glyph {
-  color: contrast(greyscale(rgb(226.2857142857, 231.6428571429, 238.7142857143)), rgb(57.5428571429, 76.4714285714, 101.4571428571), white, 43%);
+  color: #161616;
 }
 .il-system-info.il-system-info-important {
   -webkit-box-shadow: inset 0px -10px 4px -10px rgba(0, 0, 0, 0.25);
@@ -6790,10 +6874,13 @@ footer {
   border-bottom: #dddddd none;
   border-left: #dddddd none;
   border-right: #dddddd none;
-  color: contrast(greyscale(#ffaaaa), #770000, white, 43%);
+  color: #161616;
+}
+.il-system-info.il-system-info-important a {
+  color: #4c6586;
 }
 .il-system-info.il-system-info-important a.glyph {
-  color: contrast(greyscale(#ffaaaa), #770000, white, 43%);
+  color: #161616;
 }
 .il-system-info.il-system-info-breaking {
   -webkit-box-shadow: inset 0px -10px 4px -10px rgba(0, 0, 0, 0.25);
@@ -6804,10 +6891,23 @@ footer {
   border-bottom: #dddddd none;
   border-left: #dddddd none;
   border-right: #dddddd none;
-  color: contrast(greyscale(#aa0000), black, #ffdddd, 43%);
+  color: white;
+}
+.il-system-info.il-system-info-breaking a {
+  color: rgb(159.2662116041, 159.2662116041, 159.2662116041);
 }
 .il-system-info.il-system-info-breaking a.glyph {
-  color: contrast(greyscale(#aa0000), black, #ffdddd, 43%);
+  color: white;
+}
+.il-system-info {
+  line-height: 20px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  height: 32px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 .il-system-info.full {
   height: auto;
@@ -9279,11 +9379,13 @@ div.alert ul > li:before {
   text-color: white;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  min-height: 20px;
-  font-size: 0.75rem;
 }
 .il-table-presentation-row .il-table-presentation-row-expanded .il-table-presentation-details .il-table-presentation-fields blockquote {
   border-color: #dddddd;
+}
+.il-table-presentation-row .il-table-presentation-row-expanded .il-table-presentation-details .il-table-presentation-fields {
+  min-height: 20px;
+  font-size: 0.75rem;
 }
 .il-table-presentation-row .il-table-presentation-row-expanded .il-table-presentation-details .il-table-presentation-fields .il-item-property-name {
   color: rgb(111.25, 111.25, 111.25);
@@ -10115,12 +10217,6 @@ div.ilHeadAction .prop {
 
 div.ilHeadAction a:hover {
   text-decoration: none;
-}
-
-div.ilHeadAction ul.dropdown-menu button {
-  text-decoration: none;
-  border: none;
-  padding-left: 10px;
 }
 
 div.ilHeaderDesc {
@@ -11515,14 +11611,14 @@ ul.il-book-obj-selection li {
   width: 100%;
 }
 
+.chatroom-centered-checkboxes label {
+  margin: 0 5px 0 0;
+}
 .chatroom-centered-checkboxes {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 5px;
-}
-.chatroom-centered-checkboxes label {
-  margin: 0 5px 0 0;
 }
 
 @media only screen and (max-width: 991px) {
@@ -12321,10 +12417,12 @@ div#right_bottom_area iframe {
 }
 #il-mcst-img-gallery .modal-content {
   min-height: 100%;
-  background-color: black;
 }
 #il-mcst-img-gallery .modal-content img {
   margin: 30px auto 0 auto;
+}
+#il-mcst-img-gallery .modal-content {
+  background-color: black;
 }
 #il-mcst-img-gallery .modal-title {
   color: white;
@@ -12527,12 +12625,12 @@ div.ilPrtfToc {
   margin-top: 40px;
 }
 
-body.ilPrtfPdfBody {
-  margin: 0;
-}
 body.ilPrtfPdfBody > div.ilInvisibleBorder {
   padding: 0;
   padding-left: 40px;
+}
+body.ilPrtfPdfBody {
+  margin: 0;
 }
 
 body.ilPrtfPdfBody h1.ilc_PrintPageTitle {
@@ -12851,6 +12949,11 @@ div.ilc_Question {
 .questionPrintview .row.ilc_qanswer_Answer {
   padding-left: 15px;
   padding-right: 15px;
+}
+
+img.ilc_solution_image {
+  min-width: 0.875rem;
+  min-height: 0.875rem;
 }
 
 .solutionbox {
@@ -13995,15 +14098,17 @@ table.calmini {
 table.calmini tr, table.calmini td, table.calmini th {
   border: none;
   padding: 5px 3px;
-  text-align: center;
-  vertical-align: middle;
-  color: #161616;
-  background-color: transparent;
 }
 @media only screen and (max-width: 991px) {
   table.calmini tr, table.calmini td, table.calmini th {
     padding: 5px 1px;
   }
+}
+table.calmini tr, table.calmini td, table.calmini th {
+  text-align: center;
+  vertical-align: middle;
+  color: #161616;
+  background-color: transparent;
 }
 table.calmini tr {
   background-color: white;
@@ -14501,6 +14606,7 @@ div.il_ContainerListItem {
   font-weight: 400;
   text-align: left;
   vertical-align: middle;
+  min-height: 46px;
 }
 .ilContainerBlockHeader h3 {
   margin: 0;
@@ -15797,16 +15903,6 @@ fieldset[disabled] .checkbox label {
 .form-horizontal {
   margin-bottom: 15px;
   background: white;
-  /*
-  // Reset spacing and right align labels, but scope to media queries so that
-  // labels on narrow viewports stack the same as a default form example.
-  @media (min-width: $screen-sm-min) {
-  	.control-label {
-  		text-align: right;
-  		margin-bottom: 0;
-  		padding-top: ($il-padding-base-vertical + 1); // Default padding plus a border
-  	}
-  } */
 }
 .form-horizontal .form-group {
   margin: 0px;
@@ -15856,6 +15952,18 @@ fieldset[disabled] .checkbox label {
 }
 .form-horizontal .control-label.col-sm-3.il_textarea {
   width: 100%;
+}
+.form-horizontal {
+  /*
+  // Reset spacing and right align labels, but scope to media queries so that
+  // labels on narrow viewports stack the same as a default form example.
+  @media (min-width: $screen-sm-min) {
+  	.control-label {
+  		text-align: right;
+  		margin-bottom: 0;
+  		padding-top: ($il-padding-base-vertical + 1); // Default padding plus a border
+  	}
+  } */
 }
 
 .ilFormHeader {
@@ -16119,17 +16227,17 @@ a#ilHelpClose {
   }
 }
 
-.ilStartupSection {
-  padding-top: 20px;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-}
 .ilStartupSection .control-label {
   width: 33.33%;
 }
 .ilStartupSection .control-label + div {
   width: 66.67%;
+}
+.ilStartupSection {
+  padding-top: 20px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 @media only screen and (max-width: 991px) {
   .ilStartupSection {
@@ -16154,8 +16262,6 @@ ul.ilStartupSectionRegistrationLinks li {
 div.ilStartupSection form.form-horizontal {
   border: 1px solid #dddddd;
   border-radius: 3px;
-  text-align: left;
-  width: 40em;
 }
 div.ilStartupSection form.form-horizontal .ilFormHeader {
   padding: 9px 15px;
@@ -16163,6 +16269,10 @@ div.ilStartupSection form.form-horizontal .ilFormHeader {
 }
 div.ilStartupSection form.form-horizontal .form-group {
   margin: 9px 0;
+}
+div.ilStartupSection form.form-horizontal {
+  text-align: left;
+  width: 40em;
 }
 @media only screen and (max-width: 991px) {
   div.ilStartupSection form.form-horizontal {
@@ -17187,7 +17297,10 @@ img.ilRatingMarker {
   height: 7px;
 }
 
-a.ilRating {
+a.ilRating, button.ilRating {
+  text-decoration: none;
+}
+a.ilRating:hover, button.ilRating:hover {
   text-decoration: none;
 }
 
@@ -18919,10 +19032,6 @@ div.ilFrame {
 }
 
 .il-multi-line-cap-2 {
-  /* edge, chrome, safari go here... */
-  /* may come with next firefox 68, https://caniuse.com/#search=clamp */
-}
-.il-multi-line-cap-2 {
   position: relative;
   max-height: 3em;
   overflow: hidden;
@@ -18938,6 +19047,9 @@ div.ilFrame {
   height: 1.5em;
   background: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255) 80%);
 }
+.il-multi-line-cap-2 {
+  /* edge, chrome, safari go here... */
+}
 @supports (-webkit-line-clamp: 2) {
   .il-multi-line-cap-2 {
     overflow: hidden;
@@ -18949,6 +19061,9 @@ div.ilFrame {
   .il-multi-line-cap-2:after {
     display: none;
   }
+}
+.il-multi-line-cap-2 {
+  /* may come with next firefox 68, https://caniuse.com/#search=clamp */
 }
 @supports (-moz-line-clamp: 2) {
   .il-multi-line-cap-2 {
@@ -18963,10 +19078,6 @@ div.ilFrame {
   }
 }
 
-.il-multi-line-cap-3 {
-  /* edge, chrome, safari go here... */
-  /* may come with next firefox 68, https://caniuse.com/#search=clamp */
-}
 .il-multi-line-cap-3 {
   position: relative;
   max-height: 4.5em;
@@ -18983,6 +19094,9 @@ div.ilFrame {
   height: 1.5em;
   background: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255) 80%);
 }
+.il-multi-line-cap-3 {
+  /* edge, chrome, safari go here... */
+}
 @supports (-webkit-line-clamp: 2) {
   .il-multi-line-cap-3 {
     overflow: hidden;
@@ -18994,6 +19108,9 @@ div.ilFrame {
   .il-multi-line-cap-3:after {
     display: none;
   }
+}
+.il-multi-line-cap-3 {
+  /* may come with next firefox 68, https://caniuse.com/#search=clamp */
 }
 @supports (-moz-line-clamp: 2) {
   .il-multi-line-cap-3 {
@@ -19008,10 +19125,6 @@ div.ilFrame {
   }
 }
 
-.il-multi-line-cap-5 {
-  /* edge, chrome, safari go here... */
-  /* may come with next firefox 68, https://caniuse.com/#search=clamp */
-}
 .il-multi-line-cap-5 {
   position: relative;
   max-height: 7.5em;
@@ -19028,6 +19141,9 @@ div.ilFrame {
   height: 1.5em;
   background: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255) 80%);
 }
+.il-multi-line-cap-5 {
+  /* edge, chrome, safari go here... */
+}
 @supports (-webkit-line-clamp: 2) {
   .il-multi-line-cap-5 {
     overflow: hidden;
@@ -19039,6 +19155,9 @@ div.ilFrame {
   .il-multi-line-cap-5:after {
     display: none;
   }
+}
+.il-multi-line-cap-5 {
+  /* may come with next firefox 68, https://caniuse.com/#search=clamp */
 }
 @supports (-moz-line-clamp: 2) {
   .il-multi-line-cap-5 {
@@ -19053,10 +19172,6 @@ div.ilFrame {
   }
 }
 
-.il-multi-line-cap-10 {
-  /* edge, chrome, safari go here... */
-  /* may come with next firefox 68, https://caniuse.com/#search=clamp */
-}
 .il-multi-line-cap-10 {
   position: relative;
   max-height: 15em;
@@ -19073,6 +19188,9 @@ div.ilFrame {
   height: 1.5em;
   background: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255) 80%);
 }
+.il-multi-line-cap-10 {
+  /* edge, chrome, safari go here... */
+}
 @supports (-webkit-line-clamp: 2) {
   .il-multi-line-cap-10 {
     overflow: hidden;
@@ -19084,6 +19202,9 @@ div.ilFrame {
   .il-multi-line-cap-10:after {
     display: none;
   }
+}
+.il-multi-line-cap-10 {
+  /* may come with next firefox 68, https://caniuse.com/#search=clamp */
 }
 @supports (-moz-line-clamp: 2) {
   .il-multi-line-cap-10 {
@@ -19217,94 +19338,235 @@ div.ilStartupSection form.form-horizontal {
 #luhLogin {
   padding-top: 25px;
   margin-left: 2%;
-  height: 400px;
-  min-height: 400px;
-  width: 600px;
-  background-color: rgba(0, 80, 155, 0.3);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
-  overflow: auto;
+  width: 640px;
+  min-height: 320px;
+  height: auto;
+  background-color: rgba(0, 80, 155, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 6px 24px rgba(0, 80, 155, 0.12);
+  border-radius: 10px;
+  overflow: visible;
+  transition: box-shadow 0.2s ease;
 }
 #luhLogin:hover {
-  box-shadow: none;
-  box-shadow: 0 4px 8px 0 rgba(0, 80, 155, 0.3), 0 6px 20px 0 rgba(0, 80, 155, 0.25);
+  box-shadow: 0 4px 8px rgba(0, 80, 155, 0.15), 0 8px 28px rgba(0, 80, 155, 0.2);
+}
+#luhLogin.expanded {
+  padding-top: 0;
 }
 #luhLogin form.form-horizontal {
   width: inherit;
   background-color: transparent;
 }
-#luhLogin form.form-horizontal #shib-button, #luhLogin form.form-horizontal #ilias-login-button {
-  text-align: center;
-}
-#luhLogin form.form-horizontal input.btn:hover {
-  background-color: #00509b;
-  border: 1px solid #00509b;
-}
 
 div.index_main nav {
-  margin-left: 50px;
-  margin-top: 50px;
+  margin-left: 40px;
+  margin-top: 40px;
   height: auto;
-  display: block;
-}
-
-#luhLogin.expanded {
-  height: auto;
-  min-height: 700px;
-  padding-top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0;
 }
 
 div.ilFormLoginMask {
   display: inline-block;
-  width: 250px;
   vertical-align: top;
-  padding-right: 25px;
-  padding-left: 20px;
-  font-size: 20px;
+  padding: 0 20px 20px 0;
+  font-size: 14px;
+  width: 230px;
 }
 
-div.ilFormLoginMask a {
-  font-size: 23px;
-  background-color: transparent;
+#shib-form-login-mask {
+  width: 260px;
 }
-
-div.ilFormLoginMask p {
-  margin: 10px 0 10px;
-}
-
-#shib_login, #ilias_login_link {
-  width: 200px;
-  border: 1px solid;
-  text-align: center;
-  box-shadow: 0px 3px 6px rgba(0, 80, 155, 0.4);
-  text-decoration: none;
-}
-#shib_login:hover, #ilias_login_link:hover {
-  background-color: rgba(0, 80, 155, 0.8);
-  border: 1px solid rgba(0, 80, 155, 0.5);
-  box-shadow: 0px 3px 6px rgba(0, 80, 155, 0.3);
-  color: white;
-}
-
-div.ilFormLoginMask p {
-  font-size: 12px;
-  color: #282828;
-}
-
 #shib-form-login-mask form.form-horizontal {
   text-align: left;
+  background: transparent;
+}
+
+.luh-login-badge {
+  display: inline-block;
+  background-color: #00509b;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+#shib_login {
+  display: block;
+  width: 210px;
+  padding: 13px 18px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #00509b;
+  border: 2px solid #00509b;
+  border-radius: 6px;
+  box-shadow: 0 3px 8px rgba(0, 80, 155, 0.35);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+#shib_login:hover, #shib_login:focus {
+  background-color: #003668;
+  border-color: #003668;
+  box-shadow: 0 4px 12px rgba(0, 54, 104, 0.4);
+  color: #fff;
+  text-decoration: none;
+  outline: none;
+}
+#shib_login:focus-visible {
+  outline: 3px solid #99b9d8;
+  outline-offset: 2px;
+}
+#shib_login:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 54, 104, 0.3);
+}
+
+.luh-login-hint {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: #444;
+  line-height: 1.45;
+}
+
+.luh-login-divider {
+  display: flex;
+  align-items: center;
+  width: calc(100% - 40px);
+  margin: 4px 0 16px;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #8aaccc;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.luh-login-divider::before, .luh-login-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #c4d9ea;
+}
+
+#ilias_login {
+  width: 230px;
+}
+
+.luh-btn-secondary,
+#ilias_login_link {
+  display: inline-block;
+  width: 190px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  color: #4a6a80;
+  background-color: transparent;
+  border: 1px solid #aac4d8;
+  border-radius: 6px;
+  box-shadow: none;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+.luh-btn-secondary:hover, .luh-btn-secondary:focus,
+#ilias_login_link:hover,
+#ilias_login_link:focus {
+  border-color: #00509b;
+  color: #00509b;
+  background-color: rgba(0, 80, 155, 0.04);
+  text-decoration: none;
+  outline: none;
+}
+.luh-btn-secondary:focus-visible,
+#ilias_login_link:focus-visible {
+  outline: 3px solid #99b9d8;
+  outline-offset: 2px;
+}
+
+.luh-link-muted {
+  font-size: 12px;
+  color: #7a9db8;
+  text-decoration: underline;
+}
+.luh-link-muted:hover {
+  color: #00509b;
+}
+
+.luh-info-block {
+  padding-top: 30px;
+  width: 220px;
+}
+
+.luh-info-icon {
+  color: #00509b;
+  font-size: 12px;
+  margin-right: 4px;
+}
+
+.luh-info-link {
+  font-size: 14px;
+  color: #00509b;
+  text-decoration: none;
+}
+.luh-info-link:hover {
+  text-decoration: underline;
+}
+
+div.ilFormLoginMask p {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: #444;
+  line-height: 1.45;
+}
+
+#login_form_footer {
+  padding: 20px 40px 30px;
+}
+#login_form_footer .form-horizontal,
+#login_form_footer #il_prop_cont_password,
+#login_form_footer #il_prop_cont_username {
+  background: transparent;
+}
+#login_form_footer .il-standard-form .il-standard-form-header,
+#login_form_footer .il-standard-form .il-standard-form-footer {
+  background: transparent;
+}
+#login_form_footer .il-standard-form .il-standard-form-header {
+  display: none;
+}
+#login_form_footer div.ilStartupSection form.form-horizontal .form-group {
+  background: transparent;
+}
+#login_form_footer .il-standard-form .il-standard-form-header + .il-section-input > .il-section-input-header {
+  background: transparent;
 }
 
 #not-websso-warning {
   display: inline-block;
+  width: 100%;
   font-size: 14px;
   text-align: center;
-  width: 100%;
+  color: #434343;
+  margin-bottom: 12px;
+}
+
+.luh-warning-icon {
+  color: #bb4747;
+  margin-right: 5px;
 }
 
 #login_form_footer .form-horizontal,
 #il_prop_cont_password,
 #il_prop_cont_username,
-.il-standard-form .il-standard-form-header, .il-standard-form .il-standard-form-footer {
+.il-standard-form .il-standard-form-header,
+.il-standard-form .il-standard-form-footer {
   background: transparent;
 }
 

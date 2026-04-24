@@ -1,6 +1,3 @@
-<head>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
 <!-- BEGIN login_information -->
 <div class="small">{TXT_LOGIN_INFORMATION}</div>
 <!-- END login_information -->
@@ -10,60 +7,110 @@
     {LPE}
     <!-- END login_page_editor -->
 </div>
+
 <div class="ilStartupSection" id="luhLogin">
     <div class="index_main">
         <nav id="LUHLoginMask">
-            <!-- shib_login_form -->
+
+            <!-- Primary: WebSSO login -->
             <div class="ilFormLoginMask" id="shib-form-login-mask">
+                <span class="luh-login-badge">Studierende &amp; Lehrende</span>
                 {SHIB_LOGIN_FORM}
-                <p>Für Studierende und Lehrende über WebSSO</p>
-            </div>
-            <!-- saml_login -->
-            <!-- <div class="ilFormLoginMask">{SAML_LOGIN_FORM}</div> -->
-            <!-- cas_login -->
-            <!-- <div class="ilFormLoginMask">{CAS_LOGIN_FORM}</div> -->
-            <!-- ilias_login -->
-            <div class="ilFormLoginMask" id="ilias_login">
-                <a class="btn" data-scroll-focus="#username" data-scroll-to="#login_form_footer" href="#" id="ilias_login_link" aria-label="ILIAS Login">ILIAS Login</a>
-                <p>Personen ohne LUH-ID, Gasthörende, Gäste und Administrierende, <a data-scroll-focus="#not-websso-warning" data-scroll-to="#login_form_footer" ref="#" style="font-size: 13px;">Selbstregistrierung</a></p>
+                <p class="luh-login-hint">Für Studierende und Lehrende über WebSSO</p>
             </div>
 
-            <!-- Erstanmeldung  -->
-            <div class="ilFormLoginMask" style="padding-top: 40px; height:100px;">
-                <span class="glyphicon glyphicon-info-sign" style="color:#00509b; font-size: 12px;"></span><a href="https://ilias.uni-hannover.de/goto.php?target=copa_52802&client_id=ilias"  style="font-size:14px;" target="_blank"> Erstanmeldung</a>
+            <!-- Divider -->
+            <div class="luh-login-divider">
+                <span>Weitere Anmeldeoptionen</span>
+            </div>
+
+            <!-- Secondary: ILIAS login toggle -->
+            <div class="ilFormLoginMask" id="ilias_login">
+                <a class="btn luh-btn-secondary"
+                   data-scroll-focus="#username"
+                   data-scroll-to="#login_form_footer"
+                   href="#"
+                   id="ilias_login_link"
+                   aria-expanded="false"
+                   aria-controls="login_form_footer"
+                   aria-label="ILIAS Login öffnen">ILIAS Login</a>
+                <p>Personen ohne LUH-ID, Gasthörende, Gäste und Administrierende,
+                    <a class="luh-link-muted"
+                       data-scroll-focus="#not-websso-warning"
+                       data-scroll-to="#login_form_footer"
+                       href="#">Selbstregistrierung</a>
+                </p>
+            </div>
+
+            <!-- Info links -->
+            <div class="ilFormLoginMask luh-info-block">
+                <span class="glyphicon glyphicon-info-sign luh-info-icon" aria-hidden="true"></span>
+                <a href="https://ilias.uni-hannover.de/goto.php?target=copa_52802&amp;client_id=ilias"
+                   class="luh-info-link" target="_blank" rel="noopener noreferrer">
+                    Erstanmeldung
+                </a>
                 <p>Informationen zur Freischaltung von WebSSO und zur Selbstregistrierung</p>
             </div>
 
-            <!-- Hinweise zum Login -->
-            <div class="ilFormLoginMask" style="padding-top: 40px; height:100px;">
-                <span class="glyphicon glyphicon-info-sign" style="color:#00509b; font-size: 12px;"></span><a href="https://www.zqs.uni-hannover.de/de/elsa/tools/ilias/ilias-systeme-login/" style="font-size:14px;" target="_blank"> Hinweise zum Login</a>
-                <p>alle Infos zum Login und zur Nutzung von WebSSO</p>
-                <br><br>
+            <div class="ilFormLoginMask luh-info-block">
+                <span class="glyphicon glyphicon-info-sign luh-info-icon" aria-hidden="true"></span>
+                <a href="https://www.zqs.uni-hannover.de/de/elsa/tools/ilias/ilias-systeme-login/"
+                   class="luh-info-link" target="_blank" rel="noopener noreferrer">
+                    Hinweise zum Login
+                </a>
+                <p>Alle Infos zum Login und zur Nutzung von WebSSO</p>
             </div>
 
-            <div class="ilFormLoginMask" style="padding-top: 25px;">{USER_AGREEMENT}</div>
         </nav>
-        <div id="login_form_footer" style="display: none;">
-            <p id="not-websso-warning" style="color: #434343;"><span class="glyphicon glyphicon-warning-sign" style="color:#bb4747;"></span> Nicht f&uuml;r die WebSSO-Anmeldung</p>
-            <div style="">{REG_PWD_CLIENT_LINKS}</div>
+
+        <!-- ILIAS login form — hidden until toggled -->
+        <div id="login_form_footer" hidden>
+            <p id="not-websso-warning">
+                <span class="glyphicon glyphicon-warning-sign luh-warning-icon" aria-hidden="true"></span>
+                Nicht für die WebSSO-Anmeldung
+            </p>
+            <div>{REG_PWD_CLIENT_LINKS}</div>
             <p id="footer_ilias_login">{LOGIN_FORM}</p>
         </div>
     </div>
 </div>
 
 <script>
-    $(document).ready(function () {
-        var login_hidden = true;
-        $("[data-scroll-to]").click(function () {
-            var luhLogin = $("#luhLogin");
-            if (login_hidden) {
-                luhLogin.addClass("expanded");
-                $("#login_form_footer").show();
-            } else {
-                luhLogin.removeClass("expanded");
-                $("#login_form_footer").hide();
-            }
-            login_hidden = !login_hidden;
+(function () {
+    'use strict';
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var loginHidden = true;
+        var triggers = document.querySelectorAll('[data-scroll-to]');
+        var footer = document.getElementById('login_form_footer');
+        var luhLogin = document.getElementById('luhLogin');
+        var loginLink = document.getElementById('ilias_login_link');
+
+        if (!footer || !luhLogin) { return; }
+
+        triggers.forEach(function (trigger) {
+            trigger.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                loginHidden = !loginHidden;
+
+                if (!loginHidden) {
+                    footer.removeAttribute('hidden');
+                    luhLogin.classList.add('expanded');
+                    if (loginLink) { loginLink.setAttribute('aria-expanded', 'true'); }
+
+                    var focusTarget = document.querySelector(trigger.dataset.scrollFocus);
+                    if (focusTarget) {
+                        // Small delay to allow layout reflow before focusing
+                        setTimeout(function () { focusTarget.focus(); }, 50);
+                    }
+                } else {
+                    footer.setAttribute('hidden', '');
+                    luhLogin.classList.remove('expanded');
+                    if (loginLink) { loginLink.setAttribute('aria-expanded', 'false'); }
+                }
+            });
         });
     });
+}());
 </script>

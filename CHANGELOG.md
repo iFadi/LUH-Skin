@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.2.0](https://github.com/iFadi/LUH-Skin/compare/v1.1.1...v1.2.0) (2026-04-24)
+
+
+### Features
+
+* **login:** promote WebSSO as primary login method, demote ILIAS login to secondary collapsed state ([#login-ux](https://github.com/iFadi/LUH-Skin/issues))
+* **login:** add visual badge and descriptive hint text to WebSSO section for clearer user guidance
+* **login:** introduce divider between primary and secondary login options
+
+
+### Bug Fixes
+
+* **security:** remove external jQuery CDN dependency from login template; rely on ILIAS-bundled jQuery context via vanilla JS instead
+* **login:** replace inline `style=""` attributes with semantic CSS classes throughout login template
+* **login:** replace `display:none` toggle with `hidden` attribute for accessible show/hide of ILIAS login form
+* **login:** add `aria-expanded`, `aria-controls` and `rel="noopener noreferrer"` attributes for accessibility and security on external links
+* **login:** remove Nutzungsvereinbarung (user agreement) block from login page
+
+
 ## [1.1.1](https://github.com/iFadi/LUH-Skin/compare/v1.1.0...v1.1.1) (2025-07-30)
 
 

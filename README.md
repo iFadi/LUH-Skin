@@ -5,7 +5,7 @@ Dieser Skin wurde dem [LUH-Stil](https://www.uni-hannover.de/) entsprechend ange
 ---
 
 ## Version
-v1.1.1
+v1.2.0
 
 * [CHANGELOG](CHANGELOG.md)
 
@@ -44,22 +44,22 @@ cd LUH-Skin
 Beispiel für einen stabilen Release-Tag:
 
 ```bash
-git checkout tags/v1.1.1
+git checkout tags/v1.2.0
 ```
 
-Falls du dich auf dem `release_9`-Branch befindest, kannst du einfach ein Pull durchführen:
+Falls du dich auf dem `main`-Branch befindest, kannst du einfach ein Pull durchführen:
 
 ```bash
 git pull
 ```
 
-✅ Das war’s – der Skin ist installiert.
+✅ Das war's – der Skin ist installiert.
 
 ---
 
 ## 🔧 Für die Implementierung
 
-Zur Anpassung des Skins müssen die `.dart-sess`-Dateien bearbeitet werden. Anschließend ist das Skript `update-skin.sh` **als root** auszuführen, um die **SCSS-Dateien zu kompilieren**:
+Zur Anpassung des Skins müssen die `.scss`-Dateien bearbeitet werden. Anschließend ist das Skript `update-skin.sh` **als root** auszuführen, um die **SCSS-Dateien zu kompilieren**:
 
 ```bash
 sudo ./update-skin.sh
@@ -73,7 +73,7 @@ sudo ./update-skin.sh
 
 ### 💡 Empfehlung:
 
-Kompiliere die `LUH-Style.css` auf einem **Testsystem** (z. B. mit definierter Tag-/Skin-Version) und übertrage sie anschließend auf das **Produktivsystem**.
+Kompiliere die `LUH-Style.css` auf einem **Testsystem** (z. B. mit definierter Tag-/Skin-Version) und übertrage sie anschließend auf das **Produktivsystem**.
 
 ---
 
