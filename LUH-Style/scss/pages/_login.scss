@@ -188,16 +188,66 @@ div.ilFormLoginMask {
     width: 220px;
 }
 
-// ── ILIAS login column ────────────────────────────────────────────────────
+// ── ILIAS login column (wider to hold two side-by-side buttons) ───────────
 #ilias_login {
-    width: 240px;
+    width: 340px;
 }
 
-// ── Secondary (ghost) button — bigger ────────────────────────────────────
+// ── Gasthörende notice ────────────────────────────────────────────────────
+.luh-gasthoerender-notice {
+    margin: 0 0 12px;
+    font-size: 12px;
+    color: #555;
+    line-height: 1.5;
+}
+
+// ── Button pair container ─────────────────────────────────────────────────
+.luh-login-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+// ── Stud.IP login button ──────────────────────────────────────────────────
+.luh-btn-studip {
+    display: inline-block;
+    padding: 12px 18px;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #5f8db0;
+    border: 1.5px solid #5f8db0;
+    border-radius: 8px;
+    box-shadow: none;
+    white-space: nowrap;
+    transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease;
+
+    &:hover,
+    &:focus {
+        background-color: #4a718e;
+        border-color: #4a718e;
+        color: #fff;
+        text-decoration: none;
+        outline: none;
+    }
+
+    &:focus-visible {
+        outline: 3px solid $il-brand-primary-luh-light;
+        outline-offset: 2px;
+    }
+}
+
+// ── Secondary (ghost) button ─────────────────────────────────────────────
 .luh-btn-secondary,
 #ilias_login_link {
     display: inline-block;
-    width: 210px;
+    width: auto;
     padding: 12px 18px;
     font-size: 15px;
     font-weight: 500;
@@ -352,7 +402,7 @@ div.ilStartupSection form.form-horizontal .form-group {
     }
 
     #ilias_login {
-        width: 210px;
+        width: 300px;
     }
 }
 
@@ -377,19 +427,32 @@ div.ilStartupSection form.form-horizontal .form-group {
 
     div.ilFormLoginMask {
         width: 100%;
-        max-width: 300px;
+        max-width: 340px;
         padding: 0 0 16px;
+    }
+
+    #ilias_login {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    // Stack the two login buttons vertically on small screens
+    .luh-login-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .luh-btn-secondary,
+    #ilias_login_link,
+    .luh-btn-studip {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
     }
 
     #shib_login {
         width: 100%;
         max-width: 300px;
-    }
-
-    .luh-btn-secondary,
-    #ilias_login_link {
-        width: 100%;
-        max-width: 260px;
     }
 
     #login_form_footer {

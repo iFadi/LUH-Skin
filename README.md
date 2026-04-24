@@ -5,7 +5,7 @@ Dieser Skin wurde dem [LUH-Stil](https://www.uni-hannover.de/) entsprechend ange
 ---
 
 ## Version
-v1.2.0
+v1.3.0
 
 * [CHANGELOG](CHANGELOG.md)
 
@@ -44,7 +44,7 @@ cd LUH-Skin
 Beispiel für einen stabilen Release-Tag:
 
 ```bash
-git checkout tags/v1.2.0
+git checkout tags/v1.3.0
 ```
 
 Falls du dich auf dem `main`-Branch befindest, kannst du einfach ein Pull durchführen:

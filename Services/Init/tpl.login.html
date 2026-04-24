@@ -27,16 +27,35 @@
             <!-- Secondary row: ILIAS login + Erstanmeldung -->
             <div class="luh-secondary-row">
 
-                <!-- ILIAS login toggle -->
+                <!-- ILIAS login + Stud.IP login column -->
                 <div class="ilFormLoginMask" id="ilias_login">
-                    <a class="btn luh-btn-secondary"
-                       data-scroll-focus="#username"
-                       data-scroll-to="#login_form_footer"
-                       href="#"
-                       id="ilias_login_link"
-                       aria-expanded="false"
-                       aria-controls="login_form_footer"
-                       aria-label="ILIAS Login öffnen">ILIAS Login</a>
+
+                    <!-- Notice for Gasthörende -->
+                    <p class="luh-gasthoerender-notice">
+                        Gasthörende melden sich bitte über
+                        <a href="https://studip.uni-hannover.de/"
+                           target="_blank" rel="noopener noreferrer"
+                           class="luh-link-muted">Stud.IP</a>
+                        in ILIAS an.
+                    </p>
+
+                    <!-- Login buttons side by side -->
+                    <div class="luh-login-buttons">
+                        <a class="btn luh-btn-secondary"
+                           data-scroll-focus="#username"
+                           data-scroll-to="#login_form_footer"
+                           href="#"
+                           id="ilias_login_link"
+                           aria-expanded="false"
+                           aria-controls="login_form_footer"
+                           aria-label="ILIAS Login öffnen">ILIAS Login</a>
+
+                        <a class="btn luh-btn-studip"
+                           href="https://studip.uni-hannover.de/"
+                           target="_blank" rel="noopener noreferrer"
+                           aria-label="Stud.IP Login öffnen">Stud.IP Login</a>
+                    </div>
+
                     <p>Personen ohne LUH-ID, Gasthörende, Gäste und Administrierende,
                         <a class="luh-link-muted"
                            data-scroll-focus="#not-websso-warning"
@@ -60,7 +79,7 @@
             <!-- Divider before Hinweise -->
             <div class="luh-hint-divider"></div>
 
-            <!-- Hinweise zum Login — full-width row below the divider -->
+            <!-- Hinweise zum Login -->
             <div class="ilFormLoginMask luh-info-block">
                 <span class="glyphicon glyphicon-info-sign luh-info-icon" aria-hidden="true"></span>
                 <a href="https://www.zqs.uni-hannover.de/de/elsa/tools/ilias/ilias-systeme-login/"

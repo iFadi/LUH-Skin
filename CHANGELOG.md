@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.0](https://github.com/iFadi/LUH-Skin/compare/v1.2.0...v1.3.0) (2026-04-24)
+
+
+### Features
+
+* **login:** add Gasthörende notice with inline Stud.IP link above the secondary login buttons
+* **login:** add Stud.IP Login button alongside ILIAS Login for direct access to Stud.IP SSO
+
+
 ## [1.2.0](https://github.com/iFadi/LUH-Skin/compare/v1.1.1...v1.2.0) (2026-04-24)
 
 
