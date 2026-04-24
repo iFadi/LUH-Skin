@@ -1,5 +1,6 @@
 // scss/pages/_login
 // Login page layout: WebSSO as primary action, ILIAS login as secondary/collapsed.
+// Card is horizontally centered; fully responsive down to mobile.
 @use "../settings/colors" as *;
 
 // ── Remove default form border injected by ILIAS ──────────────────────────
@@ -7,18 +8,27 @@ div.ilStartupSection form.form-horizontal {
     border: none;
 }
 
-// ── Outer container ───────────────────────────────────────────────────────
+// ── Center the startup section so the card sits in the middle of the page ─
+div.ilStartupSection {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 16px 60px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+// ── Outer card ────────────────────────────────────────────────────────────
 #luhLogin {
-    padding-top: 25px;
-    margin-left: 2%;
-    width: 640px;
-    min-height: 320px;
+    width: 100%;
+    max-width: 700px;
+    min-height: 280px;
     height: auto;
     background-color: rgba(0, 80, 155, 0.08);
     box-shadow:
         0 2px 8px rgba(0, 0, 0, 0.08),
         0 6px 24px rgba(0, 80, 155, 0.12);
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: visible;
     transition: box-shadow 0.2s ease;
 
@@ -33,42 +43,39 @@ div.ilStartupSection form.form-horizontal {
     }
 
     form.form-horizontal {
-        width: inherit;
+        width: 100%;
         background-color: transparent;
     }
 }
 
-// ── Inner nav grid ────────────────────────────────────────────────────────
+// ── Inner nav: single column, centered ────────────────────────────────────
 div.index_main nav {
-    margin-left: 40px;
-    margin-top: 40px;
-    height: auto;
     display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 0;
+    flex-direction: column;
+    align-items: center;
+    padding: 36px 32px 16px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
-// ── Column blocks ─────────────────────────────────────────────────────────
-div.ilFormLoginMask {
-    display: inline-block;
-    vertical-align: top;
-    padding: 0 20px 20px 0;
-    font-size: 14px;
-    width: 230px;
-}
-
-// ── WebSSO — primary block ────────────────────────────────────────────────
-#shib-form-login-mask {
-    width: 260px;
+// ── WebSSO primary section — full width, centered ─────────────────────────
+div.ilFormLoginMask#shib-form-login-mask {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 24px;
+    text-align: center;
 
     form.form-horizontal {
-        text-align: left;
+        width: 100%;
+        text-align: center;
         background: transparent;
     }
 }
 
-// ── LUH badge label above WebSSO button ───────────────────────────────────
+// ── Badge above WebSSO button ─────────────────────────────────────────────
 .luh-login-badge {
     display: inline-block;
     background-color: $il-brand-primary;
@@ -77,25 +84,26 @@ div.ilFormLoginMask {
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    padding: 3px 9px;
+    padding: 4px 12px;
     border-radius: 4px;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
-// ── Primary WebSSO button ─────────────────────────────────────────────────
+// ── Primary WebSSO button — large, centered ───────────────────────────────
 #shib_login {
     display: block;
-    width: 210px;
-    padding: 13px 18px;
-    font-size: 16px;
+    width: 100%;
+    max-width: 380px;
+    padding: 18px 24px;
+    font-size: 18px;
     font-weight: 700;
     text-align: center;
     text-decoration: none;
     color: #fff;
     background-color: $il-brand-primary;
     border: 2px solid $il-brand-primary;
-    border-radius: 6px;
-    box-shadow: 0 3px 8px rgba(0, 80, 155, 0.35);
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 80, 155, 0.35);
     transition:
         background-color 0.15s ease,
         box-shadow 0.15s ease,
@@ -105,7 +113,7 @@ div.ilFormLoginMask {
     &:focus {
         background-color: $il-brand-primary-dark-blue;
         border-color: $il-brand-primary-dark-blue;
-        box-shadow: 0 4px 12px rgba(0, 54, 104, 0.4);
+        box-shadow: 0 4px 14px rgba(0, 54, 104, 0.45);
         color: #fff;
         text-decoration: none;
         outline: none;
@@ -113,7 +121,7 @@ div.ilFormLoginMask {
 
     &:focus-visible {
         outline: 3px solid $il-brand-primary-luh-light;
-        outline-offset: 2px;
+        outline-offset: 3px;
     }
 
     &:active {
@@ -122,25 +130,26 @@ div.ilFormLoginMask {
     }
 }
 
-// ── Hint text below buttons ───────────────────────────────────────────────
+// ── Hint below WebSSO button ──────────────────────────────────────────────
 .luh-login-hint {
-    margin: 10px 0 0;
-    font-size: 12px;
-    color: #444;
-    line-height: 1.45;
+    margin: 12px 0 0;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.5;
+    text-align: center;
 }
 
-// ── Divider between primary and secondary ─────────────────────────────────
+// ── Divider — full width ──────────────────────────────────────────────────
 .luh-login-divider {
     display: flex;
     align-items: center;
-    width: calc(100% - 40px);
-    margin: 4px 0 16px;
-    gap: 10px;
+    width: 100%;
+    margin: 0 0 20px;
+    gap: 12px;
     font-size: 11px;
     font-weight: 600;
     color: #8aaccc;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
 
     &::before,
@@ -152,24 +161,49 @@ div.ilFormLoginMask {
     }
 }
 
-// ── Secondary ILIAS login button ──────────────────────────────────────────
-#ilias_login {
-    width: 230px;
+// ── Secondary row: ILIAS login + info blocks in a centered flex row ────────
+.luh-secondary-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0;
 }
 
+// ── Shared column block style ─────────────────────────────────────────────
+div.ilFormLoginMask {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 20px 20px;
+    font-size: 14px;
+    min-width: 160px;
+    max-width: 240px;
+}
+
+// ── ILIAS login column — centered ─────────────────────────────────────────
+#ilias_login {
+    align-items: center;
+    text-align: center;
+    min-width: 200px;
+}
+
+// ── Secondary (ghost) button ──────────────────────────────────────────────
 .luh-btn-secondary,
 #ilias_login_link {
     display: inline-block;
-    width: 190px;
-    padding: 8px 14px;
-    font-size: 13px;
+    width: 100%;
+    max-width: 200px;
+    padding: 10px 16px;
+    font-size: 14px;
     font-weight: 500;
     text-align: center;
     text-decoration: none;
     color: #4a6a80;
     background-color: transparent;
-    border: 1px solid #aac4d8;
-    border-radius: 6px;
+    border: 1.5px solid #aac4d8;
+    border-radius: 8px;
     box-shadow: none;
     transition:
         border-color 0.15s ease,
@@ -180,7 +214,7 @@ div.ilFormLoginMask {
     &:focus {
         border-color: $il-brand-primary;
         color: $il-brand-primary;
-        background-color: rgba(0, 80, 155, 0.04);
+        background-color: rgba(0, 80, 155, 0.05);
         text-decoration: none;
         outline: none;
     }
@@ -202,16 +236,16 @@ div.ilFormLoginMask {
     }
 }
 
-// ── Info blocks (Erstanmeldung / Hinweise) ─────────────────────────────────
+// ── Info blocks ───────────────────────────────────────────────────────────
 .luh-info-block {
-    padding-top: 30px;
-    width: 220px;
+    align-items: flex-start;
+    max-width: 220px;
 }
 
 .luh-info-icon {
     color: $il-brand-primary;
-    font-size: 12px;
-    margin-right: 4px;
+    font-size: 13px;
+    margin-right: 5px;
 }
 
 .luh-info-link {
@@ -224,12 +258,12 @@ div.ilFormLoginMask {
     }
 }
 
-// ── General small text in blocks ─────────────────────────────────────────
+// ── Small text in blocks ──────────────────────────────────────────────────
 div.ilFormLoginMask p {
     margin: 8px 0 0;
     font-size: 12px;
-    color: #444;
-    line-height: 1.45;
+    color: #555;
+    line-height: 1.5;
 }
 
 // ── ILIAS login footer (hidden/expanded) ──────────────────────────────────
@@ -260,19 +294,19 @@ div.ilFormLoginMask p {
     }
 }
 
-// ── Warning label (Nicht für WebSSO) ──────────────────────────────────────
+// ── Warning label ─────────────────────────────────────────────────────────
 #not-websso-warning {
-    display: inline-block;
+    display: block;
     width: 100%;
     font-size: 14px;
     text-align: center;
     color: #434343;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .luh-warning-icon {
     color: #bb4747;
-    margin-right: 5px;
+    margin-right: 6px;
 }
 
 // ── Transparent form backgrounds (ILIAS overrides) ────────────────────────
@@ -295,4 +329,71 @@ div.ilStartupSection form.form-horizontal .form-group {
 
 .il-standard-form .il-standard-form-header + .il-section-input > .il-section-input-header {
     background: transparent;
+}
+
+// ── Responsive: tablet (≤ 720px) ─────────────────────────────────────────
+@media (max-width: 720px) {
+    div.ilStartupSection {
+        padding: 24px 12px 40px;
+    }
+
+    div.index_main nav {
+        padding: 28px 20px 12px;
+    }
+
+    div.ilFormLoginMask {
+        max-width: 200px;
+        padding: 0 12px 20px;
+    }
+}
+
+// ── Responsive: mobile (≤ 520px) ──────────────────────────────────────────
+@media (max-width: 520px) {
+    div.ilStartupSection {
+        padding: 12px 8px 32px;
+    }
+
+    #luhLogin {
+        border-radius: 8px;
+    }
+
+    div.index_main nav {
+        padding: 24px 16px 8px;
+    }
+
+    // Stack secondary items in a single centered column
+    .luh-secondary-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    div.ilFormLoginMask {
+        width: 100%;
+        max-width: 320px;
+        align-items: center;
+        text-align: center;
+        padding: 0 0 16px;
+    }
+
+    div.ilFormLoginMask p {
+        text-align: center;
+    }
+
+    .luh-btn-secondary,
+    #ilias_login_link {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    #shib_login {
+        max-width: 100%;
+    }
+
+    .luh-info-block {
+        align-items: center;
+    }
+
+    #login_form_footer {
+        padding: 16px 16px 24px;
+    }
 }

@@ -19335,15 +19335,23 @@ div.ilStartupSection form.form-horizontal {
   border: none;
 }
 
+div.ilStartupSection {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px 60px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
 #luhLogin {
-  padding-top: 25px;
-  margin-left: 2%;
-  width: 640px;
-  min-height: 320px;
+  width: 100%;
+  max-width: 700px;
+  min-height: 280px;
   height: auto;
   background-color: rgba(0, 80, 155, 0.08);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 6px 24px rgba(0, 80, 155, 0.12);
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: visible;
   transition: box-shadow 0.2s ease;
 }
@@ -19354,33 +19362,31 @@ div.ilStartupSection form.form-horizontal {
   padding-top: 0;
 }
 #luhLogin form.form-horizontal {
-  width: inherit;
+  width: 100%;
   background-color: transparent;
 }
 
 div.index_main nav {
-  margin-left: 40px;
-  margin-top: 40px;
-  height: auto;
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 0;
+  flex-direction: column;
+  align-items: center;
+  padding: 36px 32px 16px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
-div.ilFormLoginMask {
-  display: inline-block;
-  vertical-align: top;
-  padding: 0 20px 20px 0;
-  font-size: 14px;
-  width: 230px;
+div.ilFormLoginMask#shib-form-login-mask {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 24px;
+  text-align: center;
 }
-
-#shib-form-login-mask {
-  width: 260px;
-}
-#shib-form-login-mask form.form-horizontal {
-  text-align: left;
+div.ilFormLoginMask#shib-form-login-mask form.form-horizontal {
+  width: 100%;
+  text-align: center;
   background: transparent;
 }
 
@@ -19392,37 +19398,38 @@ div.ilFormLoginMask {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 3px 9px;
+  padding: 4px 12px;
   border-radius: 4px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 #shib_login {
   display: block;
-  width: 210px;
-  padding: 13px 18px;
-  font-size: 16px;
+  width: 100%;
+  max-width: 380px;
+  padding: 18px 24px;
+  font-size: 18px;
   font-weight: 700;
   text-align: center;
   text-decoration: none;
   color: #fff;
   background-color: #00509b;
   border: 2px solid #00509b;
-  border-radius: 6px;
-  box-shadow: 0 3px 8px rgba(0, 80, 155, 0.35);
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 80, 155, 0.35);
   transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
 }
 #shib_login:hover, #shib_login:focus {
   background-color: #003668;
   border-color: #003668;
-  box-shadow: 0 4px 12px rgba(0, 54, 104, 0.4);
+  box-shadow: 0 4px 14px rgba(0, 54, 104, 0.45);
   color: #fff;
   text-decoration: none;
   outline: none;
 }
 #shib_login:focus-visible {
   outline: 3px solid #99b9d8;
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 #shib_login:active {
   transform: translateY(1px);
@@ -19430,22 +19437,23 @@ div.ilFormLoginMask {
 }
 
 .luh-login-hint {
-  margin: 10px 0 0;
-  font-size: 12px;
-  color: #444;
-  line-height: 1.45;
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+  text-align: center;
 }
 
 .luh-login-divider {
   display: flex;
   align-items: center;
-  width: calc(100% - 40px);
-  margin: 4px 0 16px;
-  gap: 10px;
+  width: 100%;
+  margin: 0 0 20px;
+  gap: 12px;
   font-size: 11px;
   font-weight: 600;
   color: #8aaccc;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 .luh-login-divider::before, .luh-login-divider::after {
@@ -19455,23 +19463,45 @@ div.ilFormLoginMask {
   background: #c4d9ea;
 }
 
+.luh-secondary-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  gap: 0;
+}
+
+div.ilFormLoginMask {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 20px 20px;
+  font-size: 14px;
+  min-width: 160px;
+  max-width: 240px;
+}
+
 #ilias_login {
-  width: 230px;
+  align-items: center;
+  text-align: center;
+  min-width: 200px;
 }
 
 .luh-btn-secondary,
 #ilias_login_link {
   display: inline-block;
-  width: 190px;
-  padding: 8px 14px;
-  font-size: 13px;
+  width: 100%;
+  max-width: 200px;
+  padding: 10px 16px;
+  font-size: 14px;
   font-weight: 500;
   text-align: center;
   text-decoration: none;
   color: #4a6a80;
   background-color: transparent;
-  border: 1px solid #aac4d8;
-  border-radius: 6px;
+  border: 1.5px solid #aac4d8;
+  border-radius: 8px;
   box-shadow: none;
   transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
 }
@@ -19480,7 +19510,7 @@ div.ilFormLoginMask {
 #ilias_login_link:focus {
   border-color: #00509b;
   color: #00509b;
-  background-color: rgba(0, 80, 155, 0.04);
+  background-color: rgba(0, 80, 155, 0.05);
   text-decoration: none;
   outline: none;
 }
@@ -19500,14 +19530,14 @@ div.ilFormLoginMask {
 }
 
 .luh-info-block {
-  padding-top: 30px;
-  width: 220px;
+  align-items: flex-start;
+  max-width: 220px;
 }
 
 .luh-info-icon {
   color: #00509b;
-  font-size: 12px;
-  margin-right: 4px;
+  font-size: 13px;
+  margin-right: 5px;
 }
 
 .luh-info-link {
@@ -19522,8 +19552,8 @@ div.ilFormLoginMask {
 div.ilFormLoginMask p {
   margin: 8px 0 0;
   font-size: 12px;
-  color: #444;
-  line-height: 1.45;
+  color: #555;
+  line-height: 1.5;
 }
 
 #login_form_footer {
@@ -19549,17 +19579,17 @@ div.ilFormLoginMask p {
 }
 
 #not-websso-warning {
-  display: inline-block;
+  display: block;
   width: 100%;
   font-size: 14px;
   text-align: center;
   color: #434343;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .luh-warning-icon {
   color: #bb4747;
-  margin-right: 5px;
+  margin-right: 6px;
 }
 
 #login_form_footer .form-horizontal,
@@ -19583,6 +19613,57 @@ div.ilStartupSection form.form-horizontal .form-group {
   background: transparent;
 }
 
+@media (max-width: 720px) {
+  div.ilStartupSection {
+    padding: 24px 12px 40px;
+  }
+  div.index_main nav {
+    padding: 28px 20px 12px;
+  }
+  div.ilFormLoginMask {
+    max-width: 200px;
+    padding: 0 12px 20px;
+  }
+}
+@media (max-width: 520px) {
+  div.ilStartupSection {
+    padding: 12px 8px 32px;
+  }
+  #luhLogin {
+    border-radius: 8px;
+  }
+  div.index_main nav {
+    padding: 24px 16px 8px;
+  }
+  .luh-secondary-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  div.ilFormLoginMask {
+    width: 100%;
+    max-width: 320px;
+    align-items: center;
+    text-align: center;
+    padding: 0 0 16px;
+  }
+  div.ilFormLoginMask p {
+    text-align: center;
+  }
+  .luh-btn-secondary,
+  #ilias_login_link {
+    max-width: 100%;
+    width: 100%;
+  }
+  #shib_login {
+    max-width: 100%;
+  }
+  .luh-info-block {
+    align-items: center;
+  }
+  #login_form_footer {
+    padding: 16px 16px 24px;
+  }
+}
 .il-layout-page-content > div {
   background-image: url("images/Strichzeichung_Welfenschloss_inverted.png");
   background-repeat: no-repeat;

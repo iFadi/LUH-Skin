@@ -24,42 +24,48 @@
                 <span>Weitere Anmeldeoptionen</span>
             </div>
 
-            <!-- Secondary: ILIAS login toggle -->
-            <div class="ilFormLoginMask" id="ilias_login">
-                <a class="btn luh-btn-secondary"
-                   data-scroll-focus="#username"
-                   data-scroll-to="#login_form_footer"
-                   href="#"
-                   id="ilias_login_link"
-                   aria-expanded="false"
-                   aria-controls="login_form_footer"
-                   aria-label="ILIAS Login öffnen">ILIAS Login</a>
-                <p>Personen ohne LUH-ID, Gasthörende, Gäste und Administrierende,
-                    <a class="luh-link-muted"
-                       data-scroll-focus="#not-websso-warning"
+            <!-- Secondary row: ILIAS login + info blocks -->
+            <div class="luh-secondary-row">
+
+                <!-- ILIAS login toggle -->
+                <div class="ilFormLoginMask" id="ilias_login">
+                    <a class="btn luh-btn-secondary"
+                       data-scroll-focus="#username"
                        data-scroll-to="#login_form_footer"
-                       href="#">Selbstregistrierung</a>
-                </p>
-            </div>
+                       href="#"
+                       id="ilias_login_link"
+                       aria-expanded="false"
+                       aria-controls="login_form_footer"
+                       aria-label="ILIAS Login öffnen">ILIAS Login</a>
+                    <p>Personen ohne LUH-ID, Gasthörende, Gäste und Administrierende,
+                        <a class="luh-link-muted"
+                           data-scroll-focus="#not-websso-warning"
+                           data-scroll-to="#login_form_footer"
+                           href="#">Selbstregistrierung</a>
+                    </p>
+                </div>
 
-            <!-- Info links -->
-            <div class="ilFormLoginMask luh-info-block">
-                <span class="glyphicon glyphicon-info-sign luh-info-icon" aria-hidden="true"></span>
-                <a href="https://ilias.uni-hannover.de/goto.php?target=copa_52802&amp;client_id=ilias"
-                   class="luh-info-link" target="_blank" rel="noopener noreferrer">
-                    Erstanmeldung
-                </a>
-                <p>Informationen zur Freischaltung von WebSSO und zur Selbstregistrierung</p>
-            </div>
+                <!-- Erstanmeldung -->
+                <div class="ilFormLoginMask luh-info-block">
+                    <span class="glyphicon glyphicon-info-sign luh-info-icon" aria-hidden="true"></span>
+                    <a href="https://ilias.uni-hannover.de/goto.php?target=copa_52802&amp;client_id=ilias"
+                       class="luh-info-link" target="_blank" rel="noopener noreferrer">
+                        Erstanmeldung
+                    </a>
+                    <p>Informationen zur Freischaltung von WebSSO und zur Selbstregistrierung</p>
+                </div>
 
-            <div class="ilFormLoginMask luh-info-block">
-                <span class="glyphicon glyphicon-info-sign luh-info-icon" aria-hidden="true"></span>
-                <a href="https://www.zqs.uni-hannover.de/de/elsa/tools/ilias/ilias-systeme-login/"
-                   class="luh-info-link" target="_blank" rel="noopener noreferrer">
-                    Hinweise zum Login
-                </a>
-                <p>Alle Infos zum Login und zur Nutzung von WebSSO</p>
-            </div>
+                <!-- Hinweise zum Login -->
+                <div class="ilFormLoginMask luh-info-block">
+                    <span class="glyphicon glyphicon-info-sign luh-info-icon" aria-hidden="true"></span>
+                    <a href="https://www.zqs.uni-hannover.de/de/elsa/tools/ilias/ilias-systeme-login/"
+                       class="luh-info-link" target="_blank" rel="noopener noreferrer">
+                        Hinweise zum Login
+                    </a>
+                    <p>Alle Infos zum Login und zur Nutzung von WebSSO</p>
+                </div>
+
+            </div><!-- /.luh-secondary-row -->
 
         </nav>
 
@@ -101,7 +107,6 @@
 
                     var focusTarget = document.querySelector(trigger.dataset.scrollFocus);
                     if (focusTarget) {
-                        // Small delay to allow layout reflow before focusing
                         setTimeout(function () { focusTarget.focus(); }, 50);
                     }
                 } else {
