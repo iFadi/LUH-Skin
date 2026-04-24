@@ -19366,12 +19366,12 @@ div.ilStartupSection form.form-horizontal,
 }
 
 div.index_main nav {
-  margin-left: 36px;
-  margin-top: 36px;
+  margin-left: 24px;
+  margin-top: 32px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: calc(100% - 72px);
+  width: calc(100% - 48px);
   gap: 0;
 }
 
@@ -19483,28 +19483,29 @@ div.ilFormLoginMask {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0 24px 24px 0;
+  padding: 0 16px 24px 0;
   font-size: 15px;
-  width: 220px;
+  width: 185px;
 }
 
 #ilias_login {
-  width: 200px;
+  width: 185px;
 }
 
 .luh-gasthoerender-block {
-  width: 220px;
+  width: 200px;
 }
 
 .luh-gasthoerender-notice {
-  margin: 0 0 14px;
-  font-size: 13px;
+  margin: 0 0 12px;
+  font-size: 12px;
   color: #555;
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 .luh-btn-studip {
-  display: inline-block;
+  display: block;
+  width: 100%;
   padding: 12px 18px;
   font-size: 15px;
   font-weight: 500;
@@ -19532,8 +19533,8 @@ div.ilFormLoginMask {
 
 .luh-btn-secondary,
 #ilias_login_link {
-  display: inline-block;
-  width: auto;
+  display: block;
+  width: 100%;
   padding: 12px 18px;
   font-size: 15px;
   font-weight: 500;
@@ -19571,7 +19572,7 @@ div.ilFormLoginMask {
 }
 
 .luh-info-block {
-  width: 220px;
+  width: 185px;
 }
 
 .luh-info-icon {
@@ -19663,13 +19664,12 @@ div.ilStartupSection form.form-horizontal .form-group {
     margin-top: 24px;
     width: calc(100% - 40px);
   }
-  div.ilFormLoginMask {
-    width: 200px;
-    padding: 0 16px 20px 0;
-  }
+  div.ilFormLoginMask,
   #ilias_login,
-  .luh-gasthoerender-block {
-    width: 180px;
+  .luh-gasthoerender-block,
+  .luh-info-block {
+    width: 160px;
+    padding: 0 12px 20px 0;
   }
 }
 @media (max-width: 520px) {

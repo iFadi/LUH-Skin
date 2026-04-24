@@ -24,21 +24,10 @@
                 <span>Weitere Anmeldeoptionen</span>
             </div>
 
-            <!-- Secondary row: Gasthörende | ILIAS login | Erstanmeldung -->
+            <!-- Secondary row: 1 ILIAS Login | 2 Stud.IP | 3 Erstanmeldung -->
             <div class="luh-secondary-row">
 
-                <!-- Gasthörende — standalone block -->
-                <div class="ilFormLoginMask luh-gasthoerender-block">
-                    <p class="luh-gasthoerender-notice">
-                        Gasthörende können sich bitte über Stud.IP und von da zu ILIAS bewegen.
-                    </p>
-                    <a class="btn luh-btn-studip"
-                       href="https://studip.uni-hannover.de/"
-                       target="_blank" rel="noopener noreferrer"
-                       aria-label="Stud.IP Login öffnen">Stud.IP Login</a>
-                </div>
-
-                <!-- ILIAS login toggle -->
+                <!-- 1: ILIAS login toggle -->
                 <div class="ilFormLoginMask" id="ilias_login">
                     <a class="btn luh-btn-secondary"
                        data-scroll-focus="#username"
@@ -56,7 +45,18 @@
                     </p>
                 </div>
 
-                <!-- Erstanmeldung -->
+                <!-- 2: Gasthörende / Stud.IP -->
+                <div class="ilFormLoginMask luh-gasthoerender-block">
+                    <p class="luh-gasthoerender-notice">
+                        Gasthörende können sich bitte über Stud.IP und von da zu ILIAS bewegen.
+                    </p>
+                    <a class="btn luh-btn-studip"
+                       href="https://studip.uni-hannover.de/"
+                       target="_blank" rel="noopener noreferrer"
+                       aria-label="Stud.IP Login öffnen">Stud.IP Login</a>
+                </div>
+
+                <!-- 3: Erstanmeldung -->
                 <div class="ilFormLoginMask luh-info-block">
                     <span class="glyphicon glyphicon-info-sign luh-info-icon" aria-hidden="true"></span>
                     <a href="https://ilias.uni-hannover.de/goto.php?target=copa_52802&amp;client_id=ilias"
