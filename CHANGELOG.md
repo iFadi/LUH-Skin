@@ -5,18 +5,24 @@
 
 ### Features
 
-* **login:** promote WebSSO as primary login method, demote ILIAS login to secondary collapsed state ([#login-ux](https://github.com/iFadi/LUH-Skin/issues))
-* **login:** add visual badge and descriptive hint text to WebSSO section for clearer user guidance
-* **login:** introduce divider between primary and secondary login options
+* **login:** promote WebSSO as primary login method; demote ILIAS login to a secondary collapsed state
+* **login:** add branded badge ("Studierende & Lehrende") above WebSSO button
+* **login:** add descriptive hint text below WebSSO button
+* **login:** introduce full-width divider between primary and secondary login sections
+* **login:** add second divider above "Hinweise zum Login" for visual grouping
+* **login:** center badge, WebSSO button and hint text within the card
+* **login:** add fully responsive layout with tablet (≤ 720 px) and mobile (≤ 520 px) breakpoints; secondary items stack in a single column on small screens
 
 
 ### Bug Fixes
 
-* **security:** remove external jQuery CDN dependency from login template; rely on ILIAS-bundled jQuery context via vanilla JS instead
-* **login:** replace inline `style=""` attributes with semantic CSS classes throughout login template
-* **login:** replace `display:none` toggle with `hidden` attribute for accessible show/hide of ILIAS login form
+* **security:** remove external jQuery CDN dependency from login template; use ILIAS-bundled context via vanilla JS instead
+* **login:** replace inline `style=""` attributes with semantic CSS classes throughout the login template
+* **login:** replace `display:none` toggle with `hidden` attribute for accessible show/hide of the ILIAS login form
 * **login:** add `aria-expanded`, `aria-controls` and `rel="noopener noreferrer"` attributes for accessibility and security on external links
 * **login:** remove Nutzungsvereinbarung (user agreement) block from login page
+* **login:** suppress ILIAS base-theme border on Shibboleth form via targeted `!important` overrides on all `.form-horizontal` selectors inside `#luhLogin`
+* **login:** widen WebSSO button to 300 px with 18 px font and increased padding for better touch-target size
 
 
 ## [1.1.1](https://github.com/iFadi/LUH-Skin/compare/v1.1.0...v1.1.1) (2025-07-30)
