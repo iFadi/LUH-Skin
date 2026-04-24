@@ -19332,9 +19332,13 @@ div.Access {
 }
 
 div.ilStartupSection form.form-horizontal,
+#shib-form-login-mask form,
 #shib-form-login-mask form.form-horizontal,
-#luhLogin form.form-horizontal {
+#luhLogin form,
+#luhLogin form.form-horizontal,
+#luhLogin .form-horizontal {
   border: none !important;
+  box-shadow: none !important;
   background-color: transparent;
 }
 
@@ -19372,16 +19376,17 @@ div.index_main nav {
 }
 
 div.ilFormLoginMask#shib-form-login-mask {
-  width: auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding: 0 0 28px;
-  text-align: left;
+  text-align: center;
 }
 div.ilFormLoginMask#shib-form-login-mask form.form-horizontal {
   background: transparent;
-  text-align: left;
+  text-align: center;
+  width: auto;
 }
 
 .luh-login-badge {
@@ -19400,6 +19405,7 @@ div.ilFormLoginMask#shib-form-login-mask form.form-horizontal {
 #shib_login {
   display: block;
   width: 300px;
+  margin: 0 auto;
   padding: 18px 28px;
   font-size: 18px;
   font-weight: 700;
@@ -19434,6 +19440,7 @@ div.ilFormLoginMask#shib-form-login-mask form.form-horizontal {
   font-size: 14px;
   color: #555;
   line-height: 1.5;
+  text-align: center;
 }
 
 .luh-login-divider {
@@ -19453,6 +19460,14 @@ div.ilFormLoginMask#shib-form-login-mask form.form-horizontal {
   flex: 1;
   height: 1px;
   background: #c4d9ea;
+}
+
+.luh-hint-divider {
+  width: 100%;
+  height: 1px;
+  background: #c4d9ea;
+  margin: 4px 0 20px;
+  flex-shrink: 0;
 }
 
 .luh-secondary-row {

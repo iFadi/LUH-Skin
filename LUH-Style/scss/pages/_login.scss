@@ -5,9 +5,13 @@
 
 // ── Remove default form border injected by ILIAS ──────────────────────────
 div.ilStartupSection form.form-horizontal,
+#shib-form-login-mask form,
 #shib-form-login-mask form.form-horizontal,
-#luhLogin form.form-horizontal {
+#luhLogin form,
+#luhLogin form.form-horizontal,
+#luhLogin .form-horizontal {
     border: none !important;
+    box-shadow: none !important;
     background-color: transparent;
 }
 
@@ -53,18 +57,19 @@ div.index_main nav {
     gap: 0;
 }
 
-// ── WebSSO primary section — left-aligned ─────────────────────────────────
+// ── WebSSO primary section — centered within card ─────────────────────────
 div.ilFormLoginMask#shib-form-login-mask {
-    width: auto;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding: 0 0 28px;
-    text-align: left;
+    text-align: center;
 
     form.form-horizontal {
         background: transparent;
-        text-align: left;
+        text-align: center;
+        width: auto;
     }
 }
 
@@ -82,10 +87,11 @@ div.ilFormLoginMask#shib-form-login-mask {
     margin-bottom: 18px;
 }
 
-// ── Primary WebSSO button — large ────────────────────────────────────────
+// ── Primary WebSSO button — large, centered ──────────────────────────────
 #shib_login {
     display: block;
     width: 300px;
+    margin: 0 auto;
     padding: 18px 28px;
     font-size: 18px;
     font-weight: 700;
@@ -128,6 +134,7 @@ div.ilFormLoginMask#shib-form-login-mask {
     font-size: 14px;
     color: #555;
     line-height: 1.5;
+    text-align: center;
 }
 
 // ── Divider — full width ──────────────────────────────────────────────────
@@ -150,6 +157,15 @@ div.ilFormLoginMask#shib-form-login-mask {
         height: 1px;
         background: #c4d9ea;
     }
+}
+
+// ── Thin divider above Hinweise zum Login (no text) ──────────────────────
+.luh-hint-divider {
+    width: 100%;
+    height: 1px;
+    background: #c4d9ea;
+    margin: 4px 0 20px;
+    flex-shrink: 0;
 }
 
 // ── Secondary row: left-aligned flex row ──────────────────────────────────

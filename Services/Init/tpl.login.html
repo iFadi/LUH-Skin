@@ -12,7 +12,7 @@
     <div class="index_main">
         <nav id="LUHLoginMask">
 
-            <!-- Primary: WebSSO login -->
+            <!-- Primary: WebSSO login (centered within card) -->
             <div class="ilFormLoginMask" id="shib-form-login-mask">
                 <span class="luh-login-badge">Studierende &amp; Lehrende</span>
                 {SHIB_LOGIN_FORM}
@@ -24,7 +24,7 @@
                 <span>Weitere Anmeldeoptionen</span>
             </div>
 
-            <!-- Secondary row: ILIAS login + info blocks -->
+            <!-- Secondary row: ILIAS login + Erstanmeldung -->
             <div class="luh-secondary-row">
 
                 <!-- ILIAS login toggle -->
@@ -55,17 +55,20 @@
                     <p>Informationen zur Freischaltung von WebSSO und zur Selbstregistrierung</p>
                 </div>
 
-                <!-- Hinweise zum Login -->
-                <div class="ilFormLoginMask luh-info-block">
-                    <span class="glyphicon glyphicon-info-sign luh-info-icon" aria-hidden="true"></span>
-                    <a href="https://www.zqs.uni-hannover.de/de/elsa/tools/ilias/ilias-systeme-login/"
-                       class="luh-info-link" target="_blank" rel="noopener noreferrer">
-                        Hinweise zum Login
-                    </a>
-                    <p>Alle Infos zum Login und zur Nutzung von WebSSO</p>
-                </div>
-
             </div><!-- /.luh-secondary-row -->
+
+            <!-- Divider before Hinweise -->
+            <div class="luh-hint-divider"></div>
+
+            <!-- Hinweise zum Login — full-width row below the divider -->
+            <div class="ilFormLoginMask luh-info-block">
+                <span class="glyphicon glyphicon-info-sign luh-info-icon" aria-hidden="true"></span>
+                <a href="https://www.zqs.uni-hannover.de/de/elsa/tools/ilias/ilias-systeme-login/"
+                   class="luh-info-link" target="_blank" rel="noopener noreferrer">
+                    Hinweise zum Login
+                </a>
+                <p>Alle Infos zum Login und zur Nutzung von WebSSO</p>
+            </div>
 
         </nav>
 
