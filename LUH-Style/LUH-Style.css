@@ -19512,16 +19512,16 @@ div.ilFormLoginMask {
   text-align: center;
   text-decoration: none;
   color: #fff;
-  background-color: #5f8db0;
-  border: 1.5px solid #5f8db0;
+  background-color: #28497c;
+  border: 1.5px solid #28497c;
   border-radius: 8px;
   box-shadow: none;
   white-space: nowrap;
   transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 .luh-btn-studip:hover, .luh-btn-studip:focus {
-  background-color: #4a718e;
-  border-color: #4a718e;
+  background-color: #1d3860;
+  border-color: #1d3860;
   color: #fff;
   text-decoration: none;
   outline: none;
