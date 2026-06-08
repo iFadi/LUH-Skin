@@ -8,9 +8,11 @@ now=$(date '+%Y%m%d-%H%M%S')
 echo "$now"
 
 templatePath="tpl.xml"
-cp "$templatePath" template.xml
 id='Id'
-sed -i -e "s/$id/$now/g" template.xml
+# Portable in-place rewrite: write directly to template.xml instead of `sed -i`,
+# whose syntax differs between GNU and BSD/macOS sed (the latter would otherwise
+# leave a stray template.xml-e backup file behind on every run).
+sed "s/$id/$now/g" "$templatePath" > template.xml
 echo "Version-id in template.xml is set to $now"
 echo "--------------------"
 

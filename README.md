@@ -14,7 +14,9 @@ v2.0.0 — für **ILIAS 10**
 ---
 
 ## 📸 Screenshot
-![Screenshot](screenshots/luh-skin-release_9-1.png)
+![Screenshot](screenshots/luh-skin-release_10-1.png)
+
+*LUH-Login auf ILIAS 10.8*
 
 ---
 

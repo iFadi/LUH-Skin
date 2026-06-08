@@ -1,2 +1,4 @@
 .idea/
-template.xml-e
+
+# Transient build artifact created by update-skin.sh while compiling
+LUH-Style/scss/*.compiled.scss
