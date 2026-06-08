@@ -72,10 +72,28 @@ git pull
 
 ## 🔧 Für die Implementierung
 
-Zur Anpassung des Skins müssen die `.scss`-Dateien bearbeitet werden. Anschließend ist das Skript `update-skin.sh` **als root** auszuführen, um die **SCSS-Dateien zu kompilieren**:
+Zur Anpassung des Skins müssen die `.scss`-Dateien bearbeitet werden. Anschließend ist das Skript `update-skin.sh` auszuführen, um die **SCSS-Dateien zu kompilieren**.
+
+**Wichtig:** Das Skript importiert die ILIAS-Basis (`delos`) über einen relativen Pfad
+(`@use ".../templates/default/delos"`). SCSS-`@use`-Pfade sind statisch – der `dev`-/Base-Path-Parameter
+ändert nur die **Font-/Bild-URLs**, nicht diesen Import. Daher gibt es zwei Wege:
+
+**A) Innerhalb einer ILIAS-Installation (Standard, z. B. Produktiv-/Testsystem):**
+Der Skin liegt unter `public/Customizing/skin/luh/`, der relative Pfad löst sich automatisch auf.
 
 ```bash
-sudo ./update-skin.sh
+./update-skin.sh prod
+```
+
+**B) Standalone / lokal (Skin-Klon ohne ILIAS drumherum):**
+Den Pfad zur ILIAS-Wurzel (Ordner mit `templates/default/`) per 3. Argument **oder** `ILIAS_ROOT` angeben:
+
+```bash
+# z. B. templates aus einem laufenden ILIAS-10-Container holen:
+docker cp ilias10:/var/www/html/templates /pfad/zu/ilias10/templates
+
+ILIAS_ROOT=/pfad/zu/ilias10 ./update-skin.sh prod
+# oder:  ./update-skin.sh prod "" /pfad/zu/ilias10
 ```
 
 ### 📌 Hinweise:

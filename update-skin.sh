@@ -23,6 +23,10 @@ rm -f LUH-Style/LUH-Style.css
 # Read environment and base path from arguments
 env="$1"
 base_path="$2"
+# Optional path to an ILIAS root (the folder containing templates/default/) used to resolve
+# the delos import when compiling OUTSIDE an ILIAS installation (standalone / local dev).
+# May also be supplied via the ILIAS_ROOT environment variable.
+ilias_path="${3:-${ILIAS_ROOT:-}}"
 
 # Default values if not provided
 if [[ -z "$env" ]]; then
@@ -48,10 +52,31 @@ else
     build_mode="Production"
 fi
 
-# Replace the $base-path value dynamically
+# Replace the $base-path value dynamically (controls the runtime FONT/IMAGE URL prefix)
 echo "Injecting base path..."
 sed "s|\$base-path: \".*\";|\$base-path: \"$base_path\";|" \
     LUH-Style/scss/LUH-Style.scss > LUH-Style/scss/LUH-Style.compiled.scss
+
+# Resolve the delos import.
+# By default the skin is compiled IN PLACE inside an ILIAS installation
+# (public/Customizing/skin/<skin>/), where the relative "@use .../templates/default/delos"
+# resolves against the ILIAS tree. SCSS @use paths must be static literals, so for a
+# STANDALONE / local compile we rewrite that import in the generated *.compiled.scss to an
+# absolute path, using the ILIAS root passed as the 3rd argument (or $ILIAS_ROOT).
+if [[ -n "$ilias_path" ]]; then
+    delos_path="${ilias_path%/}/templates/default/delos"
+    if [[ ! -f "${delos_path}.scss" ]]; then
+        echo "❌ delos not found at ${delos_path}.scss"
+        echo "   Pass the path to your ILIAS root (the folder containing templates/default/)"
+        echo "   as the 3rd argument, or via the ILIAS_ROOT environment variable."
+        rm -f LUH-Style/scss/LUH-Style.compiled.scss
+        exit 1
+    fi
+    echo "ℹ️  Redirecting delos import to: ${delos_path}"
+    sed -i.bak -E "s|@use \"[^\"]*templates/default/delos\"|@use \"${delos_path}\"|" \
+        LUH-Style/scss/LUH-Style.compiled.scss
+    rm -f LUH-Style/scss/LUH-Style.compiled.scss.bak
+fi
 
 # Compile with SASS
 echo "Compiling with sass..."
