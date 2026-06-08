@@ -15,12 +15,17 @@ ILIAS 9.** The ILIAS 9 line continues on the `v1.x` tags.
 
 ### Features
 
-* **build:** point delos `@use` import at the new (one level shallower) skin location;
-  all overridden delos variables verified present in ILIAS 10
+* **build:** verify the delos `@use` import resolves under ILIAS 10 (unchanged 6 levels —
+  `templates/` stays at the ILIAS root while `Customizing` moved under `public/`); all
+  overridden delos variables verified present in ILIAS 10
+* **build:** `update-skin.sh` can now compile outside an ILIAS install via `$ILIAS_ROOT`/3rd arg
 * **docker:** ILIAS 10.8 test stack (`srsolutions/ilias:10.8-php8.3-apache`) with auto-selected LUH skin
 
 ### Bug Fixes
 
+* **assets:** point fonts/icons at the ILIAS 10 web path `/assets/fonts/` (was
+  `/templates/default/fonts/`, the ILIAS 9 location, which 404s under the new `public/` docroot)
+* **scss:** replace the deprecated global `darken()` with `color.adjust()`
 * **registration:** re-derive the `ilAccountRegistrationGUI` core patch from the pristine ILIAS 10
   class so the only delta is the LUH `XXX-XXX` username rule; prevents silently reverting upstream
   fixes. The CSS (`LUH-Style.css`) **must be recompiled** against ILIAS 10's delos via `update-skin.sh`.
