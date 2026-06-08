@@ -14,6 +14,10 @@ $icon-font-path: "#{$base-path}/templates/default/fonts/bootstrap/";
 $background-images-path: "#{$base-path}/templates/default/images/";
 
 // Import base delos theme with custom variables
+// Path depth = 6 levels: from public/Customizing/skin/luh/LUH-Style/scss/ up to the ILIAS
+// root (/var/www/html), then into templates/default/. delos lives at the ROOT templates/
+// folder, not under public/. ILIAS 10 dropped the "global" segment but added the "public/"
+// parent, so the depth is unchanged from ILIAS 9 (still 6 levels).
 @use "../../../../../../templates/default/delos" as delos with (
   $il-web-font-path: $web-font-path,
   $il-icon-font-path: $icon-font-path,

@@ -1,5 +1,31 @@
 # Changelog
 
+## [2.0.0](https://github.com/iFadi/LUH-Skin/compare/v1.3.0...v2.0.0) (2026-06-08)
+
+ILIAS 10 compatibility release. **This version targets ILIAS 10.x and is not compatible with
+ILIAS 9.** The ILIAS 9 line continues on the `v1.x` tags.
+
+
+### ⚠ BREAKING CHANGES
+
+* **skin location:** ILIAS 10 moved custom skins from `public/Customizing/global/skin/` to
+  `public/Customizing/skin/` (the `global` segment was dropped). Install the skin under the new path.
+* **template overrides:** all overridden template paths were migrated from `Services/<X>/` to
+  `components/ILIAS/<X>/` to match the ILIAS 10 component restructure (Init, Mail, Registration).
+
+### Features
+
+* **build:** point delos `@use` import at the new (one level shallower) skin location;
+  all overridden delos variables verified present in ILIAS 10
+* **docker:** ILIAS 10.8 test stack (`srsolutions/ilias:10.8-php8.3-apache`) with auto-selected LUH skin
+
+### Bug Fixes
+
+* **registration:** re-derive the `ilAccountRegistrationGUI` core patch from the pristine ILIAS 10
+  class so the only delta is the LUH `XXX-XXX` username rule; prevents silently reverting upstream
+  fixes. The CSS (`LUH-Style.css`) **must be recompiled** against ILIAS 10's delos via `update-skin.sh`.
+
+
 ## [1.3.0](https://github.com/iFadi/LUH-Skin/compare/v1.2.0...v1.3.0) (2026-04-24)
 
 
