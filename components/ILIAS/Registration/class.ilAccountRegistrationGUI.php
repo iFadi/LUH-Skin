@@ -28,8 +28,9 @@ class ilAccountRegistrationGUI
     protected ilRegistrationSettings $registration_settings;
     protected bool $code_enabled = false;
     protected bool $code_was_used;
-    protected ilTermsOfServiceDocumentEvaluation $termsOfServiceEvaluation;
     protected ilRecommendedContentManager $recommended_content_manager;
+
+    protected ilUserProfile $user_profile;
 
     protected ?ilPropertyFormGUI $form = null;
 
@@ -70,8 +71,9 @@ class ilAccountRegistrationGUI
         $this->code_enabled = ($this->registration_settings->registrationCodeRequired() ||
             $this->registration_settings->getAllowCodes());
 
-        $this->termsOfServiceEvaluation = $DIC['tos.document.evaluator'];
         $this->recommended_content_manager = new ilRecommendedContentManager();
+
+        $this->user_profile = new ilUserProfile();
 
         $this->http = $DIC->http();
         $this->refinery = $DIC->refinery();
@@ -98,7 +100,7 @@ class ilAccountRegistrationGUI
 
     public function displayForm(): ilGlobalTemplateInterface
     {
-        $tpl = ilStartUpGUI::initStartUpTemplate(['tpl.usr_registration.html', 'Services/Registration'], true);
+        $tpl = ilStartUpGUI::initStartUpTemplate(['tpl.usr_registration.html', 'components/ILIAS/Registration'], true);
         $tpl->setVariable('TXT_PAGEHEADLINE', $this->lng->txt('registration'));
 
         if (!$this->form) {
@@ -152,19 +154,15 @@ class ilAccountRegistrationGUI
             }
         }
 
-        // standard fields
-        //TODO-PHP8-REVIEW please check if there is a need for this static call. It looks like of odd to me, that
-        //we need a global static state variable in class that changes the behaviour of all instances.
-        $up = new ilUserProfile();
-        ilUserProfile::setMode(ilUserProfile::MODE_REGISTRATION);
-        $up->skipGroup("preferences");
+        $this->user_profile->setMode(ilUserProfile::MODE_REGISTRATION);
+        $this->user_profile->skipGroup("preferences");
 
-        $up->setAjaxCallback(
+        $this->user_profile->setAjaxCallback(
             $this->ctrl->getLinkTarget($this, 'doProfileAutoComplete', '', true)
         );
         $this->lng->loadLanguageModule("user");
         // add fields to form
-        $up->addStandardFieldsToForm($this->form, null, $custom_fields);
+        $this->user_profile->addStandardFieldsToForm($this->form, null, $custom_fields);
         unset($custom_fields);
 
         // set language selection to current display language
@@ -205,22 +203,8 @@ class ilAccountRegistrationGUI
             }
         }
 
-        if (ilTermsOfServiceHelper::isEnabled() && $this->termsOfServiceEvaluation->hasDocument()) {
-            $document = $this->termsOfServiceEvaluation->document();
-
-            $field = new ilFormSectionHeaderGUI();
-            $field->setTitle($this->lng->txt('usr_agreement'));
-            $this->form->addItem($field);
-
-            $field = new ilCustomInputGUI();
-            $field->setHtml('<div id="agreement">' . $document->content() . '</div>');
-            $this->form->addItem($field);
-
-            $field = new ilCheckboxInputGUI($this->lng->txt('accept_usr_agreement'), 'accept_terms_of_service');
-            $field->setRequired(true);
-            $field->setValue('1');
-            $this->form->addItem($field);
-        }
+        global $DIC;
+        array_map($this->form->addItem(...), $DIC['legalDocuments']->selfRegistration()->legacyInputGUIs());
 
         $this->form->addCommandButton("saveForm", $this->lng->txt("register"));
     }
@@ -307,16 +291,8 @@ class ilAccountRegistrationGUI
             $form_valid = false;
         }
 
-        $showGlobalTermsOfServieFailure = false;
-        if (ilTermsOfServiceHelper::isEnabled() && !$this->form->getInput('accept_terms_of_service')) {
-            $agr_obj = $this->form->getItemByPostVar('accept_terms_of_service');
-            if ($agr_obj) {
-                $agr_obj->setAlert($this->lng->txt('force_accept_usr_agreement'));
-                $form_valid = false;
-            } else {
-                $showGlobalTermsOfServieFailure = true;
-            }
-        }
+        global $DIC;
+        $form_valid = $DIC['legalDocuments']->selfRegistration()->saveLegacyForm($this->form) && $form_valid;
 
         // no need if role is attached to code
         if (!$valid_role) {
@@ -334,7 +310,7 @@ class ilAccountRegistrationGUI
         }
 
         // no valid role could be determined
-        if (!$valid_role) {
+        if (!$valid_role && (!isset($selected_role) || $selected_role !== '')) {
             $this->tpl->setOnScreenMessage('info', $this->lng->txt("registration_no_valid_role"));
             $form_valid = false;
         }
@@ -347,38 +323,50 @@ class ilAccountRegistrationGUI
             $form_valid = false;
         }
 
-        // Fadi: Additional validation: Check for "XXX-XXX" format
+        // LUH customization: reject usernames in "XXX-XXX" format (reserved for LUH-IDs)
+        // so self-registered accounts cannot collide with the WebSSO/Shibboleth namespace.
+        // NOTE: this is a core patch, not a skin override. It must be re-derived from the
+        // pristine ILIAS core class on every ILIAS update (see README.md in this folder).
         if (preg_match('/^[A-Z0-9]{3}-[A-Z0-9]{3}$/i', $login)) {
-            //$login_obj->setAlert("Username must not have the format 'XXX-XXX' where X is an alphanumeric character");
-            $login_obj->setAlert("Der Benutzername darf nicht das Format „XXX-XXX“ haben, wobei X ein alphanumerisches Zeichen ist");
+            $login_obj->setAlert(
+                'Der Benutzername darf nicht das Format „XXX-XXX“ haben, '
+                . 'wobei X ein alphanumerisches Zeichen ist'
+            );
             $form_valid = false;
         }
-        
-        if ($form_valid) {
-            if (ilObjUser::_loginExists($login)) {
-                $login_obj->setAlert($this->lng->txt("login_exists"));
-                $form_valid = false;
-            } elseif ((int) $this->settings->get('allow_change_loginname') &&
-                (int) $this->settings->get('reuse_of_loginnames') === 0 &&
-                ilObjUser::_doesLoginnameExistInHistory($login)) {
-                $login_obj->setAlert($this->lng->txt('login_exists'));
-                $form_valid = false;
+
+        // We should use the HTTP request stretching mechanisms here, according to Mantis #32037
+        $username_checked_and_register_callback = function () use (&$form_valid, $login, $login_obj, $valid_role) {
+            if ($form_valid) {
+                if (ilObjUser::_loginExists($login)) {
+                    $login_obj->setAlert($this->lng->txt('login_exists'));
+                    $form_valid = false;
+                } elseif ((int) $this->settings->get('allow_change_loginname') &&
+                    (int) $this->settings->get('reuse_of_loginnames') === 0 &&
+                    ilObjUser::_doesLoginnameExistInHistory($login)) {
+                    $login_obj->setAlert($this->lng->txt('login_exists'));
+                    $form_valid = false;
+                }
             }
+
+            if ($form_valid) {
+                $password = $this->createUser($valid_role);
+                $this->distributeMails($password);
+            }
+        };
+
+        if (($register_duration = $this->settings->get('registration_duration')) !== null) {
+            $duration = $this->http->durations()->callbackDuration((int) $register_duration);
+            $duration->stretch($username_checked_and_register_callback);
+        } else {
+            $username_checked_and_register_callback();
         }
 
-        if (!$form_valid) {
-            $this->tpl->setOnScreenMessage('failure', $this->lng->txt('form_input_not_valid'));
-        } elseif ($showGlobalTermsOfServieFailure) {
-            $this->lng->loadLanguageModule('tos');
-            $this->tpl->setOnScreenMessage('failure', sprintf(
-                $this->lng->txt('tos_account_reg_not_possible'),
-                'mailto:' . ilLegacyFormElementsUtil::prepareFormOutput(ilSystemSupportContacts::getMailsToAddress())
-            ));
-        } else {
-            $password = $this->createUser($valid_role);
-            $this->distributeMails($password);
+        if ($form_valid) {
             return $this->login();
         }
+
+        $this->tpl->setOnScreenMessage('failure', $this->lng->txt('form_input_not_valid'));
         $this->form->setValuesByPost();
         return $this->displayForm();
     }
@@ -395,17 +383,16 @@ class ilAccountRegistrationGUI
         }
 
         $this->userObj = new ilObjUser();
+        if ((int) $this->settings->get('auth_mode') !== ilAuthUtils::AUTH_LOCAL) {
+            $this->userObj->setAuthMode('local');
+        }
 
-        $up = new ilUserProfile();
-        ilUserProfile::setMode(ilUserProfile::MODE_REGISTRATION);
-
-        $map = [];
-        $up->skipGroup("preferences");
-        $up->skipGroup("settings");
-        $up->skipField("password");
-        $up->skipField("birthday");
-        $up->skipField("upload");
-        foreach ($up->getStandardFields() as $k => $v) {
+        $this->user_profile->skipGroup("preferences");
+        $this->user_profile->skipGroup("settings");
+        $this->user_profile->skipField("password");
+        $this->user_profile->skipField("birthday");
+        $this->user_profile->skipField("upload");
+        foreach ($this->user_profile->getStandardFields() as $k => $v) {
             if ($v["method"]) {
                 $method = "set" . substr($v["method"], 3);
                 if (method_exists($this->userObj, $method)) {
@@ -465,7 +452,6 @@ class ilAccountRegistrationGUI
             // #10853 - could be optional
             $code = $this->form->getInput('usr_registration_code');
             if ($code) {
-
                 // set code to used
                 ilRegistrationCode::useCode($code);
                 $this->code_was_used = true;
@@ -551,18 +537,9 @@ class ilAccountRegistrationGUI
         // setup user preferences
         $this->userObj->setLanguage($this->form->getInput('usr_language'));
 
-        $handleDocument = ilTermsOfServiceHelper::isEnabled() && $this->termsOfServiceEvaluation->hasDocument();
-        if ($handleDocument) {
-            $helper = new ilTermsOfServiceHelper();
+        global $DIC;
+        $DIC['legalDocuments']->selfRegistration()->userCreation($this->userObj);
 
-            $helper->trackAcceptance($this->userObj, $this->termsOfServiceEvaluation->document());
-        }
-
-        $hits_per_page = $this->settings->get("hits_per_page");
-        if ($hits_per_page < 10) {
-            $hits_per_page = 10;
-        }
-        $this->userObj->setPref("hits_per_page", $hits_per_page);
         if ($this->http->wrapper()->query()->has('target')) {
             $this->userObj->setPref(
                 'reg_target',
@@ -581,7 +558,8 @@ class ilAccountRegistrationGUI
 
         // local roles from code
         if ($this->code_was_used && is_array($code_local_roles)) {
-            foreach (array_unique($code_local_roles) as $local_role_obj_id) {
+            $code_local_roles = array_map(intval(...), array_unique($code_local_roles));
+            foreach ($code_local_roles as $local_role_obj_id) {
                 // is given role (still) valid?
                 if (ilObject::_lookupType($local_role_obj_id) === "role") {
                     $this->rbacadmin->assignUser($local_role_obj_id, $this->userObj->getId());
@@ -647,7 +625,7 @@ class ilAccountRegistrationGUI
 
     public function login(): ilGlobalTemplateInterface
     {
-        $tpl = ilStartUpGUI::initStartUpTemplate(['tpl.usr_registered.html', 'Services/Registration'], false);
+        $tpl = ilStartUpGUI::initStartUpTemplate(['tpl.usr_registered.html', 'components/ILIAS/Registration'], false);
         $this->tpl->setVariable('TXT_PAGEHEADLINE', $this->lng->txt('registration'));
 
         $tpl->setVariable("TXT_WELCOME", $this->lng->txt("welcome") . ", " . $this->userObj->getTitle() . "!");

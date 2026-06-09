@@ -1,123 +1,237 @@
-// scss/LoginMask
+// scss/pages/_login
+// Login page: two-column card — left = login options (WebSSO / ohne WebSSO),
+// right = "Hinweise" link buttons. Left-aligned card, responsive to a single column.
 @use "../settings/colors" as *;
 
-div.ilStartupSection form.form-horizontal {
-  border: none; // Set the border to none
+// ── Remove default form border/background injected by ILIAS ────────────────
+div.ilStartupSection form.form-horizontal,
+#shib-form-login-mask form,
+#shib-form-login-mask form.form-horizontal,
+#luhLogin form,
+#luhLogin form.form-horizontal,
+#luhLogin .form-horizontal,
+#luhLogin .ilForm {
+    border: none !important;
+    box-shadow: none !important;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
 }
 
+// ── Outer card — left-aligned ─────────────────────────────────────────────
 #luhLogin {
-  padding-top: 25px;
-  margin-left: 2%;
-  height: 400px;
-  min-height: 400px;
-  width: 600px;
-  background-color: rgba(0, 80, 155, 0.3);
-  // background: linear-gradient(150deg, #00509b 0%, #003668 100%);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
-  overflow: auto; // Add this property
+    padding: 34px 40px;
+    margin-left: 2%;
+    width: 760px;
+    max-width: calc(100% - 24px);
+    background-color: rgba(0, 80, 155, 0.07);
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.06),
+        0 6px 24px rgba(0, 80, 155, 0.10);
+    border-radius: 12px;
+    transition: box-shadow 0.2s ease;
 
-  &:hover {
-    box-shadow: none;
-    box-shadow: 0 4px 8px 0 rgba(0, 80, 155, 0.3), 0 6px 20px 0 rgba(0, 80, 155, 0.25);
-  }
-
-  form.form-horizontal {
-    width: inherit;
-    background-color: transparent;
-
-    #shib-button, #ilias-login-button {
-      text-align: center;
+    &:hover {
+        box-shadow:
+            0 4px 10px rgba(0, 80, 155, 0.12),
+            0 8px 28px rgba(0, 80, 155, 0.16);
     }
-
-    input.btn {
-      &:hover {
-        background-color: $il-brand-primary;
-        border: 1px solid $il-brand-primary;
-      }
-    }
-  }
 }
 
 div.index_main nav {
-  margin-left: 50px;
-  margin-top: 50px;
-  height: auto;
-  display: block;
+    display: block;
 }
 
-#luhLogin.expanded {
-  height: auto;
-  min-height: 700px; // Adjust this value based on your content
-  padding-top: 0; // Remove padding-top when expanded
+// ── Two-column grid ───────────────────────────────────────────────────────
+.luh-login-grid {
+    display: flex;
+    align-items: stretch;
+    gap: 40px;
 }
 
-div.ilFormLoginMask {
-  display: inline-block;
-  width: 250px;
-  vertical-align: top;
-  padding-right: 25px;
-  padding-left: 20px;
-  font-size: 20px;
+.luh-col {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
 }
 
-div.ilFormLoginMask a {
-  font-size: 23px;
-  background-color: transparent;
+.luh-col-main {
+    flex: 1 1 52%;
 }
 
-div.ilFormLoginMask p {
-    margin: 10px 0 10px;
+.luh-col-hints {
+    flex: 1 1 44%;
 }
 
-#shib_login, #ilias_login_link {
-  width: 200px;
-  border: 1px solid;
-  text-align: center;
-  box-shadow: 0px 3px 6px rgba(0, 80, 155, 0.4);
-  text-decoration: none;
-
-
-  &:hover {
-    background-color: rgba(0, 80, 155, 0.8);
-    border: 1px solid rgba(0, 80, 155, 0.5);
-    box-shadow: 0px 3px 6px rgba(0, 80, 155, 0.3);
-    color: white;
-  }
+// ── Vertical divider between the columns ──────────────────────────────────
+.luh-vdivider {
+    flex: 0 0 1px;
+    align-self: stretch;
+    background: #c4d9ea;
 }
 
-div.ilFormLoginMask p {
-  font-size: 12px;
-  color: #282828;
+// ── LEFT column ───────────────────────────────────────────────────────────
+.luh-uni-title {
+    margin: 0 0 26px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #2b2b2b;
+    line-height: 1.3;
 }
 
-#shib-form-login-mask form.form-horizontal {
-  text-align: left;
+.luh-login-option {
+    margin-bottom: 30px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// The WebSSO link ({SHIB_LOGIN_FORM} → #shib_login) and the "ohne WebSSO"
+// toggle share one prominent blue text-link style.
+.luh-login-action,
+#shib_login {
+    display: inline-block;
+    padding: 0;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: $il-brand-primary;
+    background: transparent;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        color: $il-brand-primary-dark-blue;
+        text-decoration: underline;
+        outline: none;
+    }
+
+    &:focus-visible {
+        outline: 2px solid $il-brand-primary-luh-light;
+        outline-offset: 3px;
+    }
+}
+
+.luh-login-desc {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+// ── RIGHT column (Hinweise) ───────────────────────────────────────────────
+.luh-hints-title {
+    margin: 0 0 16px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2b2b2b;
+}
+
+.luh-hint-btn {
+    display: block;
+    width: 100%;
+    padding: 9px 14px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    background: #fff;
+    border: 1px solid #cfd6dd;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease,
+        color 0.15s ease;
+
+    &::before {
+        content: "\25B7"; // ▷
+        color: $il-brand-primary;
+        margin-right: 9px;
+        font-size: 12px;
+        vertical-align: middle;
+    }
+
+    &:hover,
+    &:focus {
+        border-color: $il-brand-primary;
+        color: $il-brand-primary;
+        text-decoration: none;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 80, 155, 0.15);
+    }
+
+    &:focus-visible {
+        outline: 2px solid $il-brand-primary-luh-light;
+        outline-offset: 2px;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// ── ILIAS login form — hidden until "Login ohne WebSSO" is clicked ─────────
+#login_form_footer {
+    margin-top: 26px;
+    padding: 22px 0 6px;
+    border-top: 1px solid #c4d9ea;
+
+    .form-horizontal,
+    #il_prop_cont_password,
+    #il_prop_cont_username,
+    .il-standard-form .il-standard-form-header,
+    .il-standard-form .il-standard-form-footer {
+        background: transparent;
+    }
+
+    .il-standard-form .il-standard-form-header {
+        display: none;
+    }
+
+    div.ilStartupSection form.form-horizontal .form-group {
+        background: transparent;
+    }
 }
 
 #not-websso-warning {
-  display: inline-block;
-  font-size: 14px;
-  text-align: center; // Add this property
-  width: 100%; // Add this property
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    color: #434343;
+    margin-bottom: 14px;
 }
 
-#login_form_footer .form-horizontal,
-#il_prop_cont_password,
-#il_prop_cont_username,
-
-.il-standard-form .il-standard-form-header, .il-standard-form .il-standard-form-footer {
-    background: transparent;
+.luh-warning-icon {
+    color: #bb4747;
+    margin-right: 6px;
 }
 
-.il-standard-form .il-standard-form-header {
-    display: none;
-    background: transparent;
-}
+// ── Responsive: stack to a single column ──────────────────────────────────
+@media (max-width: 720px) {
+    #luhLogin {
+        width: calc(100% - 24px);
+        margin-left: 12px;
+        padding: 26px 22px;
+    }
 
-div.ilStartupSection form.form-horizontal .form-group {
-    background: transparent;
-}
+    .luh-login-grid {
+        flex-direction: column;
+        gap: 26px;
+    }
 
-.il-standard-form .il-standard-form-header + .il-section-input > .il-section-input-header {
-    background: transparent;
+    .luh-vdivider {
+        flex-basis: 1px;
+        width: 100%;
+        height: 1px;
+        align-self: auto;
+    }
+
+    .luh-login-action,
+    #shib_login {
+        font-size: 20px;
+    }
 }

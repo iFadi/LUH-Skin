@@ -3,21 +3,30 @@
 // Custom ILIAS skin styles for LUH
 // --------------------------------------------
 
+// Sass colour module (replaces the deprecated global darken()/lighten() functions)
+@use "sass:color";
+
 // Define the base path for static files
 // Default: "" for production
 // This value is dynamically replaced in dev by the update script
 $base-path: "";
 
-// Construct font paths based on the base path
-$web-font-path: "#{$base-path}/templates/default/fonts/";
-$icon-font-path: "#{$base-path}/templates/default/fonts/bootstrap/";
-$background-images-path: "#{$base-path}/templates/default/images/";
+// Construct font/image paths based on the base path.
+// ILIAS 10 serves these web assets from public/assets/ (the docroot is public/),
+// NOT from templates/default/ as in ILIAS 9. Using the wrong prefix 404s every font.
+$web-font-path: "#{$base-path}/assets/fonts/";
+$icon-font-path: "#{$base-path}/assets/fonts/bootstrap/";
+$background-images-path: "#{$base-path}/assets/images/";
 
 // Import base delos theme with custom variables
+// Path depth = 6 levels: from public/Customizing/skin/luh/LUH-Style/scss/ up to the ILIAS
+// root (/var/www/html), then into templates/default/. delos lives at the ROOT templates/
+// folder, not under public/. ILIAS 10 dropped the "global" segment but added the "public/"
+// parent, so the depth is unchanged from ILIAS 9 (still 6 levels).
 @use "../../../../../../templates/default/delos" as delos with (
   $il-web-font-path: $web-font-path,
   $il-icon-font-path: $icon-font-path,
-  $il-mainbar-btn-bg-color: darken(#00509b, 10%),
+  $il-mainbar-btn-bg-color: color.adjust(#00509b, $lightness: -10%),
   $il-footer-bg-color: #cccccc,
   $il-standard-page-header-bg-color: #f7f7f7
 );

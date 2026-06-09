@@ -1,5 +1,81 @@
 # Changelog
 
+## [2.1.0](https://github.com/iFadi/LUH-Skin/compare/v2.0.0...v2.1.0) (2026-06-09)
+
+### Features
+
+* **login:** redesign the login page as a two-column card — left column with
+  "Login mit WebSSO" / "Login ohne WebSSO" text links and descriptions, right
+  column "Hinweise" with button-style links (Erstanmeldung, Hinweise zum Login,
+  Selbstregistrierung); Gasthörende folded into the "ohne WebSSO" description
+* **login:** WebSSO link (Shibboleth) now reads "Login mit WebSSO"
+
+
+## [2.0.0](https://github.com/iFadi/LUH-Skin/compare/v1.3.0...v2.0.0) (2026-06-08)
+
+ILIAS 10 compatibility release. **This version targets ILIAS 10.x and is not compatible with
+ILIAS 9.** The ILIAS 9 line continues on the `v1.x` tags.
+
+
+### ⚠ BREAKING CHANGES
+
+* **skin location:** ILIAS 10 moved custom skins from `public/Customizing/global/skin/` to
+  `public/Customizing/skin/` (the `global` segment was dropped). Install the skin under the new path.
+* **template overrides:** all overridden template paths were migrated from `Services/<X>/` to
+  `components/ILIAS/<X>/` to match the ILIAS 10 component restructure (Init, Mail, Registration).
+
+### Features
+
+* **build:** verify the delos `@use` import resolves under ILIAS 10 (unchanged 6 levels —
+  `templates/` stays at the ILIAS root while `Customizing` moved under `public/`); all
+  overridden delos variables verified present in ILIAS 10
+* **build:** `update-skin.sh` can now compile outside an ILIAS install via `$ILIAS_ROOT`/3rd arg
+* **docker:** ILIAS 10.8 test stack (`srsolutions/ilias:10.8-php8.3-apache`) with auto-selected LUH skin
+
+### Bug Fixes
+
+* **assets:** point fonts/icons at the ILIAS 10 web path `/assets/fonts/` (was
+  `/templates/default/fonts/`, the ILIAS 9 location, which 404s under the new `public/` docroot)
+* **scss:** replace the deprecated global `darken()` with `color.adjust()`
+* **registration:** re-derive the `ilAccountRegistrationGUI` core patch from the pristine ILIAS 10
+  class so the only delta is the LUH `XXX-XXX` username rule; prevents silently reverting upstream
+  fixes. The CSS (`LUH-Style.css`) **must be recompiled** against ILIAS 10's delos via `update-skin.sh`.
+
+
+## [1.3.0](https://github.com/iFadi/LUH-Skin/compare/v1.2.0...v1.3.0) (2026-04-24)
+
+
+### Features
+
+* **login:** add Gasthörende notice with inline Stud.IP link above the secondary login buttons
+* **login:** add Stud.IP Login button alongside ILIAS Login for direct access to Stud.IP SSO
+
+
+## [1.2.0](https://github.com/iFadi/LUH-Skin/compare/v1.1.1...v1.2.0) (2026-04-24)
+
+
+### Features
+
+* **login:** promote WebSSO as primary login method; demote ILIAS login to a secondary collapsed state
+* **login:** add branded badge ("Studierende & Lehrende") above WebSSO button
+* **login:** add descriptive hint text below WebSSO button
+* **login:** introduce full-width divider between primary and secondary login sections
+* **login:** add second divider above "Hinweise zum Login" for visual grouping
+* **login:** center badge, WebSSO button and hint text within the card
+* **login:** add fully responsive layout with tablet (≤ 720 px) and mobile (≤ 520 px) breakpoints; secondary items stack in a single column on small screens
+
+
+### Bug Fixes
+
+* **security:** remove external jQuery CDN dependency from login template; use ILIAS-bundled context via vanilla JS instead
+* **login:** replace inline `style=""` attributes with semantic CSS classes throughout the login template
+* **login:** replace `display:none` toggle with `hidden` attribute for accessible show/hide of the ILIAS login form
+* **login:** add `aria-expanded`, `aria-controls` and `rel="noopener noreferrer"` attributes for accessibility and security on external links
+* **login:** remove Nutzungsvereinbarung (user agreement) block from login page
+* **login:** suppress ILIAS base-theme border on Shibboleth form via targeted `!important` overrides on all `.form-horizontal` selectors inside `#luhLogin`
+* **login:** widen WebSSO button to 300 px with 18 px font and increased padding for better touch-target size
+
+
 ## [1.1.1](https://github.com/iFadi/LUH-Skin/compare/v1.1.0...v1.1.1) (2025-07-30)
 
 
