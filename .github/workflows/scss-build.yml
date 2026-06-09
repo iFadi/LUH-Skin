@@ -1,0 +1,46 @@
+name: SCSS Build
+
+# Verify that LUH-Style.scss still compiles against ILIAS's delos base style.
+# delos is not part of this repo, so we sparse-checkout templates/default from the
+# matching ILIAS release and compile via update-skin.sh's $ILIAS_ROOT support.
+
+on:
+  push:
+    branches:
+      - main
+      - "release_*"
+  pull_request:
+
+jobs:
+  scss-build:
+    runs-on: ubuntu-latest
+    env:
+      ILIAS_BRANCH: release_10 # ILIAS branch to pull delos from
+    steps:
+      - name: Checkout skin
+        uses: actions/checkout@v4
+
+      - name: Fetch ILIAS delos (templates/default, sparse)
+        run: |
+          git clone --filter=blob:none --no-checkout --depth 1 \
+            --branch "$ILIAS_BRANCH" \
+            https://github.com/ILIAS-eLearning/ILIAS.git ilias-src
+          cd ilias-src
+          git sparse-checkout init --cone
+          git sparse-checkout set templates/default
+          git checkout
+          test -f templates/default/delos.scss
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dart-sass
+        run: npm install -g sass
+
+      - name: Compile LUH-Style against ILIAS delos
+        run: ILIAS_ROOT="${{ github.workspace }}/ilias-src" ./update-skin.sh prod
+
+      - name: Confirm CSS was produced
+        run: test -s LUH-Style/LUH-Style.css
