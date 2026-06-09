@@ -21593,247 +21593,158 @@ div.ilStartupSection form.form-horizontal,
 #shib-form-login-mask form.form-horizontal,
 #luhLogin form,
 #luhLogin form.form-horizontal,
-#luhLogin .form-horizontal {
+#luhLogin .form-horizontal,
+#luhLogin .ilForm {
   border: none !important;
   box-shadow: none !important;
   background-color: transparent;
+  padding: 0;
+  margin: 0;
 }
 
 #luhLogin {
-  padding-top: 25px;
+  padding: 34px 40px;
   margin-left: 2%;
-  width: 680px;
-  min-height: 320px;
-  height: auto;
-  background-color: rgba(0, 80, 155, 0.08);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 6px 24px rgba(0, 80, 155, 0.12);
+  width: 760px;
+  max-width: calc(100% - 24px);
+  background-color: rgba(0, 80, 155, 0.07);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 6px 24px rgba(0, 80, 155, 0.1);
   border-radius: 12px;
-  overflow: visible;
   transition: box-shadow 0.2s ease;
 }
 #luhLogin:hover {
-  box-shadow: 0 4px 8px rgba(0, 80, 155, 0.15), 0 8px 28px rgba(0, 80, 155, 0.2);
-}
-#luhLogin.expanded {
-  padding-top: 0;
-}
-#luhLogin form.form-horizontal {
-  width: inherit;
-  background-color: transparent;
+  box-shadow: 0 4px 10px rgba(0, 80, 155, 0.12), 0 8px 28px rgba(0, 80, 155, 0.16);
 }
 
 div.index_main nav {
-  margin-left: 24px;
-  margin-top: 32px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: calc(100% - 48px);
-  gap: 0;
-}
-
-div.ilFormLoginMask#shib-form-login-mask {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 0 28px;
-  text-align: center;
-}
-div.ilFormLoginMask#shib-form-login-mask form.form-horizontal {
-  background: transparent;
-  text-align: center;
-  width: auto;
-}
-
-.luh-login-badge {
-  display: inline-block;
-  background-color: #00509b;
-  color: #fff;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 5px 14px;
-  border-radius: 4px;
-  margin-bottom: 18px;
-}
-
-#shib_login {
   display: block;
-  width: 300px;
-  margin: 0 auto;
-  padding: 18px 28px;
-  font-size: 18px;
-  font-weight: 700;
-  text-align: center;
-  text-decoration: none;
-  color: #fff;
-  background-color: #00509b;
-  border: 2px solid #00509b;
-  border-radius: 8px;
-  box-shadow: 0 3px 10px rgba(0, 80, 155, 0.35);
-  transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
 }
-#shib_login:hover, #shib_login:focus {
-  background-color: #003668;
-  border-color: #003668;
-  box-shadow: 0 4px 14px rgba(0, 54, 104, 0.45);
-  color: #fff;
+
+.luh-login-grid {
+  display: flex;
+  align-items: stretch;
+  gap: 40px;
+}
+
+.luh-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.luh-col-main {
+  flex: 1 1 52%;
+}
+
+.luh-col-hints {
+  flex: 1 1 44%;
+}
+
+.luh-vdivider {
+  flex: 0 0 1px;
+  align-self: stretch;
+  background: #c4d9ea;
+}
+
+.luh-uni-title {
+  margin: 0 0 26px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #2b2b2b;
+  line-height: 1.3;
+}
+
+.luh-login-option {
+  margin-bottom: 30px;
+}
+.luh-login-option:last-child {
+  margin-bottom: 0;
+}
+
+.luh-login-action,
+#shib_login {
+  display: inline-block;
+  padding: 0;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: #00509b;
+  background: transparent;
+  border: none;
   text-decoration: none;
+  cursor: pointer;
+}
+.luh-login-action:hover, .luh-login-action:focus,
+#shib_login:hover,
+#shib_login:focus {
+  color: #003668;
+  text-decoration: underline;
   outline: none;
 }
+.luh-login-action:focus-visible,
 #shib_login:focus-visible {
-  outline: 3px solid #99b9d8;
+  outline: 2px solid #99b9d8;
   outline-offset: 3px;
 }
-#shib_login:active {
-  transform: translateY(1px);
-  box-shadow: 0 2px 4px rgba(0, 54, 104, 0.3);
-}
 
-.luh-login-hint {
-  margin: 14px 0 0;
+.luh-login-desc {
+  margin: 5px 0 0;
   font-size: 14px;
   color: #555;
   line-height: 1.5;
-  text-align: center;
 }
 
-.luh-login-divider {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  margin: 0 0 24px;
-  gap: 12px;
-  font-size: 12px;
+.luh-hints-title {
+  margin: 0 0 16px;
+  font-size: 18px;
   font-weight: 600;
-  color: #8aaccc;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-.luh-login-divider::before, .luh-login-divider::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: #c4d9ea;
+  color: #2b2b2b;
 }
 
-.luh-hint-divider {
-  width: 100%;
-  height: 1px;
-  background: #c4d9ea;
-  margin: 4px 0 20px;
-  flex-shrink: 0;
-}
-
-.luh-secondary-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100%;
-  gap: 0;
-}
-
-div.ilFormLoginMask {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0 16px 24px 0;
-  font-size: 15px;
-  width: 185px;
-}
-
-#ilias_login {
-  width: 185px;
-}
-
-.luh-gasthoerender-block {
-  width: 200px;
-}
-
-.luh-gasthoerender-notice {
-  margin: 0 0 12px;
-  font-size: 12px;
-  color: #555;
-  line-height: 1.5;
-}
-
-.luh-btn-secondary,
-#ilias_login_link {
+.luh-hint-btn {
   display: block;
   width: 100%;
-  padding: 12px 18px;
-  font-size: 15px;
-  font-weight: 500;
-  text-align: center;
+  padding: 9px 14px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #333;
   text-decoration: none;
-  color: #4a6a80;
-  background-color: transparent;
-  border: 1.5px solid #aac4d8;
-  border-radius: 8px;
-  box-shadow: none;
-  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+  background: #fff;
+  border: 1px solid #cfd6dd;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
 }
-.luh-btn-secondary:hover, .luh-btn-secondary:focus,
-#ilias_login_link:hover,
-#ilias_login_link:focus {
+.luh-hint-btn::before {
+  content: "▷";
+  color: #00509b;
+  margin-right: 9px;
+  font-size: 12px;
+  vertical-align: middle;
+}
+.luh-hint-btn:hover, .luh-hint-btn:focus {
   border-color: #00509b;
   color: #00509b;
-  background-color: rgba(0, 80, 155, 0.05);
   text-decoration: none;
   outline: none;
+  box-shadow: 0 2px 6px rgba(0, 80, 155, 0.15);
 }
-.luh-btn-secondary:focus-visible,
-#ilias_login_link:focus-visible {
-  outline: 3px solid #99b9d8;
+.luh-hint-btn:focus-visible {
+  outline: 2px solid #99b9d8;
   outline-offset: 2px;
 }
-
-.luh-link-muted {
-  font-size: 13px;
-  color: #7a9db8;
-  text-decoration: underline;
-}
-.luh-link-muted:hover {
-  color: #00509b;
-}
-
-.luh-info-block {
-  width: 185px;
-}
-
-.luh-info-icon {
-  color: #00509b;
-  font-size: 14px;
-  margin-right: 6px;
-}
-
-.luh-info-link {
-  font-size: 16px;
-  color: #00509b;
-  text-decoration: none;
-}
-.luh-info-link:hover {
-  text-decoration: underline;
-}
-
-div.ilFormLoginMask p {
-  margin: 10px 0 0;
-  font-size: 13px;
-  color: #555;
-  line-height: 1.55;
+.luh-hint-btn:last-child {
+  margin-bottom: 0;
 }
 
 #login_form_footer {
-  padding: 20px 40px 30px;
+  margin-top: 26px;
+  padding: 22px 0 6px;
+  border-top: 1px solid #c4d9ea;
 }
 #login_form_footer .form-horizontal,
 #login_form_footer #il_prop_cont_password,
-#login_form_footer #il_prop_cont_username {
-  background: transparent;
-}
+#login_form_footer #il_prop_cont_username,
 #login_form_footer .il-standard-form .il-standard-form-header,
 #login_form_footer .il-standard-form .il-standard-form-footer {
   background: transparent;
@@ -21844,17 +21755,13 @@ div.ilFormLoginMask p {
 #login_form_footer div.ilStartupSection form.form-horizontal .form-group {
   background: transparent;
 }
-#login_form_footer .il-standard-form .il-standard-form-header + .il-section-input > .il-section-input-header {
-  background: transparent;
-}
 
 #not-websso-warning {
   display: block;
   width: 100%;
   font-size: 15px;
-  text-align: center;
   color: #434343;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .luh-warning-icon {
@@ -21862,77 +21769,25 @@ div.ilFormLoginMask p {
   margin-right: 6px;
 }
 
-#login_form_footer .form-horizontal,
-#il_prop_cont_password,
-#il_prop_cont_username,
-.il-standard-form .il-standard-form-header,
-.il-standard-form .il-standard-form-footer {
-  background: transparent;
-}
-
-.il-standard-form .il-standard-form-header {
-  display: none;
-  background: transparent;
-}
-
-div.ilStartupSection form.form-horizontal .form-group {
-  background: transparent;
-}
-
-.il-standard-form .il-standard-form-header + .il-section-input > .il-section-input-header {
-  background: transparent;
-}
-
-@media (max-width: 760px) {
+@media (max-width: 720px) {
   #luhLogin {
     width: calc(100% - 24px);
     margin-left: 12px;
+    padding: 26px 22px;
   }
-  div.index_main nav {
-    margin-left: 20px;
-    margin-top: 24px;
-    width: calc(100% - 40px);
-  }
-  div.ilFormLoginMask,
-  #ilias_login,
-  .luh-gasthoerender-block,
-  .luh-info-block {
-    width: 160px;
-    padding: 0 12px 20px 0;
-  }
-}
-@media (max-width: 520px) {
-  #luhLogin {
-    width: calc(100% - 16px);
-    margin-left: 8px;
-    border-radius: 8px;
-  }
-  div.index_main nav {
-    margin-left: 16px;
-    margin-top: 20px;
-    width: calc(100% - 32px);
-  }
-  .luh-secondary-row {
+  .luh-login-grid {
     flex-direction: column;
+    gap: 26px;
   }
-  div.ilFormLoginMask,
-  .luh-gasthoerender-block {
+  .luh-vdivider {
+    flex-basis: 1px;
     width: 100%;
-    max-width: 300px;
-    padding: 0 0 16px;
+    height: 1px;
+    align-self: auto;
   }
-  .luh-btn-secondary,
-  #ilias_login_link {
-    width: 100%;
-    max-width: 280px;
-    text-align: center;
-  }
+  .luh-login-action,
   #shib_login {
-    width: 100%;
-    max-width: 300px;
-  }
-  #login_form_footer {
-    padding: 16px 16px 24px;
+    font-size: 20px;
   }
 }
 .il-layout-page-content > div {

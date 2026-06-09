@@ -11,74 +11,52 @@
 <div class="ilStartupSection" id="luhLogin">
     <div class="index_main">
         <nav id="LUHLoginMask">
+            <div class="luh-login-grid">
 
-            <!-- Primary: WebSSO login (centered within card) -->
-            <div class="ilFormLoginMask" id="shib-form-login-mask">
-                <span class="luh-login-badge">Studierende &amp; Lehrende</span>
-                {SHIB_LOGIN_FORM}
-                <p class="luh-login-hint">Für Studierende und Lehrende über WebSSO</p>
+                <!-- LEFT column: login options -->
+                <section class="luh-col luh-col-main">
+                    <h2 class="luh-uni-title">Leibniz Universität Hannover</h2>
+
+                    <!-- WebSSO login (rendered by ILIAS when Shibboleth is active) -->
+                    <div class="luh-login-option" id="shib-form-login-mask">
+                        {SHIB_LOGIN_FORM}
+                        <p class="luh-login-desc">für Studierende und Lehrende</p>
+                    </div>
+
+                    <!-- ILIAS login (ohne WebSSO) — toggles the username/password form -->
+                    <div class="luh-login-option" id="ilias_login">
+                        <a class="luh-login-action"
+                           data-scroll-focus="#username"
+                           data-scroll-to="#login_form_footer"
+                           href="#"
+                           id="ilias_login_link"
+                           aria-expanded="false"
+                           aria-controls="login_form_footer">Login ohne WebSSO</a>
+                        <p class="luh-login-desc">für Personen ohne LUH-ID, Gasthörende, Gäste und Administrierende</p>
+                    </div>
+                </section>
+
+                <!-- vertical divider -->
+                <div class="luh-vdivider" aria-hidden="true"></div>
+
+                <!-- RIGHT column: Hinweise -->
+                <section class="luh-col luh-col-hints">
+                    <h2 class="luh-hints-title">Hinweise</h2>
+                    <a class="luh-hint-btn"
+                       href="https://ilias.uni-hannover.de/goto.php?target=copa_52802&amp;client_id=ilias"
+                       target="_blank" rel="noopener noreferrer">Erstanmeldung</a>
+                    <a class="luh-hint-btn"
+                       href="https://www.zqs.uni-hannover.de/de/elsa/tools/ilias/ilias-systeme-login/"
+                       target="_blank" rel="noopener noreferrer">Hinweise zum Login</a>
+                    <a class="luh-hint-btn"
+                       href="register.php"
+                       rel="noopener noreferrer">Selbstregistrierung</a>
+                </section>
+
             </div>
-
-            <!-- Divider -->
-            <div class="luh-login-divider">
-                <span>Weitere Anmeldeoptionen</span>
-            </div>
-
-            <!-- Secondary row: 1 ILIAS Login | 2 Stud.IP | 3 Erstanmeldung -->
-            <div class="luh-secondary-row">
-
-                <!-- 1: ILIAS login toggle -->
-                <div class="ilFormLoginMask" id="ilias_login">
-                    <a class="btn luh-btn-secondary"
-                       data-scroll-focus="#username"
-                       data-scroll-to="#login_form_footer"
-                       href="#"
-                       id="ilias_login_link"
-                       aria-expanded="false"
-                       aria-controls="login_form_footer"
-                       aria-label="Login ohne WebSSO öffnen">Login ohne WebSSO</a>
-                    <p>Personen ohne LUH-ID, Gäste und Administrierende</p>
-                </div>
-
-                <!-- 2: Gasthörende / Stud.IP (plain link, no button) -->
-                <div class="ilFormLoginMask luh-gasthoerender-block">
-                    <p class="luh-gasthoerender-notice">
-                        Gasthörende können sich bitte über
-                        <a href="https://studip.uni-hannover.de/"
-                           target="_blank" rel="noopener noreferrer"
-                           class="luh-info-link">Stud.IP</a>
-                        und von da zu ILIAS bewegen.
-                    </p>
-                </div>
-
-                <!-- 3: Erstanmeldung -->
-                <div class="ilFormLoginMask luh-info-block">
-                    <span class="glyphicon glyphicon-info-sign luh-info-icon" aria-hidden="true"></span>
-                    <a href="https://ilias.uni-hannover.de/goto.php?target=copa_52802&amp;client_id=ilias"
-                       class="luh-info-link" target="_blank" rel="noopener noreferrer">
-                        Erstanmeldung
-                    </a>
-                    <p>Informationen zur Freischaltung von WebSSO und zur Selbstregistrierung</p>
-                </div>
-
-            </div><!-- /.luh-secondary-row -->
-
-            <!-- Divider before Hinweise -->
-            <div class="luh-hint-divider"></div>
-
-            <!-- Hinweise zum Login -->
-            <div class="ilFormLoginMask luh-info-block">
-                <span class="glyphicon glyphicon-info-sign luh-info-icon" aria-hidden="true"></span>
-                <a href="https://www.zqs.uni-hannover.de/de/elsa/tools/ilias/ilias-systeme-login/"
-                   class="luh-info-link" target="_blank" rel="noopener noreferrer">
-                    Hinweise zum Login
-                </a>
-                <p>Alle Infos zum Login und zur Nutzung von WebSSO</p>
-            </div>
-
         </nav>
 
-        <!-- ILIAS login form — hidden until toggled -->
+        <!-- ILIAS login form — hidden until "Login ohne WebSSO" is clicked -->
         <div id="login_form_footer" hidden>
             <p id="not-websso-warning">
                 <span class="glyphicon glyphicon-warning-sign luh-warning-icon" aria-hidden="true"></span>

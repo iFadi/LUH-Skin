@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.1.0](https://github.com/iFadi/LUH-Skin/compare/v2.0.0...v2.1.0) (2026-06-09)
+
+### Features
+
+* **login:** redesign the login page as a two-column card — left column with
+  "Login mit WebSSO" / "Login ohne WebSSO" text links and descriptions, right
+  column "Hinweise" with button-style links (Erstanmeldung, Hinweise zum Login,
+  Selbstregistrierung); Gasthörende folded into the "ohne WebSSO" description
+* **login:** WebSSO link (Shibboleth) now reads "Login mit WebSSO"
+
+
 ## [2.0.0](https://github.com/iFadi/LUH-Skin/compare/v1.3.0...v2.0.0) (2026-06-08)
 
 ILIAS 10 compatibility release. **This version targets ILIAS 10.x and is not compatible with
