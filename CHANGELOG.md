@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [2.1.2](https://github.com/iFadi/LUH-Skin/compare/v2.1.1...v2.1.2) (2026-07-02)
 
 ### Bug Fixes
 
