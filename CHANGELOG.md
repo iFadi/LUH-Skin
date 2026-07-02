@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.2.0](https://github.com/iFadi/LUH-Skin/compare/v2.1.3...v2.2.0) (2026-07-02)
+
+### Features
+
+* **registration:** ship the ILIAS registration core modification as a small,
+  version-pinned unified diff (`components/ILIAS/Registration/luh-username-rule.patch`)
+  instead of a full 27 KB copy of the core class. The patch is applied idempotently by
+  the deploy tooling and **fails loudly** if ILIAS changes the patched region, instead
+  of silently reverting upstream fixes. Adds `PINNED_ILIAS_VERSION` and a
+  **Registration Patch Guard** CI workflow that verifies the patch still applies to the
+  pinned ILIAS release and stays purely additive.
+
+### ⚠ BREAKING CHANGES
+
+* **registration:** the full-copy `class.ilAccountRegistrationGUI.php` was removed.
+  Apply the patch instead (see `components/ILIAS/Registration/README.md` or the
+  `apply_luh_registration_patch.sh` deploy script).
+
+
 ## [2.1.3](https://github.com/iFadi/LUH-Skin/compare/v2.1.2...v2.1.3) (2026-07-02)
 
 ### Bug Fixes
