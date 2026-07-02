@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.1.3](https://github.com/iFadi/LUH-Skin/compare/v2.1.2...v2.1.3) (2026-07-02)
+
+### Bug Fixes
+
+* **login:** stop the login page from leaking raw markup and a duplicated "Login mit
+  WebSSO". The explanatory HTML comment contained the `{SHIB_LOGIN_FORM}` token;
+  ILIAS expands template tokens even inside comments, and the injected Shibboleth
+  form (which itself contains `-->`) terminated the comment early. Reworded the
+  comment so it no longer contains the token.
+
+
 ## [2.1.2](https://github.com/iFadi/LUH-Skin/compare/v2.1.1...v2.1.2) (2026-07-02)
 
 ### Bug Fixes
