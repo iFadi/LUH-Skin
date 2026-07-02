@@ -24,26 +24,23 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Extract CHANGELOG section for this tag
-        id: notes
         run: |
           set -euo pipefail
           version="${GITHUB_REF_NAME#v}"   # v2.1.2 -> 2.1.2
           echo "Extracting notes for $version"
-          # Print lines from "## [<version>]" up to (but not including) the next "## [".
-          notes="$(awk -v ver="$version" '
+          # Write lines from "## [<version>]" up to (but not including) the next "## ["
+          # to a file. Using a file (not an inline --notes string) keeps backticks,
+          # asterisks and quotes in the notes from being interpreted by the shell.
+          awk -v ver="$version" '
             $0 ~ ("^## \\[" ver "\\]") { grab=1; next }
             grab && /^## \[/           { exit }
             grab                       { print }
-          ' CHANGELOG.md)"
-          if [ -z "${notes//[[:space:]]/}" ]; then
+          ' CHANGELOG.md > release_notes.md
+          if [ ! -s release_notes.md ] || ! grep -q '[^[:space:]]' release_notes.md; then
             echo "::error::No CHANGELOG section found for version $version (expected a '## [$version]' heading)."
             exit 1
           fi
-          {
-            echo "body<<EOF"
-            echo "$notes"
-            echo "EOF"
-          } >> "$GITHUB_OUTPUT"
+          cat release_notes.md
 
       - name: Create GitHub Release
         env:
@@ -51,5 +48,5 @@ jobs:
         run: |
           gh release create "$GITHUB_REF_NAME" \
             --title "$GITHUB_REF_NAME" \
-            --notes "${{ steps.notes.outputs.body }}" \
+            --notes-file release_notes.md \
             --verify-tag
