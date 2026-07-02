@@ -21661,6 +21661,10 @@ div.index_main nav {
   margin-bottom: 0;
 }
 
+#shib-form-login-mask:not(:has(*)) {
+  display: none;
+}
+
 .luh-login-action,
 #shib_login {
   display: inline-block;
@@ -21716,11 +21720,16 @@ div.index_main nav {
   transition: border-color 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
 }
 .luh-hint-btn::before {
-  content: "▷";
+  content: "❯";
   color: #00509b;
   margin-right: 9px;
-  font-size: 12px;
+  font-size: 11px;
+  line-height: 1;
   vertical-align: middle;
+}
+.luh-hint-btn[target=_blank]::before {
+  content: "↗";
+  font-size: 12px;
 }
 .luh-hint-btn:hover, .luh-hint-btn:focus {
   border-color: #00509b;

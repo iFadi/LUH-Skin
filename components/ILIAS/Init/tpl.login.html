@@ -18,9 +18,11 @@
                     <h2 class="luh-uni-title">Leibniz Universität Hannover</h2>
 
                     <!-- WebSSO login (rendered by ILIAS when Shibboleth is active) -->
+                    <!-- {SHIB_LOGIN_FORM} carries both the "Login mit WebSSO" link and its
+                         "für Angehörige der LUH" subtitle (see tpl.login_form_shibboleth.html),
+                         so both appear only when Shibboleth/WebSSO is actually active. -->
                     <div class="luh-login-option" id="shib-form-login-mask">
                         {SHIB_LOGIN_FORM}
-                        <p class="luh-login-desc">für Studierende und Lehrende</p>
                     </div>
 
                     <!-- ILIAS login (ohne WebSSO) — toggles the username/password form -->
@@ -44,10 +46,14 @@
                     <h2 class="luh-hints-title">Hinweise</h2>
                     <a class="luh-hint-btn"
                        href="https://ilias.uni-hannover.de/goto.php?target=copa_52802&amp;client_id=ilias"
-                       target="_blank" rel="noopener noreferrer">Erstanmeldung</a>
+                       target="_blank" rel="noopener noreferrer"
+                       title="Öffnet in neuem Tab"
+                       aria-label="Erstanmeldung (öffnet in neuem Tab)">Erstanmeldung</a>
                     <a class="luh-hint-btn"
                        href="https://www.zqs.uni-hannover.de/de/elsa/tools/ilias/ilias-systeme-login/"
-                       target="_blank" rel="noopener noreferrer">Hinweise zum Login</a>
+                       target="_blank" rel="noopener noreferrer"
+                       title="Öffnet in neuem Tab"
+                       aria-label="Hinweise zum Login (öffnet in neuem Tab)">Hinweise zum Login</a>
                     <a class="luh-hint-btn"
                        href="register.php"
                        rel="noopener noreferrer">Selbstregistrierung</a>
