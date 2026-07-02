@@ -1,0 +1,43 @@
+name: Screenshot Guard
+
+# Fail a PR that changes the login UI but forgets to refresh the README screenshot,
+# so the documented look can never silently drift from the actual skin again.
+# Bypass intentionally by adding "[skip-screenshot]" to the PR title when a login
+# change genuinely does not alter the rendered screenshot.
+
+on:
+  pull_request:
+    paths:
+      - "LUH-Style/scss/pages/_login.scss"
+      - "LUH-Style/LUH-Style.css"
+      - "components/ILIAS/Init/tpl.login.html"
+      - "components/ILIAS/Init/tpl.login_form_shibboleth.html"
+
+jobs:
+  screenshot-guard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Require a screenshot update alongside login-UI changes
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          if printf '%s' "$PR_TITLE" | grep -qF '[skip-screenshot]'; then
+            echo "PR title contains [skip-screenshot] — guard bypassed."
+            exit 0
+          fi
+          changed="$(git diff --name-only "$BASE_SHA" "$HEAD_SHA")"
+          echo "Changed files:"; echo "$changed"
+          if echo "$changed" | grep -q '^screenshots/'; then
+            echo "✅ A screenshot was updated in this PR."
+            exit 0
+          fi
+          echo "::error::Login UI changed but no file under screenshots/ was updated. Regenerate the README screenshot (see tools/README.md) or add [skip-screenshot] to the PR title if the rendered result is unchanged."
+          exit 1
