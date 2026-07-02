@@ -87,6 +87,13 @@ div.index_main nav {
     }
 }
 
+// When Shibboleth/WebSSO is inactive, ILIAS renders {SHIB_LOGIN_FORM} empty. The
+// WebSSO link and its subtitle live inside that block, so they vanish with it — hide
+// the now-empty container as well so it leaves no stray gap in the left column.
+#shib-form-login-mask:not(:has(*)) {
+    display: none;
+}
+
 // The WebSSO link ({SHIB_LOGIN_FORM} → #shib_login) and the "ohne WebSSO"
 // toggle share one prominent blue text-link style.
 .luh-login-action,
@@ -147,12 +154,22 @@ div.index_main nav {
         box-shadow 0.15s ease,
         color 0.15s ease;
 
+    // Signifier matches function: a forward chevron for in-app navigation
+    // (Selbstregistrierung → register.php). Not an accordion caret — these
+    // links take the user elsewhere, they do not expand content in place.
     &::before {
-        content: "\25B7"; // ▷
-        color: $il-brand-primary;
+        content: "\276F"; // ❯ forward chevron (navigate) — heavier glyph, optically
+        color: $il-brand-primary; //     weight-matched to the ↗ new-tab arrow below
         margin-right: 9px;
-        font-size: 12px;
+        font-size: 11px;
+        line-height: 1;
         vertical-align: middle;
+    }
+
+    // Links that open a new tab get an explicit "external / new window" icon.
+    &[target="_blank"]::before {
+        content: "\2197"; // ↗ opens in new tab
+        font-size: 12px;
     }
 
     &:hover,

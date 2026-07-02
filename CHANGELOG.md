@@ -1,5 +1,24 @@
 # Changelog
 
+## [Unreleased]
+
+### Bug Fixes
+
+* **login:** the "Hinweise" links now signal their real behaviour — an "opens in new
+  tab" arrow (↗) on the external Erstanmeldung / Hinweise zum Login links and a
+  navigation chevron (❯) on Selbstregistrierung, replacing the ▷ that wrongly implied
+  an accordion/expand; the two external links also announce "öffnet in neuem Tab" to
+  screen readers (`title` + `aria-label`)
+* **login:** the "für Angehörige der LUH" subtitle now lives inside the Shibboleth
+  block, so it renders only together with the "Login mit WebSSO" link — no orphaned
+  subtitle (and no stray gap) when WebSSO is inactive
+
+### Miscellaneous
+
+* **login:** WebSSO subtitle changed from "für Studierende und Lehrende" to
+  "für Angehörige der LUH"
+
+
 ## [2.1.0](https://github.com/iFadi/LUH-Skin/compare/v2.0.0...v2.1.0) (2026-06-09)
 
 ### Features
