@@ -1,0 +1,57 @@
+name: Registration Patch Guard
+
+# Verify the LUH registration core patch still applies to the pinned ILIAS release
+# and stays purely additive. If ILIAS changed the patched region, this fails at PR
+# time — so re-derivation is caught in review, never silently on a production server.
+
+on:
+  pull_request:
+    paths:
+      - "components/ILIAS/Registration/luh-username-rule.patch"
+      - "components/ILIAS/Registration/PINNED_ILIAS_VERSION"
+      - ".github/workflows/registration-patch-guard.yml"
+  push:
+    branches: [main]
+    paths:
+      - "components/ILIAS/Registration/luh-username-rule.patch"
+      - "components/ILIAS/Registration/PINNED_ILIAS_VERSION"
+
+jobs:
+  patch-guard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout skin
+        uses: actions/checkout@v4
+
+      - name: Verify patch applies to pinned ILIAS core and is purely additive
+        run: |
+          set -euo pipefail
+          reg="components/ILIAS/Registration"
+          patch_file="$reg/luh-username-rule.patch"
+          target="components/ILIAS/Registration/classes/class.ilAccountRegistrationGUI.php"
+          pin="$(tr -d '[:space:]' < "$reg/PINNED_ILIAS_VERSION")"
+          echo "Pinned ILIAS version: $pin"
+
+          # 1) Purely additive: the diff must not remove any core line (only the ---/+++ headers start with -).
+          if grep -E '^-' "$patch_file" | grep -vqE '^--- '; then
+            echo "::error::The patch removes core lines — it must be purely additive (the LUH block only)."
+            grep -nE '^-' "$patch_file" | grep -vE '^--- ' || true
+            exit 1
+          fi
+
+          # 2) Sanity: it is the expected LUH change.
+          grep -q "LUH customization" "$patch_file" \
+            || { echo "::error::Patch does not contain the expected 'LUH customization' block."; exit 1; }
+
+          # 3) It still applies to the pinned pristine ILIAS class.
+          mkdir -p "_verify/$(dirname "$target")"
+          url="https://raw.githubusercontent.com/ILIAS-eLearning/ILIAS/${pin}/${target}"
+          echo "Fetching pristine core class from $url"
+          curl -fsSL "$url" -o "_verify/$target" \
+            || { echo "::error::Could not fetch the pristine class for ILIAS $pin — is PINNED_ILIAS_VERSION a valid tag?"; exit 1; }
+
+          if ! patch -p1 --dry-run -d _verify -i "$PWD/$patch_file"; then
+            echo "::error::Patch no longer applies to ILIAS $pin. ILIAS changed the patched region — re-derive luh-username-rule.patch (see components/ILIAS/Registration/README.md) and bump PINNED_ILIAS_VERSION."
+            exit 1
+          fi
+          echo "✅ Patch applies cleanly to ILIAS $pin and is purely additive."

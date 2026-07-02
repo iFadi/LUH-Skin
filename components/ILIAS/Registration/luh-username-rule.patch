@@ -1,0 +1,21 @@
+--- a/components/ILIAS/Registration/classes/class.ilAccountRegistrationGUI.php
++++ b/components/ILIAS/Registration/classes/class.ilAccountRegistrationGUI.php
+@@ -320,6 +320,18 @@
+         $login = $this->form->getInput("username");
+         if (!ilUtil::isLogin($login)) {
+             $login_obj->setAlert($this->lng->txt("login_invalid"));
++            $form_valid = false;
++        }
++
++        // LUH customization: reject usernames in "XXX-XXX" format (reserved for LUH-IDs)
++        // so self-registered accounts cannot collide with the WebSSO/Shibboleth namespace.
++        // NOTE: this is a core patch, not a skin override. It must be re-derived from the
++        // pristine ILIAS core class on every ILIAS update (see README.md in this folder).
++        if (preg_match('/^[A-Z0-9]{3}-[A-Z0-9]{3}$/i', $login)) {
++            $login_obj->setAlert(
++                'Der Benutzername darf nicht das Format „XXX-XXX“ haben, '
++                . 'wobei X ein alphanumerisches Zeichen ist'
++            );
+             $form_valid = false;
+         }
+ 
