@@ -1,6 +1,7 @@
 // scss/pages/_login
 // Login page: two-column card — left = login options (WebSSO / ohne WebSSO),
-// right = the "Hinweise" accordion. Left-aligned card, responsive to a single column.
+// right = the "Hinweise" accordion. Card is horizontally centred at the top of the
+// page and collapses to a single column on narrow viewports.
 @use "../settings/colors" as *;
 
 // ── Bilingual content ─────────────────────────────────────────────────────
@@ -45,10 +46,13 @@ div.ilStartupSection form.form-horizontal,
     margin: 0;
 }
 
-// ── Outer card — left-aligned ─────────────────────────────────────────────
+// ── Outer card — horizontally centred, kept at the top of the page ────────
 #luhLogin {
     padding: 34px 40px;
-    margin-left: 2%;
+    // Centred horizontally; no vertical centring, so the card stays at the top
+    // edge and does not move down as panels expand.
+    margin-left: auto;
+    margin-right: auto;
     // Wider than the previous link-button layout: the accordion panels hold running
     // prose, which is hard to read in the ~300px the old 760px card left for them.
     width: 980px;
@@ -355,7 +359,7 @@ div.index_main nav {
 @media (max-width: 720px) {
     #luhLogin {
         width: calc(100% - 24px);
-        margin-left: 12px;
+        // margin-left/right: auto from the base rule keeps the 12px gutter even
         padding: 26px 22px;
     }
 

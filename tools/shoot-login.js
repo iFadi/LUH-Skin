@@ -9,10 +9,16 @@
  *   1. It has no Shibboleth, so the real "Login mit WebSSO" option is not rendered.
  *      This script injects that option exactly as ILIAS emits it on production (see
  *      components/ILIAS/Init/tpl.login_form_shibboleth.html).
- *   2. Only the English language pack is installed, so ILIAS writes <html lang="en">
- *      and the login mask shows its English strings. Production runs German by
- *      default. The script forces lang="de" so the README screenshot matches what
- *      LUH users actually see. Set SHOOT_LANG=en to capture the English variant.
+ *   2. Its default UI language depends on which language packs happen to be installed
+ *      in that instance, while production runs German. The script pins <html lang>
+ *      so the README screenshot is deterministic regardless of the local default.
+ *
+ *      SHOOT_LANG only switches the skin's own bilingual blocks (the ones keyed off
+ *      html:lang in _login.scss — see the "Zweisprachigkeit" section in README.md).
+ *      ILIAS's server-rendered strings around them (footer, page title) follow the
+ *      instance's configured language, so SHOOT_LANG=en on a German instance yields
+ *      an English login mask inside a German page frame. For a fully English capture,
+ *      switch the instance language in ILIAS instead.
  *
  * Usage:
  *   1. Bring up the ILIAS 10 stack (docker compose up -d in ../ilias10) and recompile

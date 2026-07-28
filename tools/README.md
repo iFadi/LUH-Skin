@@ -17,11 +17,15 @@ docker compose -f ilias10/docker-compose.yml up -d
 
 # 2. Capture. The script compensates for two ways the local stack differs from
 #    production: it injects the "Login mit WebSSO" option (no Shibboleth locally)
-#    and forces lang="de" (only the English language pack is installed locally,
-#    so ILIAS would otherwise render the mask's English strings).
+#    and pins <html lang> so the capture does not depend on which language packs
+#    the local instance happens to have installed.
 cd ilias10/public/Customizing/skin/luh
 node tools/shoot-login.js
 ```
+
+`SHOOT_LANG` switches only the skin's bilingual blocks, not ILIAS's own strings —
+`SHOOT_LANG=en` on a German instance gives an English login mask in a German page
+frame. For a fully English capture, switch the instance language in ILIAS itself.
 
 The script needs puppeteer resolvable from `require`. With no `node_modules` in this
 repo, install it somewhere and point Node at it:
