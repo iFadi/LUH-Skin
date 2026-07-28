@@ -18,9 +18,10 @@ echo "--------------------"
 
 echo "Compiling SASS files for ILIAS skin..."
 
-# Remove the old CSS file
+# Remove the old CSS file (and any stale source map from a previous dev build, so a
+# prod build never leaves a map that no longer matches the CSS next to it)
 echo "Removing old LUH-Style.css..."
-rm -f LUH-Style/LUH-Style.css
+rm -f LUH-Style/LUH-Style.css LUH-Style/LUH-Style.css.map
 
 # Read environment and base path from arguments
 env="$1"
@@ -47,11 +48,21 @@ else
     echo "ℹ️  Using provided base path: $base_path"
 fi
 
-# Set build mode
+# Set build mode.
+#
+# Source maps are emitted for dev builds only. A prod build is what gets committed and
+# deployed (the production server has no dart-sass, so the CSS ships precompiled from
+# git), and a committed map is actively harmful there:
+#   * it is served publicly next to the CSS, yet its "sources" are absolute build-host
+#     paths that leak the local directory layout and do not exist on the server;
+#   * a standalone compile rewrites the delos @use to an absolute path, so those paths
+#     differ per build host and the 150 KB map churns in every diff.
 if [[ "$env" == "dev" ]]; then
     build_mode="Development"
+    sass_opts=()
 else
     build_mode="Production"
+    sass_opts=(--no-source-map)
 fi
 
 # Replace the $base-path value dynamically (controls the runtime FONT/IMAGE URL prefix)
@@ -82,7 +93,7 @@ fi
 
 # Compile with SASS
 echo "Compiling with sass..."
-sass LUH-Style/scss/LUH-Style.compiled.scss LUH-Style/LUH-Style.css
+sass "${sass_opts[@]}" LUH-Style/scss/LUH-Style.compiled.scss LUH-Style/LUH-Style.css
 
 # Cleanup
 rm LUH-Style/scss/LUH-Style.compiled.scss
