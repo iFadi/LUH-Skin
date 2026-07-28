@@ -1,7 +1,34 @@
 // scss/pages/_login
 // Login page: two-column card — left = login options (WebSSO / ohne WebSSO),
-// right = "Hinweise" link buttons. Left-aligned card, responsive to a single column.
+// right = the "Hinweise" accordion. Left-aligned card, responsive to a single column.
 @use "../settings/colors" as *;
+
+// ── Bilingual content ─────────────────────────────────────────────────────
+// The login templates carry German and English side by side (the skin has no ILIAS
+// language files, and adding them would move the strings into the ILIAS database —
+// out of this git-deployed skin). Reveal the block matching the ILIAS UI language,
+// which ILIAS writes to <html lang>. German is the fallback for every language other
+// than English, since that is the primary language of the institution.
+//
+// `display: revert` restores each element's own default (inline for <span>, block for
+// <div>) instead of forcing one display type on both.
+[data-luh-i18n] {
+    display: none;
+}
+
+[data-luh-i18n="de"] {
+    display: revert;
+}
+
+html:lang(en) {
+    [data-luh-i18n="de"] {
+        display: none;
+    }
+
+    [data-luh-i18n="en"] {
+        display: revert;
+    }
+}
 
 // ── Remove default form border/background injected by ILIAS ────────────────
 div.ilStartupSection form.form-horizontal,
@@ -22,7 +49,9 @@ div.ilStartupSection form.form-horizontal,
 #luhLogin {
     padding: 34px 40px;
     margin-left: 2%;
-    width: 760px;
+    // Wider than the previous link-button layout: the accordion panels hold running
+    // prose, which is hard to read in the ~300px the old 760px card left for them.
+    width: 980px;
     max-width: calc(100% - 24px);
     background-color: rgba(0, 80, 155, 0.07);
     box-shadow:
@@ -56,11 +85,13 @@ div.index_main nav {
 }
 
 .luh-col-main {
-    flex: 1 1 52%;
+    flex: 1 1 40%;
 }
 
+// Gets the larger share: the login options are two short links, the accordion is
+// the part that has to hold readable paragraphs once a panel is open.
 .luh-col-hints {
-    flex: 1 1 44%;
+    flex: 1 1 56%;
 }
 
 // ── Vertical divider between the columns ──────────────────────────────────
@@ -137,46 +168,71 @@ div.index_main nav {
     color: #2b2b2b;
 }
 
-.luh-hint-btn {
-    display: block;
+// ── "Hinweise" accordion ──────────────────────────────────────────────────
+.luh-acc-item {
+    margin-bottom: 10px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// The heading exists for document structure (screen readers navigate the panels by
+// heading); it must not inherit the browser's h3 sizing and spacing.
+.luh-acc-heading {
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+.luh-acc-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
     width: 100%;
     padding: 9px 14px;
-    margin-bottom: 10px;
     font-size: 14px;
+    font-family: inherit;
+    text-align: left;
     color: #333;
-    text-decoration: none;
     background: #fff;
     border: 1px solid #cfd6dd;
     border-radius: 4px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
     transition:
         border-color 0.15s ease,
         box-shadow 0.15s ease,
         color 0.15s ease;
 
-    // Signifier matches function: a forward chevron for in-app navigation
-    // (Selbstregistrierung → register.php). Not an accordion caret — these
-    // links take the user elsewhere, they do not expand content in place.
-    &::before {
-        content: "\276F"; // ❯ forward chevron (navigate) — heavier glyph, optically
-        color: $il-brand-primary; //     weight-matched to the ↗ new-tab arrow below
-        margin-right: 9px;
+    // Caret signals expand-in-place, as opposed to the ↗ used for links that
+    // leave the page. Rotates to point down while the panel is open.
+    &::after {
+        content: "\276F"; // ❯
+        flex: 0 0 auto;
+        color: $il-brand-primary;
         font-size: 11px;
         line-height: 1;
-        vertical-align: middle;
+        transition: transform 0.15s ease;
     }
 
-    // Links that open a new tab get an explicit "external / new window" icon.
-    &[target="_blank"]::before {
-        content: "\2197"; // ↗ opens in new tab
-        font-size: 12px;
+    &[aria-expanded="true"] {
+        border-color: $il-brand-primary;
+        color: $il-brand-primary;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        &::after {
+            transform: rotate(90deg);
+        }
     }
 
     &:hover,
     &:focus {
         border-color: $il-brand-primary;
         color: $il-brand-primary;
-        text-decoration: none;
         outline: none;
         box-shadow: 0 2px 6px rgba(0, 80, 155, 0.15);
     }
@@ -185,9 +241,77 @@ div.index_main nav {
         outline: 2px solid $il-brand-primary-luh-light;
         outline-offset: 2px;
     }
+}
 
-    &:last-child {
+.luh-acc-panel {
+    padding: 14px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #3a3a3a;
+    background: #fff;
+    border: 1px solid $il-brand-primary;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+
+    p {
+        margin: 0 0 10px;
+    }
+
+    ul {
+        margin: 0 0 10px;
+        padding-left: 20px;
+    }
+
+    li {
+        margin-bottom: 6px;
+    }
+
+    > :last-child,
+    li:last-child {
         margin-bottom: 0;
+    }
+
+    a {
+        color: $il-brand-primary;
+        text-decoration: underline;
+
+        &:hover,
+        &:focus {
+            color: $il-brand-primary-dark-blue;
+        }
+    }
+
+    // Links leaving ILIAS announce themselves, matching the convention the
+    // previous "Hinweise" buttons established.
+    a[target="_blank"]::after {
+        content: "\2197"; // ↗ opens in new tab
+        margin-left: 3px;
+        font-size: 12px;
+        text-decoration: none;
+        display: inline-block;
+    }
+}
+
+// Cross-reference to another panel ("… siehe Selbstregistrierung"). A button, because
+// it operates the accordion rather than navigating, but styled as inline text so it
+// reads naturally mid-sentence.
+.luh-acc-jump {
+    padding: 0;
+    font: inherit;
+    color: $il-brand-primary;
+    background: none;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        color: $il-brand-primary-dark-blue;
+    }
+
+    &:focus-visible {
+        outline: 2px solid $il-brand-primary-luh-light;
+        outline-offset: 2px;
     }
 }
 

@@ -21588,6 +21588,21 @@ div.Access {
   color: rgb(111.25, 111.25, 111.25);
 }
 
+[data-luh-i18n] {
+  display: none;
+}
+
+[data-luh-i18n=de] {
+  display: revert;
+}
+
+html:lang(en) [data-luh-i18n=de] {
+  display: none;
+}
+html:lang(en) [data-luh-i18n=en] {
+  display: revert;
+}
+
 div.ilStartupSection form.form-horizontal,
 #shib-form-login-mask form,
 #shib-form-login-mask form.form-horizontal,
@@ -21605,7 +21620,7 @@ div.ilStartupSection form.form-horizontal,
 #luhLogin {
   padding: 34px 40px;
   margin-left: 2%;
-  width: 760px;
+  width: 980px;
   max-width: calc(100% - 24px);
   background-color: rgba(0, 80, 155, 0.07);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 6px 24px rgba(0, 80, 155, 0.1);
@@ -21633,11 +21648,11 @@ div.index_main nav {
 }
 
 .luh-col-main {
-  flex: 1 1 52%;
+  flex: 1 1 40%;
 }
 
 .luh-col-hints {
-  flex: 1 1 44%;
+  flex: 1 1 56%;
 }
 
 .luh-vdivider {
@@ -21705,45 +21720,120 @@ div.index_main nav {
   color: #2b2b2b;
 }
 
-.luh-hint-btn {
-  display: block;
+.luh-acc-item {
+  margin-bottom: 10px;
+}
+.luh-acc-item:last-child {
+  margin-bottom: 0;
+}
+
+.luh-acc-heading {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.luh-acc-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
   width: 100%;
   padding: 9px 14px;
-  margin-bottom: 10px;
   font-size: 14px;
+  font-family: inherit;
+  text-align: left;
   color: #333;
-  text-decoration: none;
   background: #fff;
   border: 1px solid #cfd6dd;
   border-radius: 4px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
   transition: border-color 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
 }
-.luh-hint-btn::before {
+.luh-acc-trigger::after {
   content: "❯";
+  flex: 0 0 auto;
   color: #00509b;
-  margin-right: 9px;
   font-size: 11px;
   line-height: 1;
-  vertical-align: middle;
+  transition: transform 0.15s ease;
 }
-.luh-hint-btn[target=_blank]::before {
-  content: "↗";
-  font-size: 12px;
-}
-.luh-hint-btn:hover, .luh-hint-btn:focus {
+.luh-acc-trigger[aria-expanded=true] {
   border-color: #00509b;
   color: #00509b;
-  text-decoration: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.luh-acc-trigger[aria-expanded=true]::after {
+  transform: rotate(90deg);
+}
+.luh-acc-trigger:hover, .luh-acc-trigger:focus {
+  border-color: #00509b;
+  color: #00509b;
   outline: none;
   box-shadow: 0 2px 6px rgba(0, 80, 155, 0.15);
 }
-.luh-hint-btn:focus-visible {
+.luh-acc-trigger:focus-visible {
   outline: 2px solid #99b9d8;
   outline-offset: 2px;
 }
-.luh-hint-btn:last-child {
+
+.luh-acc-panel {
+  padding: 14px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #3a3a3a;
+  background: #fff;
+  border: 1px solid #00509b;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+}
+.luh-acc-panel p {
+  margin: 0 0 10px;
+}
+.luh-acc-panel ul {
+  margin: 0 0 10px;
+  padding-left: 20px;
+}
+.luh-acc-panel li {
+  margin-bottom: 6px;
+}
+.luh-acc-panel > :last-child,
+.luh-acc-panel li:last-child {
   margin-bottom: 0;
+}
+.luh-acc-panel a {
+  color: #00509b;
+  text-decoration: underline;
+}
+.luh-acc-panel a:hover, .luh-acc-panel a:focus {
+  color: #003668;
+}
+.luh-acc-panel a[target=_blank]::after {
+  content: "↗";
+  margin-left: 3px;
+  font-size: 12px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.luh-acc-jump {
+  padding: 0;
+  font: inherit;
+  color: #00509b;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.luh-acc-jump:hover, .luh-acc-jump:focus {
+  color: #003668;
+}
+.luh-acc-jump:focus-visible {
+  outline: 2px solid #99b9d8;
+  outline-offset: 2px;
 }
 
 #login_form_footer {

@@ -15,7 +15,9 @@
 
                 <!-- LEFT column: login options -->
                 <section class="luh-col luh-col-main">
-                    <h2 class="luh-uni-title">Leibniz Universität Hannover</h2>
+                    <h2 class="luh-uni-title">
+                        <span data-luh-i18n="de">Leibniz Universität Hannover</span><span data-luh-i18n="en">Leibniz University Hannover</span>
+                    </h2>
 
                     <!-- WebSSO login. ILIAS injects the WebSSO login form at the placeholder
                          below; it carries both the "Login mit WebSSO" link and its "für
@@ -35,30 +37,196 @@
                            href="#"
                            id="ilias_login_link"
                            aria-expanded="false"
-                           aria-controls="login_form_footer">Login ohne WebSSO</a>
-                        <p class="luh-login-desc">für Personen ohne LUH-ID, Gasthörende, Gäste und Administrierende</p>
+                           aria-controls="login_form_footer"><span data-luh-i18n="de">Login ohne WebSSO</span><span data-luh-i18n="en">Login without WebSSO</span></a>
+                        <p class="luh-login-desc">
+                            <span data-luh-i18n="de">für Personen ohne LUH-ID, Gasthörende, Gäste und Administrierende</span><span data-luh-i18n="en">for persons without a LUH-ID, guest students, guests and administrators</span>
+                        </p>
                     </div>
                 </section>
 
                 <!-- vertical divider -->
                 <div class="luh-vdivider" aria-hidden="true"></div>
 
-                <!-- RIGHT column: Hinweise -->
+                <!-- RIGHT column: Hinweise
+                     Six disclosure panels (WAI-ARIA accordion pattern: h3 > button,
+                     aria-expanded/aria-controls, panel as a labelled region). German and
+                     English are both present in the markup; _login.scss reveals the block
+                     matching the ILIAS UI language via html:lang(), with German as the
+                     fallback for any language other than English. -->
                 <section class="luh-col luh-col-hints">
-                    <h2 class="luh-hints-title">Hinweise</h2>
-                    <a class="luh-hint-btn"
-                       href="https://ilias.uni-hannover.de/goto.php?target=copa_52802&amp;client_id=ilias"
-                       target="_blank" rel="noopener noreferrer"
-                       title="Öffnet in neuem Tab"
-                       aria-label="Erstanmeldung (öffnet in neuem Tab)">Erstanmeldung</a>
-                    <a class="luh-hint-btn"
-                       href="https://www.zqs.uni-hannover.de/de/elsa/tools/ilias/ilias-systeme-login/"
-                       target="_blank" rel="noopener noreferrer"
-                       title="Öffnet in neuem Tab"
-                       aria-label="Hinweise zum Login (öffnet in neuem Tab)">Hinweise zum Login</a>
-                    <a class="luh-hint-btn"
-                       href="register.php"
-                       rel="noopener noreferrer">Selbstregistrierung</a>
+                    <!-- Without JavaScript the panels cannot be toggled, so show them all
+                         rather than hiding the login instructions behind dead buttons. -->
+                    <noscript>
+                        <style>
+                            .luh-acc-panel[hidden] { display: block !important; }
+                            .luh-acc-trigger { cursor: default; }
+                            .luh-acc-trigger::after { display: none; }
+                        </style>
+                    </noscript>
+
+                    <h2 class="luh-hints-title">
+                        <span data-luh-i18n="de">Hinweise</span><span data-luh-i18n="en">Notes</span>
+                    </h2>
+
+                    <!-- ─────────────── DEUTSCH ─────────────── -->
+                    <div class="luh-accordion" data-luh-i18n="de">
+
+                        <div class="luh-acc-item">
+                            <h3 class="luh-acc-heading">
+                                <button type="button" class="luh-acc-trigger" id="luh-acc-de-1-t"
+                                        aria-expanded="false" aria-controls="luh-acc-de-1">Allgemeines zur Anmeldung</button>
+                            </h3>
+                            <div class="luh-acc-panel" id="luh-acc-de-1" role="region" aria-labelledby="luh-acc-de-1-t" hidden>
+                                <p>Für die Anmeldung in ILIAS stehen Ihnen zwei Optionen zur Verfügung, je nachdem welcher Nutzendengruppe Sie angehören:</p>
+                                <ul>
+                                    <li>Angehörige der LUH wählen in der Anmeldemaske den »Login mit WebSSO«, um sich über das Web Single Sign-On (WebSSO) mit ihrer LUH-ID anzumelden.</li>
+                                    <li>Gasthörende wählen in der Anmeldemaske den »Login ohne WebSSO«, nachdem sie ihre Registrierung für das Gasthörendenstudium abgeschlossen haben und bereits einmalig über Stud.IP zu ILIAS gewechselt sind.</li>
+                                    <li>Gäste und Administrierende wählen in der Anmeldemaske den »Login ohne WebSSO«.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="luh-acc-item">
+                            <h3 class="luh-acc-heading">
+                                <button type="button" class="luh-acc-trigger" id="luh-acc-de-2-t"
+                                        aria-expanded="false" aria-controls="luh-acc-de-2">Zugang für Angehörige der LUH</button>
+                            </h3>
+                            <div class="luh-acc-panel" id="luh-acc-de-2" role="region" aria-labelledby="luh-acc-de-2-t" hidden>
+                                <p>Mit Aufnahme des Studiums oder eines Dienstverhältnisses wird für alle Studierenden, Mitarbeitenden und Lehrenden der LUH eine eindeutige Nutzendenkennung (LUH-ID) und ein Initialpasswort für den <a href="https://login.uni-hannover.de/ui/" target="_blank" rel="noopener noreferrer">Account-Manager</a> generiert. Im Account-Manager, dem <a href="https://www.luis.uni-hannover.de/it-compliance-und-zugaenge/zugaenge/identitaetsmanagement/erstanmeldung" target="_blank" rel="noopener noreferrer">Webportal des Identitätsmanagements</a>, können Angehörige der LUH die Zugänge zu verschiedenen IT-Diensten verwalten.</p>
+                                <ul>
+                                    <li>Studierende erhalten die Zugangsdaten für den Account-Manager bei Einschreibung vom Immatrikulationsamt. Sollten Ihnen diese Unterlagen nicht vorliegen, wenden Sie sich bitte an das <a href="https://www.uni-hannover.de/studium/beratung-hilfe/servicecenter" target="_blank" rel="noopener noreferrer">Service Center</a>.</li>
+                                    <li>Mitarbeitende und Lehrende erhalten die Zugangsdaten für den Account-Manager mit einem Schreiben von den <a href="https://www.luis.uni-hannover.de/ueber-uns/kontakt" target="_blank" rel="noopener noreferrer">Leibniz Universität IT Services (LUIS)</a>. Der Versand erfolgt an die Dienststelle.</li>
+                                </ul>
+                                <p>Nach dem Erhalt der Zugangsdaten müssen Angehörige der LUH im Account-Manager unter »IT-Dienste« ein Passwort für den Dienst »WebSSO« vergeben. Das Web Single Sign-On (WebSSO) ermöglicht es Angehörigen der LUH, sich bei angeschlossenen IT-Systemen, in diesem Fall Stud.IP und ILIAS, anzumelden, ohne sich erneut authentifizieren zu müssen. Nach Anmeldung in Stud.IP kann von dort zu ILIAS gewechselt werden.</p>
+                            </div>
+                        </div>
+
+                        <div class="luh-acc-item">
+                            <h3 class="luh-acc-heading">
+                                <button type="button" class="luh-acc-trigger" id="luh-acc-de-3-t"
+                                        aria-expanded="false" aria-controls="luh-acc-de-3">Zugang für Gasthörende</button>
+                            </h3>
+                            <div class="luh-acc-panel" id="luh-acc-de-3" role="region" aria-labelledby="luh-acc-de-3-t" hidden>
+                                <p>Gasthörenden werden Stud.IP-Konten eingerichtet, nachdem sie sich für das Gasthörendenstudium registriert haben. Nach Einrichtung des Stud.IP-Kontos und der erstmaligen Anmeldung in Stud.IP können Gasthörende einmalig von dort zu ILIAS wechseln, um künftig mit den Zugangsdaten des Stud.IP-Kontos auf ILIAS zuzugreifen.</p>
+                                <p>Alle weiteren Informationen zum Ablauf und zur Anmeldung sind auf der <a href="https://www.ghs.uni-hannover.de/" target="_blank" rel="noopener noreferrer">offiziellen Seite des Gasthörendenstudiums</a> zu finden.</p>
+                            </div>
+                        </div>
+
+                        <div class="luh-acc-item">
+                            <h3 class="luh-acc-heading">
+                                <button type="button" class="luh-acc-trigger" id="luh-acc-de-4-t"
+                                        aria-expanded="false" aria-controls="luh-acc-de-4">Zugang für Gäste</button>
+                            </h3>
+                            <div class="luh-acc-panel" id="luh-acc-de-4" role="region" aria-labelledby="luh-acc-de-4-t" hidden>
+                                <p>Gäste erhalten in der Regel nach Beantragung beim <a href="mailto:elearning@uni-hannover.de">E-Learning Support</a> ein Stud.IP-Konto. Nach Einrichtung des Stud.IP-Kontos ist ein einmaliger Wechsel von Stud.IP zu ILIAS erforderlich, um künftig mit den Zugangsdaten des Stud.IP-Kontos auf ILIAS zuzugreifen.</p>
+                                <p>In einigen Fällen erhalten Gäste per Selbstregistrierung ein ILIAS-Konto. Weitere Informationen sind unter <button type="button" class="luh-acc-jump" data-luh-acc-open="luh-acc-de-6">Selbstregistrierung</button> zu finden.</p>
+                            </div>
+                        </div>
+
+                        <div class="luh-acc-item">
+                            <h3 class="luh-acc-heading">
+                                <button type="button" class="luh-acc-trigger" id="luh-acc-de-5-t"
+                                        aria-expanded="false" aria-controls="luh-acc-de-5">Zugang im EULiST-Verbund-Projekt</button>
+                            </h3>
+                            <div class="luh-acc-panel" id="luh-acc-de-5" role="region" aria-labelledby="luh-acc-de-5-t" hidden>
+                                <p>Angehörige von Universitäten des EULiST-Verbund-Projektes müssen sich im Stud.IP der LUH über den Single Sign-On (SSO) ihrer Heimatuniversität anmelden und können von dort über Stud.IP zu ILIAS wechseln. Der Zugang zu ILIAS ist ausschließlich über Stud.IP möglich.</p>
+                            </div>
+                        </div>
+
+                        <div class="luh-acc-item">
+                            <h3 class="luh-acc-heading">
+                                <button type="button" class="luh-acc-trigger" id="luh-acc-de-6-t"
+                                        aria-expanded="false" aria-controls="luh-acc-de-6">Selbstregistrierung</button>
+                            </h3>
+                            <div class="luh-acc-panel" id="luh-acc-de-6" role="region" aria-labelledby="luh-acc-de-6-t" hidden>
+                                <p>Die Selbstregistrierung ermöglicht es, an Veranstaltungen der LUH teilzunehmen oder temporären Zugriff auf ILIAS zu erhalten. Die Selbstregistrierung richtet sich ausschließlich an Personen, die keinen anderen Zugang zu ILIAS erhalten oder explizit dazu aufgefordert wurden, eine Selbstregistrierung durchzuführen – wie im Fall von Vorkursen.</p>
+                                <p>Nach dem Ausfüllen des <a href="register.php">Registrierungsformulars</a> wird eine E-Mail mit einem Aktivierungslink an die hinterlegte E-Mail gesendet. Sollte von einer Lehrperson ein Selbstregistrierungscode zur Verfügung gestellt worden sein, muss dieser während der Registrierung angegeben werden, damit der Zugriff auf die erforderlichen Kurse möglich ist.</p>
+                                <p>Selbstregistrierte ILIAS-Konten sind jeweils sechs Monate gültig.</p>
+                                <p>Sobald ein WebSSO-Zugang der Leibniz Universität Hannover zur Verfügung steht, ist dieser für die Anmeldung zu nutzen. Das selbstregistrierte ILIAS-Konto sollte anschließend nicht weiter verwendet werden. Die jeweils den Accounts zugehörenden Daten können nicht zusammengeführt werden.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- ─────────────── ENGLISH ─────────────── -->
+                    <div class="luh-accordion" data-luh-i18n="en">
+
+                        <div class="luh-acc-item">
+                            <h3 class="luh-acc-heading">
+                                <button type="button" class="luh-acc-trigger" id="luh-acc-en-1-t"
+                                        aria-expanded="false" aria-controls="luh-acc-en-1">General information on registration and login</button>
+                            </h3>
+                            <div class="luh-acc-panel" id="luh-acc-en-1" role="region" aria-labelledby="luh-acc-en-1-t" hidden>
+                                <p>Depending on which user group you belong to, there are two options for logging in to ILIAS:</p>
+                                <ul>
+                                    <li>LUH members select »Login via WebSSO« on the login screen to log in using Web Single Sign-On (WebSSO) with their LUH-ID.</li>
+                                    <li>Guest students (Gasthörende) select »Login without WebSSO« on the login screen after they have completed their registration for the guest student program and have switched to ILIAS once via Stud.IP.</li>
+                                    <li>Guests and administrators select »Login without WebSSO« on the login screen.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="luh-acc-item">
+                            <h3 class="luh-acc-heading">
+                                <button type="button" class="luh-acc-trigger" id="luh-acc-en-2-t"
+                                        aria-expanded="false" aria-controls="luh-acc-en-2">Access for LUH members</button>
+                            </h3>
+                            <div class="luh-acc-panel" id="luh-acc-en-2" role="region" aria-labelledby="luh-acc-en-2-t" hidden>
+                                <p>All students, staff and lecturers are given a unique user ID (LUH-ID) and an initial password for the <a href="https://login.uni-hannover.de/ui/" target="_blank" rel="noopener noreferrer">Account Manager</a> when they start studying or working at LUH. The Account Manager is an <a href="https://www.luis.uni-hannover.de/it-compliance-und-zugaenge/zugaenge/identitaetsmanagement/erstanmeldung" target="_blank" rel="noopener noreferrer">identity management web portal</a> where members of LUH can manage access to various IT services.</p>
+                                <ul>
+                                    <li>Students receive access details for the Account Manager from the Admissions Office when they enroll. If you do not have these documents, please contact the <a href="https://www.uni-hannover.de/studium/beratung-hilfe/servicecenter" target="_blank" rel="noopener noreferrer">Service Center</a>.</li>
+                                    <li>Staff and lecturers receive access details for the Account Manager in a letter from <a href="https://www.luis.uni-hannover.de/ueber-uns/kontakt" target="_blank" rel="noopener noreferrer">Leibniz University IT Services (LUIS)</a>. These will be sent to the responsible department.</li>
+                                </ul>
+                                <p>After receiving the access details, LUH members must set a password for the »WebSSO« service in the Account Manager under »IT Services«. Web Single Sign-On (WebSSO) allows LUH members to access connected IT services, in this case Stud.IP and ILIAS, without having to re-authenticate. After logging in to Stud.IP, users can switch to ILIAS from there.</p>
+                            </div>
+                        </div>
+
+                        <div class="luh-acc-item">
+                            <h3 class="luh-acc-heading">
+                                <button type="button" class="luh-acc-trigger" id="luh-acc-en-3-t"
+                                        aria-expanded="false" aria-controls="luh-acc-en-3">Access for guest students (Gasthörende)</button>
+                            </h3>
+                            <div class="luh-acc-panel" id="luh-acc-en-3" role="region" aria-labelledby="luh-acc-en-3-t" hidden>
+                                <p>Guest students (Gasthörende) receive Stud.IP accounts after they have registered for the guest student program (Gasthörendenstudium). Once the Stud.IP account has been set up, a switch from Stud.IP to ILIAS is required in order to access ILIAS using the Stud.IP account details in the future.</p>
+                                <p>All further information on the procedure and registration can be found on the <a href="https://www.ghs.uni-hannover.de/" target="_blank" rel="noopener noreferrer">official page of the guest student program</a>.</p>
+                            </div>
+                        </div>
+
+                        <div class="luh-acc-item">
+                            <h3 class="luh-acc-heading">
+                                <button type="button" class="luh-acc-trigger" id="luh-acc-en-4-t"
+                                        aria-expanded="false" aria-controls="luh-acc-en-4">Access for guests</button>
+                            </h3>
+                            <div class="luh-acc-panel" id="luh-acc-en-4" role="region" aria-labelledby="luh-acc-en-4-t" hidden>
+                                <p>Guests usually receive a Stud.IP account after submitting a request to <a href="mailto:elearning@uni-hannover.de">E-Learning Support</a>. Once the Stud.IP account has been set up, a switch from Stud.IP to ILIAS is required in order to access ILIAS using the Stud.IP account details in the future.</p>
+                                <p>In some cases, guests can create an ILIAS account through self-registration. For more information, see <button type="button" class="luh-acc-jump" data-luh-acc-open="luh-acc-en-6">self-registration</button>.</p>
+                            </div>
+                        </div>
+
+                        <div class="luh-acc-item">
+                            <h3 class="luh-acc-heading">
+                                <button type="button" class="luh-acc-trigger" id="luh-acc-en-5-t"
+                                        aria-expanded="false" aria-controls="luh-acc-en-5">EULiST Login</button>
+                            </h3>
+                            <div class="luh-acc-panel" id="luh-acc-en-5" role="region" aria-labelledby="luh-acc-en-5-t" hidden>
+                                <p>Members of the EULiST network project can log in to Stud.IP at LUH using their home university's Single Sign-On (SSO). From there, you can switch to ILIAS via Stud.IP. Access to ILIAS is only available through Stud.IP.</p>
+                            </div>
+                        </div>
+
+                        <div class="luh-acc-item">
+                            <h3 class="luh-acc-heading">
+                                <button type="button" class="luh-acc-trigger" id="luh-acc-en-6-t"
+                                        aria-expanded="false" aria-controls="luh-acc-en-6">Self-registration</button>
+                            </h3>
+                            <div class="luh-acc-panel" id="luh-acc-en-6" role="region" aria-labelledby="luh-acc-en-6-t" hidden>
+                                <p>Self-registration allows you to participate in LUH courses or gain temporary access to ILIAS. Self-registration is intended exclusively for persons who have no other access to ILIAS or who have been explicitly asked to self-register – as is the case with preparation courses (Vorkurse).</p>
+                                <p>After completing the <a href="register.php">registration form</a>, an email containing an activation link will be sent to the email address provided. If a lecturer has provided a self-registration code, it must be entered during registration to enable access to the required courses.</p>
+                                <p>Self-registered ILIAS accounts are valid for six months.</p>
+                                <p>As soon as WebSSO access from Leibniz University Hannover becomes available, it must be used for login. The self-registered ILIAS account should no longer be used after that. The data associated with the accounts cannot be merged.</p>
+                            </div>
+                        </div>
+
+                    </div>
                 </section>
 
             </div>
@@ -68,7 +236,7 @@
         <div id="login_form_footer" hidden>
             <p id="not-websso-warning">
                 <span class="glyphicon glyphicon-warning-sign luh-warning-icon" aria-hidden="true"></span>
-                Nicht für die WebSSO-Anmeldung
+                <span data-luh-i18n="de">Nicht für die WebSSO-Anmeldung</span><span data-luh-i18n="en">Not for WebSSO login</span>
             </p>
             <div>{REG_PWD_CLIENT_LINKS}</div>
             <p id="footer_ilias_login">{LOGIN_FORM}</p>
@@ -87,28 +255,67 @@
         var luhLogin = document.getElementById('luhLogin');
         var loginLink = document.getElementById('ilias_login_link');
 
-        if (!footer || !luhLogin) { return; }
+        if (footer && luhLogin) {
+            triggers.forEach(function (trigger) {
+                trigger.addEventListener('click', function (e) {
+                    e.preventDefault();
 
-        triggers.forEach(function (trigger) {
-            trigger.addEventListener('click', function (e) {
-                e.preventDefault();
+                    loginHidden = !loginHidden;
 
-                loginHidden = !loginHidden;
+                    if (!loginHidden) {
+                        footer.removeAttribute('hidden');
+                        luhLogin.classList.add('expanded');
+                        if (loginLink) { loginLink.setAttribute('aria-expanded', 'true'); }
 
-                if (!loginHidden) {
-                    footer.removeAttribute('hidden');
-                    luhLogin.classList.add('expanded');
-                    if (loginLink) { loginLink.setAttribute('aria-expanded', 'true'); }
-
-                    var focusTarget = document.querySelector(trigger.dataset.scrollFocus);
-                    if (focusTarget) {
-                        setTimeout(function () { focusTarget.focus(); }, 50);
+                        var focusTarget = document.querySelector(trigger.dataset.scrollFocus);
+                        if (focusTarget) {
+                            setTimeout(function () { focusTarget.focus(); }, 50);
+                        }
+                    } else {
+                        footer.setAttribute('hidden', '');
+                        luhLogin.classList.remove('expanded');
+                        if (loginLink) { loginLink.setAttribute('aria-expanded', 'false'); }
                     }
-                } else {
-                    footer.setAttribute('hidden', '');
-                    luhLogin.classList.remove('expanded');
-                    if (loginLink) { loginLink.setAttribute('aria-expanded', 'false'); }
-                }
+                });
+            });
+        }
+
+        // ── "Hinweise" accordion ──────────────────────────────────────────
+        // Independent disclosure panels: opening one does not close the others,
+        // so users can compare two access routes side by side. With JavaScript
+        // disabled the <noscript> block above expands every panel, so the login
+        // instructions are never unreachable.
+        function setPanel(trigger, open) {
+            var panel = document.getElementById(trigger.getAttribute('aria-controls'));
+            if (!panel) { return; }
+
+            trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            if (open) {
+                panel.removeAttribute('hidden');
+            } else {
+                panel.setAttribute('hidden', '');
+            }
+        }
+
+        var accTriggers = document.querySelectorAll('.luh-acc-trigger');
+
+        accTriggers.forEach(function (trigger) {
+            trigger.addEventListener('click', function () {
+                setPanel(trigger, trigger.getAttribute('aria-expanded') !== 'true');
+            });
+        });
+
+        // Cross-references inside a panel ("… siehe Selbstregistrierung") open the
+        // panel they point at, then move focus to its trigger so keyboard and screen
+        // reader users land on the newly revealed content instead of being left behind.
+        document.querySelectorAll('[data-luh-acc-open]').forEach(function (jump) {
+            jump.addEventListener('click', function () {
+                var target = document.getElementById(jump.dataset.luhAccOpen + '-t');
+                if (!target) { return; }
+
+                setPanel(target, true);
+                target.focus();
+                target.scrollIntoView({ block: 'nearest' });
             });
         });
     });

@@ -20,6 +20,34 @@ v2.2.0 — für **ILIAS 10**
 
 ---
 
+## 🧭 Loginmaske
+
+Die Loginmaske (`components/ILIAS/Init/tpl.login.html`) besteht aus zwei Spalten:
+
+* **links** die beiden Anmeldewege – »Login mit WebSSO« (nur sichtbar, wenn Shibboleth
+  aktiv ist, siehe `tpl.login_form_shibboleth.html`) und »Login ohne WebSSO«;
+* **rechts** die **Hinweise** als Akkordeon mit sechs Fächern: Allgemeines zur Anmeldung,
+  Zugang für Angehörige der LUH, für Gasthörende, für Gäste, im EULiST-Verbund-Projekt
+  und Selbstregistrierung.
+
+Die Fächer folgen dem WAI-ARIA-Accordion-Pattern (`h3 > button`, `aria-expanded`,
+`aria-controls`, Panel als benannte `region`) und lassen sich **unabhängig voneinander**
+öffnen. Ohne JavaScript werden über einen `<noscript>`-Block alle Fächer ausgeklappt,
+damit die Anmeldehinweise nie hinter funktionslosen Schaltflächen verschwinden.
+
+### Zweisprachigkeit
+
+Der Skin enthält **keine** ILIAS-Sprachdateien – eigene Sprachvariablen lägen in der
+ILIAS-Datenbank und wären damit nicht mehr Teil dieses aus Git deployten Skins. Deutsche
+und englische Texte stehen deshalb **beide** im Template und sind mit
+`data-luh-i18n="de"` bzw. `data-luh-i18n="en"` ausgezeichnet. `_login.scss` blendet über
+`html:lang()` die passende Variante ein; **Deutsch ist der Fallback** für alle Sprachen
+außer Englisch.
+
+> Beim Ändern der Texte immer **beide** Sprachfassungen pflegen.
+
+---
+
 ## 📁 Installation
 
 ### Schritt 1: Zur ILIAS-Root-Installation wechseln
