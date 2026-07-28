@@ -2,11 +2,23 @@
 /*
  * Regenerate the README login screenshot (screenshots/luh-skin-release_10-1.png).
  *
- * Why a script: the local ILIAS docker instance has no Shibboleth, so the real
- * "Login mit WebSSO" option is not rendered there. This script injects that option
- * exactly as ILIAS emits it on the production LUH server (see
- * components/ILIAS/Init/tpl.login_form_shibboleth.html), so the screenshot reflects
- * what users actually see rather than the WebSSO-less test instance.
+ * Why a script: the local ILIAS docker instance differs from the production LUH server
+ * in two ways that would otherwise make the screenshot misleading, so both are
+ * compensated for here.
+ *
+ *   1. It has no Shibboleth, so the real "Login mit WebSSO" option is not rendered.
+ *      This script injects that option exactly as ILIAS emits it on production (see
+ *      components/ILIAS/Init/tpl.login_form_shibboleth.html).
+ *   2. Its default UI language depends on which language packs happen to be installed
+ *      in that instance, while production runs German. The script pins <html lang>
+ *      so the README screenshot is deterministic regardless of the local default.
+ *
+ *      SHOOT_LANG only switches the skin's own bilingual blocks (the ones keyed off
+ *      html:lang in _login.scss — see the "Zweisprachigkeit" section in README.md).
+ *      ILIAS's server-rendered strings around them (footer, page title) follow the
+ *      instance's configured language, so SHOOT_LANG=en on a German instance yields
+ *      an English login mask inside a German page frame. For a fully English capture,
+ *      switch the instance language in ILIAS instead.
  *
  * Usage:
  *   1. Bring up the ILIAS 10 stack (docker compose up -d in ../ilias10) and recompile
@@ -17,6 +29,7 @@
  * Env overrides:
  *   LOGIN_URL   default http://localhost:8081/login.php
  *   OUT_PATH    default screenshots/luh-skin-release_10-1.png
+ *   SHOOT_LANG  default de — UI language to capture ("de" or "en")
  *   CHROME_PATH path to a Chrome/Chromium binary (else puppeteer's bundled browser)
  */
 'use strict';
@@ -25,6 +38,7 @@ const path = require('path');
 const puppeteer = require('puppeteer');
 
 const URL = process.env.LOGIN_URL || 'http://localhost:8081/login.php';
+const LANG = process.env.SHOOT_LANG || 'de';
 const OUT =
   process.env.OUT_PATH ||
   path.join(__dirname, '..', 'screenshots', 'luh-skin-release_10-1.png');
@@ -47,14 +61,24 @@ const VIEWPORT = { width: 1300, height: 760, deviceScaleFactor: 2 };
     await page.setViewport(VIEWPORT);
     await page.goto(URL, { waitUntil: 'networkidle0', timeout: 60000 });
 
-    // Inject the WebSSO login option (as tpl.login_form_shibboleth.html renders it).
+    // Select the UI language the skin's bilingual blocks key off (see _login.scss).
+    await page.evaluate((lang) => {
+      document.documentElement.setAttribute('lang', lang);
+    }, LANG);
+
+    // Inject the WebSSO login option (as tpl.login_form_shibboleth.html renders it,
+    // including its bilingual spans, so it follows the lang set above).
     await page.evaluate(() => {
       const mask = document.querySelector('#shib-form-login-mask');
       if (mask && !mask.querySelector('#shib_login')) {
         mask.innerHTML =
           '<div class="ilForm"><form class="form-horizontal">' +
-          '<a id="shib_login" class="luh-login-action" href="#" aria-label="Login mit WebSSO">Login mit WebSSO</a>' +
-          '<p class="luh-login-desc">für Angehörige der LUH</p>' +
+          '<a id="shib_login" class="luh-login-action" href="#">' +
+          '<span data-luh-i18n="de">Login mit WebSSO</span>' +
+          '<span data-luh-i18n="en">Login via WebSSO</span></a>' +
+          '<p class="luh-login-desc">' +
+          '<span data-luh-i18n="de">für Angehörige der LUH</span>' +
+          '<span data-luh-i18n="en">for members of LUH</span></p>' +
           '</form></div>';
       }
     });
