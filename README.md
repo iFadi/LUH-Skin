@@ -104,9 +104,26 @@ ILIAS_ROOT=/pfad/zu/ilias10 ./update-skin.sh prod
 * Diese ID wird an den Hauptdateinamen `LUH-Style.css` angehängt. → Dadurch wird ein **automatisches Neuladen im Browser** erzwungen (Cache-Busting).
 * Sollte auf dem produktiven System `dart-sass` **nicht installiert** sein, kann das Skript **nicht ausgeführt** werden.
 
-### 💡 Empfehlung:
+### 🗺️ Source Maps
 
-Kompiliere die `LUH-Style.css` auf einem **Testsystem** (z. B. mit definierter Tag-/Skin-Version) und übertrage sie anschließend auf das **Produktivsystem**.
+`prod` kompiliert mit `--no-source-map`, `dev` erzeugt weiterhin eine `LUH-Style.css.map`.
+
+Die Map wird **nicht eingecheckt** (siehe `.gitignore`) und gehört nicht auf den Server:
+Ihr `sources`-Array enthält **absolute Pfade des Build-Rechners** – beim Standalone-Build
+zusätzlich der umgeschriebene `delos`-Pfad. Eingecheckt würde sie öffentlich neben der CSS
+ausgeliefert, die lokale Verzeichnisstruktur preisgeben und bei jedem Build auf einem
+anderen Rechner einen ~150 KB großen Diff erzeugen.
+
+### 💡 Empfehlung / Deployment:
+
+Auf dem **Produktivsystem ist `dart-sass` nicht installiert** – dort wird also nie kompiliert.
+Der Skin wird **vorkompiliert aus Git deployt**: Die `LUH-Style.css` wird auf einem
+**Testsystem** (z. B. mit definierter Tag-/Skin-Version) mit `./update-skin.sh prod` gebaut,
+**mitsamt der neuen Version-ID in `template.xml` committet** und anschließend auf dem
+Produktivsystem ausgecheckt.
+
+> ⚠️ Ein Commit, der `.scss` ändert, muss daher **immer die neu kompilierte `LUH-Style.css`
+> enthalten** – sonst geht die Änderung auf dem Produktivsystem verloren.
 
 ---
 
