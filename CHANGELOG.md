@@ -1,5 +1,60 @@
 # Changelog
 
+## [2.3.0](https://github.com/iFadi/LUH-Skin/compare/v2.2.0...v2.3.0) (2026-08-10)
+
+### Features
+
+* **login:** replace the three "Hinweise" links with a **bilingual six-panel accordion**
+  that carries the login instructions on the page itself (Allgemeines zur Anmeldung,
+  Zugang für Angehörige der LUH, für Gasthörende, für Gäste, im EULiST-Verbund-Projekt,
+  Selbstregistrierung). The panels follow the WAI-ARIA accordion pattern
+  (`h3 > button`, `aria-expanded`, `aria-controls`, panel as a labelled region) and open
+  independently, so two access routes can be compared side by side; a `<noscript>` block
+  expands every panel when JavaScript is unavailable. German and English are both carried
+  in the template and selected via `html:lang()`, with German as the fallback — ILIAS
+  language variables were deliberately not used, since they live in the database and
+  would no longer be part of this git-deployed skin. The external targets (Erstanmeldung,
+  Hinweise zum Login) remain reachable as inline links inside the panels, and the card
+  grows from 760px to 980px to keep the running prose readable.
+
+### Bug Fixes
+
+* **build:** pass `$il-background-images-path` into the delos `@use ... with (...)` block.
+  `LUH-Style.scss` computed the path but never handed it over, so delos kept its own
+  default of `../images/` — which resolves into the skin folder rather than
+  `public/assets/images/`, and every image delos references 404ed. Most visibly the
+  Explorer tree icons (`nav/jstree.svg`, `tree_col.svg`, `tree_exp.svg`), which is why the
+  repository tree rendered without its expand icons. 14 of the 15 affected URLs now
+  resolve; `ButtonsBack.png` is not shipped by ILIAS 10 at all and 404s in stock delos
+  too. Present since the ILIAS 10 port, not introduced by the login work.
+* **build:** stop emitting and committing `LUH-Style.css.map` for `prod` builds. The
+  production server has no dart-sass and the skin is deployed precompiled from git, so
+  the map shipped to production, where it was served publicly while exposing absolute
+  build-host paths and producing a ~150 KB full-file diff on every build by a different
+  developer. `prod` now compiles with `--no-source-map`; `dev` keeps its map, the map is
+  untracked and gitignored, and a stale map is removed at the start of every build.
+* **login:** correct the Hinweise copy after editorial review — the "Login ohne WebSSO"
+  subtitle is shortened to "für Personen ohne LUH-ID" (the groups it listed each have
+  their own panel now), English panel 5 gets a title parallel to the German and to the
+  other five ("Access within the EULiST network project"), and its modality is corrected
+  from *can* to *must*, which had contradicted the panel's own closing sentence.
+
+### Miscellaneous
+
+* **login:** the login mask is centred horizontally via auto side margins instead of being
+  pinned near the left edge by `margin-left: 2%`, a holdover from the narrower link-button
+  layout. It stays top-aligned deliberately, so the card does not shift downwards as
+  accordion panels expand.
+* **tools:** `shoot-login.js` pins `<html lang>` and injects the WebSSO option with its
+  bilingual spans, so the README screenshot is deterministic regardless of which language
+  packs the capturing instance has installed and keeps matching production. Documents that
+  `SHOOT_LANG` switches only the skin's bilingual blocks, not ILIAS's own server-rendered
+  strings.
+* **docs:** the README now documents the source-map behaviour and the
+  precompiled-from-git deployment, including that an `.scss` change must always ship the
+  recompiled `LUH-Style.css`.
+
+
 ## [2.2.0](https://github.com/iFadi/LUH-Skin/compare/v2.1.3...v2.2.0) (2026-07-02)
 
 ### Features
