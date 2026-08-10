@@ -5,7 +5,7 @@ Dieser Skin wurde dem [LUH-Stil](https://www.uni-hannover.de/) entsprechend ange
 ---
 
 ## Version
-v2.3.0 — für **ILIAS 10**
+v2.3.0 — für **ILIAS 10** <!-- x-release-please-version -->
 
 > Der ILIAS-9-Stand bleibt auf den `v1.x`-Tags erhalten (zuletzt `v1.3.0`).
 
@@ -79,7 +79,7 @@ cd LUH-Skin
 Beispiel für einen stabilen Release-Tag:
 
 ```bash
-git checkout tags/v2.3.0
+git checkout tags/v2.3.0   # x-release-please-version
 ```
 
 Falls du dich auf dem `main`-Branch befindest, kannst du einfach ein Pull durchführen:
@@ -152,6 +152,36 @@ Produktivsystem ausgecheckt.
 
 > ⚠️ Ein Commit, der `.scss` ändert, muss daher **immer die neu kompilierte `LUH-Style.css`
 > enthalten** – sonst geht die Änderung auf dem Produktivsystem verloren.
+
+---
+
+## 🚀 Release-Prozess
+
+Releases werden **nicht mehr von Hand getaggt**. Den Ablauf übernimmt
+[release-please](https://github.com/googleapis/release-please) über den Workflow
+`.github/workflows/release-please.yml`.
+
+1. **Commits nach Conventional Commits** schreiben (`feat:`, `fix:`, `docs:`, `style:` …) –
+   der Typ entscheidet, in welchem Abschnitt des Changelogs der Commit landet und ob die
+   Minor- oder die Patch-Stelle steigt. `feat!:` bzw. ein `BREAKING CHANGE:`-Footer lösen
+   einen Major-Bump aus.
+2. Nach jedem Merge auf `main` hält release-please automatisch einen Pull Request
+   **»chore(main): release x.y.z«** offen. Dieser PR sammelt alle Änderungen seit dem
+   letzten Release und pflegt `CHANGELOG.md`, `version.txt` sowie die Versionsangaben in
+   dieser README.
+3. **Den Release-PR mergen = releasen.** release-please setzt daraufhin den Tag `vX.Y.Z`
+   und erstellt das GitHub-Release mit dem erzeugten Changelog-Abschnitt als Release Notes.
+
+> ℹ️ Die beiden Versionsangaben in dieser README sind mit einem
+> `x-release-please`-Kommentar markiert und werden vom Release-PR automatisch
+> mitgezogen – die Marker bitte nicht entfernen, sonst veraltet die README wieder.
+> (Der Marker wird hier bewusst ohne sein Suffix geschrieben: release-please ersetzt
+> die erste Versionsnummer **jeder** Zeile, die den vollständigen Marker enthält –
+> auch in erklärendem Fließtext wie diesem.)
+
+> ⚠️ Der Release-PR enthält **nur Changelog- und Versionsdateien**. Eine geänderte
+> `.scss` muss weiterhin zusammen mit der neu kompilierten `LUH-Style.css` im jeweiligen
+> Feature-PR liegen (siehe [Empfehlung / Deployment](#-empfehlung--deployment)).
 
 ---
 
