@@ -1,0 +1,39 @@
+name: Release Please
+
+# Automates the release step that used to be manual. On every push to main,
+# release-please maintains an open "chore(main): release x.y.z" pull request that
+# collects the Conventional Commit subjects since the last release into
+# CHANGELOG.md and bumps version.txt and the README version references.
+#
+# Merging that pull request is the release: release-please then creates the vX.Y.Z
+# tag and the GitHub Release, using the changelog section it just generated as the
+# release notes.
+#
+# This replaces the former tag-triggered release.yml. Tags are no longer pushed by
+# hand — see "Release-Prozess" in README.md.
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+# A release PR is a single shared resource: two overlapping runs would race to
+# update the same branch. Never cancel in progress — an interrupted run can leave
+# the release PR half-updated.
+concurrency:
+  group: release-please
+  cancel-in-progress: false
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run release-please
+        uses: googleapis/release-please-action@v5
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
