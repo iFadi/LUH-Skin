@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.4.0](https://github.com/iFadi/LUH-Skin/compare/v2.3.0...v2.4.0) (2026-08-10)
+
+
+### Features
+
+* **build:** record the ILIAS version each build compiled against ([79b3e9a](https://github.com/iFadi/LUH-Skin/commit/79b3e9a94dfd8882b54eeba1912fdff0ff56056a))
+
+
+### Bug Fixes
+
+* **build:** recompile the skin against ILIAS 10.9 ([d5ddc28](https://github.com/iFadi/LUH-Skin/commit/d5ddc28ae61243aa4b63a8133f741dcfc1ba4a83))
+
+
+### Miscellaneous
+
+* **screenshot:** recapture the login screenshot on ILIAS 10.9 ([de52455](https://github.com/iFadi/LUH-Skin/commit/de5245534c9a1c61a80c5327164b2e2665c5fb4d))
+
 ## [2.3.0](https://github.com/iFadi/LUH-Skin/compare/v2.2.0...v2.3.0) (2026-08-10)
 
 ### Features
