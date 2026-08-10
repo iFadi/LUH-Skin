@@ -41,12 +41,8 @@ bundled Chromium).
 
 ## Cutting a release
 
-1. Land your changes on `main` (via PR from `release_*`).
-2. Bump the version in `README.md` and promote `CHANGELOG.md`'s `[Unreleased]`
-   section to `[x.y.z]` with today's date.
-3. Tag and push — the **Release** workflow publishes the GitHub Release from the
-   matching CHANGELOG section automatically:
+Nothing to do by hand — releases are automated by release-please. Write commits as
+Conventional Commits, and merging the **»chore(main): release x.y.z«** pull request it
+keeps open on `main` creates the tag and the GitHub Release.
 
-   ```bash
-   git tag -a vX.Y.Z -m "vX.Y.Z" && git push origin vX.Y.Z
-   ```
+See [Release-Prozess](../README.md#-release-prozess) in the main README.

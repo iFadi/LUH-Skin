@@ -30,7 +30,7 @@ ILIAS-Update daher `./update-skin.sh prod` ausführen und die neue CSS mitcommit
 ## 📸 Screenshot
 ![Screenshot](screenshots/luh-skin-release_10-1.png)
 
-*LUH-Login auf ILIAS 10.8*
+*LUH-Login auf ILIAS 10.9*
 
 ---
 
