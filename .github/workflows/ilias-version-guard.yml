@@ -1,0 +1,58 @@
+name: ILIAS Version Guard
+
+# Keep the "Kompiliert gegen ILIAS vX.Y" line in README.md in sync with
+# ILIAS_BUILD_VERSION, which update-skin.sh writes from the ILIAS installation it
+# actually compiled against.
+#
+# The shipped LUH-Style.css bundles the delos base of that ILIAS release, so this is a
+# load-bearing claim: if the README names a newer ILIAS than the CSS was really built
+# against, the skin silently ships no rules for components added since. A hand-maintained
+# version line drifts exactly the way the release tag did — this guard is what stops it.
+
+on:
+  pull_request:
+    paths:
+      - "README.md"
+      - "ILIAS_BUILD_VERSION"
+      - "LUH-Style/LUH-Style.css"
+      - ".github/workflows/ilias-version-guard.yml"
+
+jobs:
+  ilias-version-guard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: README must state the ILIAS version the CSS was compiled against
+        run: |
+          set -euo pipefail
+
+          if [ ! -f ILIAS_BUILD_VERSION ]; then
+            echo "::error::ILIAS_BUILD_VERSION is missing. Run ./update-skin.sh prod inside an ILIAS installation to regenerate it."
+            exit 1
+          fi
+
+          build_ver="$(tr -d '[:space:]' < ILIAS_BUILD_VERSION)"
+          if ! printf '%s' "$build_ver" | grep -qE '^v[0-9]+\.[0-9]+$'; then
+            echo "::error::ILIAS_BUILD_VERSION does not look like an ILIAS tag (got '$build_ver', expected e.g. 'v10.9')."
+            exit 1
+          fi
+
+          # Matches: **Kompiliert gegen ILIAS `v10.9`.**
+          readme_ver="$(grep -oE 'Kompiliert gegen ILIAS `v[0-9]+\.[0-9]+`' README.md \
+            | grep -oE 'v[0-9]+\.[0-9]+' | head -n1 || true)"
+          if [ -z "$readme_ver" ]; then
+            echo "::error::No 'Kompiliert gegen ILIAS \`vX.Y\`' line found in README.md. Restore it — it documents which ILIAS the shipped CSS was built against."
+            exit 1
+          fi
+
+          echo "ILIAS_BUILD_VERSION: $build_ver"
+          echo "README.md:           $readme_ver"
+
+          if [ "$build_ver" != "$readme_ver" ]; then
+            echo "::error::README.md says the skin was compiled against $readme_ver, but ILIAS_BUILD_VERSION says $build_ver. Update the README line (or rebuild with ./update-skin.sh prod) so the two agree."
+            exit 1
+          fi
+
+          echo "✅ README matches ILIAS_BUILD_VERSION ($build_ver)."

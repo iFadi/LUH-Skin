@@ -7,6 +7,20 @@ Dieser Skin wurde dem [LUH-Stil](https://www.uni-hannover.de/) entsprechend ange
 ## Version
 v2.3.0 — für **ILIAS 10** <!-- x-release-please-version -->
 
+**Kompiliert gegen ILIAS `v10.9`.**
+
+Die ausgelieferte `LUH-Style/LUH-Style.css` **enthält die delos-Basis genau dieser
+ILIAS-Version** – der Skin wird vorkompiliert aus Git deployt (siehe
+[Empfehlung / Deployment](#-empfehlung--deployment)). Auf einem **neueren** ILIAS fehlen
+dadurch die Regeln für Komponenten, die ILIAS seitdem hinzugefügt hat: Diese Elemente
+werden dann **unstyled** dargestellt, ohne dass eine Fehlermeldung erscheint. Nach einem
+ILIAS-Update daher `./update-skin.sh prod` ausführen und die neue CSS mitcommitten.
+
+> Die Angabe wird von `update-skin.sh` automatisch aus `ilias_version.php` der
+> ILIAS-Installation ermittelt und in [`ILIAS_BUILD_VERSION`](ILIAS_BUILD_VERSION)
+> geschrieben; die **ILIAS Version Guard**-CI stellt sicher, dass diese README-Angabe
+> nicht davon abweicht.
+
 > Der ILIAS-9-Stand bleibt auf den `v1.x`-Tags erhalten (zuletzt `v1.3.0`).
 
 * [CHANGELOG](CHANGELOG.md)
@@ -16,7 +30,7 @@ v2.3.0 — für **ILIAS 10** <!-- x-release-please-version -->
 ## 📸 Screenshot
 ![Screenshot](screenshots/luh-skin-release_10-1.png)
 
-*LUH-Login auf ILIAS 10.8*
+*LUH-Login auf ILIAS 10.9*
 
 ---
 
@@ -121,6 +135,11 @@ Den Pfad zur ILIAS-Wurzel (Ordner mit `templates/default/`) per 3. Argument **od
 ```bash
 # z. B. templates aus einem laufenden ILIAS-10-Container holen:
 docker cp ilias10:/var/www/html/templates /pfad/zu/ilias10/templates
+
+# ilias_version.php gleich mitkopieren: daraus liest update-skin.sh die ILIAS-Version
+# und schreibt sie nach ILIAS_BUILD_VERSION. Fehlt die Datei, warnt das Skript und
+# lässt ILIAS_BUILD_VERSION unverändert — die Angabe muss dann von Hand stimmen.
+docker cp ilias10:/var/www/html/ilias_version.php /pfad/zu/ilias10/ilias_version.php
 
 ILIAS_ROOT=/pfad/zu/ilias10 ./update-skin.sh prod
 # oder:  ./update-skin.sh prod "" /pfad/zu/ilias10

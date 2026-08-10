@@ -91,6 +91,34 @@ if [[ -n "$ilias_path" ]]; then
     rm -f LUH-Style/scss/LUH-Style.compiled.scss.bak
 fi
 
+# Record which ILIAS release this build compiled against.
+#
+# The compiled LUH-Style.css BUNDLES the delos base of that release, and the skin is
+# deployed precompiled from git. A CSS built against an older ILIAS therefore ships no
+# rules for components ILIAS added since — those render unstyled on the newer server,
+# without any error. Writing the version down at build time (rather than maintaining it
+# by hand in the README) is what keeps that claim honest.
+#
+# In-place builds run from public/Customizing/skin/<skin>/, so the ILIAS root — the folder
+# holding ilias_version.php — is four levels up. A standalone build takes it from
+# $ilias_path instead.
+ilias_root="${ilias_path:-../../../..}"
+version_file="${ilias_root%/}/ilias_version.php"
+if [[ -f "$version_file" ]]; then
+    # const ILIAS_VERSION_NUMERIC = "10.9";  ->  10.9
+    ilias_version="$(sed -n 's/.*ILIAS_VERSION_NUMERIC[[:space:]]*=[[:space:]]*"\([^"]*\)".*/\1/p' "$version_file" | head -n1)"
+    if [[ -n "$ilias_version" ]]; then
+        echo "v${ilias_version}" > ILIAS_BUILD_VERSION
+        echo "ℹ️  Compiled against ILIAS v${ilias_version} (recorded in ILIAS_BUILD_VERSION)"
+    else
+        echo "⚠️  Could not parse ILIAS_VERSION_NUMERIC from $version_file"
+        echo "   ILIAS_BUILD_VERSION left unchanged — update it by hand before committing."
+    fi
+else
+    echo "⚠️  No ilias_version.php found at $version_file"
+    echo "   ILIAS_BUILD_VERSION left unchanged — update it by hand before committing."
+fi
+
 # Compile with SASS
 echo "Compiling with sass..."
 sass "${sass_opts[@]}" LUH-Style/scss/LUH-Style.compiled.scss LUH-Style/LUH-Style.css
