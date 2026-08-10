@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.1](https://github.com/iFadi/LUH-Skin/compare/v2.4.0...v2.4.1) (2026-08-10)
+
+
+### Bug Fixes
+
+* **ci:** let release-please tag the merged release PR ([#35](https://github.com/iFadi/LUH-Skin/issues/35)) ([6dbb740](https://github.com/iFadi/LUH-Skin/commit/6dbb7409378461b710e9a48509b83867b70c595a))
+
 ## [2.4.0](https://github.com/iFadi/LUH-Skin/compare/v2.3.0...v2.4.0) (2026-08-10)
 
 
