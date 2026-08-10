@@ -10,7 +10,6 @@
 
 ### Bug Fixes
 
-* **build:** recompile the skin against ILIAS 10.9 ([02fba6f](https://github.com/iFadi/LUH-Skin/commit/02fba6f7141307a6c2d835a90918978b9c4dc23f))
 * **build:** recompile the skin against ILIAS 10.9 ([d5ddc28](https://github.com/iFadi/LUH-Skin/commit/d5ddc28ae61243aa4b63a8133f741dcfc1ba4a83))
 
 
