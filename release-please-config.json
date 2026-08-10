@@ -20,7 +20,6 @@
   ],
   "packages": {
     ".": {
-      "package-name": "luh-skin",
       "changelog-path": "CHANGELOG.md",
       "extra-files": [
         { "type": "generic", "path": "README.md" }

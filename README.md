@@ -191,6 +191,12 @@ Releases werden **nicht mehr von Hand getaggt**. Den Ablauf übernimmt
 3. **Den Release-PR mergen = releasen.** release-please setzt daraufhin den Tag `vX.Y.Z`
    und erstellt das GitHub-Release mit dem erzeugten Changelog-Abschnitt als Release Notes.
 
+> 🔀 **Pull Requests werden gesquasht** (Merge-Commits und Rebase sind im Repo
+> deaktiviert). Der PR-Titel wird zum Commit-Betreff und muss deshalb selbst ein
+> Conventional Commit sein; die Einzel-Commits bleiben als Body erhalten. Merge-Commits
+> führten hier zu doppelten Changelog-Einträgen, weil GitHub den PR-Titel zusätzlich in
+> den Merge-Commit schreibt und release-please beide Commits auswertet.
+
 > ℹ️ Die beiden Versionsangaben in dieser README sind mit einem
 > `x-release-please`-Kommentar markiert und werden vom Release-PR automatisch
 > mitgezogen – die Marker bitte nicht entfernen, sonst veraltet die README wieder.
