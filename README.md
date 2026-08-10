@@ -5,7 +5,7 @@ Dieser Skin wurde dem [LUH-Stil](https://www.uni-hannover.de/) entsprechend ange
 ---
 
 ## Version
-v2.2.0 — für **ILIAS 10**
+v2.3.0 — für **ILIAS 10**
 
 > Der ILIAS-9-Stand bleibt auf den `v1.x`-Tags erhalten (zuletzt `v1.3.0`).
 
@@ -79,7 +79,7 @@ cd LUH-Skin
 Beispiel für einen stabilen Release-Tag:
 
 ```bash
-git checkout tags/v2.2.0
+git checkout tags/v2.3.0
 ```
 
 Falls du dich auf dem `main`-Branch befindest, kannst du einfach ein Pull durchführen:
