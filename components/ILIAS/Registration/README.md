@@ -11,7 +11,7 @@ change reviewable and, crucially, makes ILIAS drift **fail loudly** instead of
 silently reverting upstream fixes.
 
 - `luh-username-rule.patch` — the diff (purely additive: the `XXX-XXX` check).
-- `PINNED_ILIAS_VERSION` — the ILIAS tag the patch was derived against (e.g. `v10.9`).
+- `PINNED_ILIAS_VERSION` — the ILIAS tag the patch was derived against (e.g. `v10.12`).
 
 > **Nicht verwechseln mit `ILIAS_BUILD_VERSION` im Repo-Root.** Die beiden Dateien
 > beantworten unterschiedliche Fragen und dürfen auseinanderlaufen:

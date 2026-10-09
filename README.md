@@ -7,7 +7,7 @@ Dieser Skin wurde dem [LUH-Stil](https://www.uni-hannover.de/) entsprechend ange
 ## Version
 v2.4.1 — für **ILIAS 10** <!-- x-release-please-version -->
 
-**Kompiliert gegen ILIAS `v10.9`.**
+**Kompiliert gegen ILIAS `v10.12`.**
 
 Die ausgelieferte `LUH-Style/LUH-Style.css` **enthält die delos-Basis genau dieser
 ILIAS-Version** – der Skin wird vorkompiliert aus Git deployt (siehe
@@ -30,7 +30,7 @@ ILIAS-Update daher `./update-skin.sh prod` ausführen und die neue CSS mitcommit
 ## 📸 Screenshot
 ![Screenshot](screenshots/luh-skin-release_10-1.png)
 
-*LUH-Login auf ILIAS 10.9*
+*LUH-Login auf ILIAS 10.12*
 
 ---
 
