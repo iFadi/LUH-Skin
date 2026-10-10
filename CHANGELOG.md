@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.2](https://github.com/iFadi/LUH-Skin/compare/v2.4.1...v2.4.2) (2026-10-10)
+
+
+### Bug Fixes
+
+* **build:** recompile the skin against ILIAS 10.12 ([#37](https://github.com/iFadi/LUH-Skin/issues/37)) ([5a2d115](https://github.com/iFadi/LUH-Skin/commit/5a2d115995f1c027d13eb0aa36bce0c6dc8c9382))
+
 ## [2.4.1](https://github.com/iFadi/LUH-Skin/compare/v2.4.0...v2.4.1) (2026-08-10)
 
 
