@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.0.0](https://github.com/iFadi/LUH-Skin/compare/v2.4.2...v3.0.0) (2026-11-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* this release is for ILIAS 11. The stylesheet bundles the delos base of ILIAS 11.5 and the registration patch only applies to the ILIAS 11 class. ILIAS 10 installations stay on v2.4.2.
+
+### Features
+
+* feed the LUH brand colours into delos ([#42](https://github.com/iFadi/LUH-Skin/issues/42)) ([5f25e2e](https://github.com/iFadi/LUH-Skin/commit/5f25e2e97ff63614d793e94afc2ba3b756b66d4d))
+* support ILIAS 11 ([#39](https://github.com/iFadi/LUH-Skin/issues/39)) ([6147d13](https://github.com/iFadi/LUH-Skin/commit/6147d131e53b17bef777d20033b4ed5def311965))
+
 ## [2.4.2](https://github.com/iFadi/LUH-Skin/compare/v2.4.1...v2.4.2) (2026-10-10)
 
 
