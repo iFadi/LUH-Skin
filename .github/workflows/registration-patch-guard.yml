@@ -16,6 +16,9 @@ on:
       - "components/ILIAS/Registration/luh-username-rule.patch"
       - "components/ILIAS/Registration/PINNED_ILIAS_VERSION"
 
+permissions:
+  contents: read
+
 jobs:
   patch-guard:
     runs-on: ubuntu-latest

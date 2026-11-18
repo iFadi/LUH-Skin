@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /*
- * Regenerate the README login screenshot (screenshots/luh-skin-release_10-1.png).
+ * Regenerate the README login screenshot (screenshots/luh-skin-release_11-1.png).
  *
  * Why a script: the local ILIAS docker instance differs from the production LUH server
  * in two ways that would otherwise make the screenshot misleading, so both are
@@ -21,27 +21,41 @@
  *      switch the instance language in ILIAS instead.
  *
  * Usage:
- *   1. Bring up the ILIAS 10 stack (docker compose up -d in ../ilias10) and recompile
- *      the skin CSS (./update-skin.sh ...), so localhost:8081 serves the current skin.
- *   2. Run:  npx puppeteer@24 --yes node tools/shoot-login.js
- *      or, with puppeteer installed:  node tools/shoot-login.js
+ *   1. Bring up the ILIAS 11 stack (docker compose up -d in the ilias11 folder) and
+ *      recompile the skin CSS (./update-skin.sh ...), so localhost:8082 serves the
+ *      current skin. The skin must be the default system style there, because the
+ *      login page is rendered with the default.
+ *   2. Run, with puppeteer or puppeteer-core resolvable (see tools/README.md):
+ *        NODE_PATH=/tmp/pt/node_modules node tools/shoot-login.js
  *
  * Env overrides:
- *   LOGIN_URL   default http://localhost:8081/login.php
- *   OUT_PATH    default screenshots/luh-skin-release_10-1.png
+ *   LOGIN_URL   default http://localhost:8082/login.php
+ *   OUT_PATH    default screenshots/luh-skin-release_11-1.png
  *   SHOOT_LANG  default de — UI language to capture ("de" or "en")
- *   CHROME_PATH path to a Chrome/Chromium binary (else puppeteer's bundled browser)
+ *   CHROME_PATH path to a Chrome/Chromium binary (default: puppeteer's bundled browser,
+ *               or the macOS Google Chrome when only puppeteer-core is installed)
  */
 'use strict';
 
 const path = require('path');
-const puppeteer = require('puppeteer');
 
-const URL = process.env.LOGIN_URL || 'http://localhost:8081/login.php';
+// puppeteer brings its own Chromium; puppeteer-core (what tools/shoot.js uses) drives an
+// installed Chrome instead. Accept either, so one install serves both scripts.
+let puppeteer;
+let needsChrome = false;
+try {
+  puppeteer = require('puppeteer');
+} catch (e) {
+  puppeteer = require('puppeteer-core');
+  needsChrome = true;
+}
+const DEFAULT_CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+
+const URL = process.env.LOGIN_URL || 'http://localhost:8082/login.php';
 const LANG = process.env.SHOOT_LANG || 'de';
 const OUT =
   process.env.OUT_PATH ||
-  path.join(__dirname, '..', 'screenshots', 'luh-skin-release_10-1.png');
+  path.join(__dirname, '..', 'screenshots', 'luh-skin-release_11-1.png');
 
 // Matches the framing of the committed README screenshot (1300x760 @2x = 2600x1520).
 const VIEWPORT = { width: 1300, height: 760, deviceScaleFactor: 2 };
@@ -53,6 +67,8 @@ const VIEWPORT = { width: 1300, height: 760, deviceScaleFactor: 2 };
   };
   if (process.env.CHROME_PATH) {
     launchOpts.executablePath = process.env.CHROME_PATH;
+  } else if (needsChrome) {
+    launchOpts.executablePath = DEFAULT_CHROME;
   }
 
   const browser = await puppeteer.launch(launchOpts);

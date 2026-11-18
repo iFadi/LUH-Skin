@@ -1,0 +1,19 @@
+# Files that are needed to develop and build the skin, but not to run it.
+#
+# When the skin is rolled out as a `git archive` of a release tag (as the Ansible role in
+# ansible-site-ilias does, see README, "Installation"), everything marked export-ignore
+# stays out of that archive and therefore out of the web root of the ILIAS server: sources
+# and tooling have no business being served there. A plain `git clone` is not affected.
+.github/                  export-ignore
+screenshots/              export-ignore
+tools/                    export-ignore
+LUH-Style/scss/          export-ignore
+update-skin.sh            export-ignore
+tpl.xml                   export-ignore
+release-please-config.json     export-ignore
+.release-please-manifest.json  export-ignore
+CHANGELOG.md              export-ignore
+.gitattributes            export-ignore
+.gitignore                export-ignore
+# The registration core patch is applied from the skin folder on the server
+# (components/ILIAS/Registration/README.md), so that folder stays in the archive.

@@ -1,6 +1,6 @@
 // --------------------------------------------
 // LUH-Style.scss
-// Custom ILIAS skin styles for LUH
+// Custom ILIAS skin styles for LUH — ILIAS 11
 // --------------------------------------------
 
 // Sass colour module (replaces the deprecated global darken()/lighten() functions)
@@ -12,14 +12,15 @@
 $base-path: "";
 
 // Construct font/image paths based on the base path.
-// ILIAS 10 serves these web assets from public/assets/ (the docroot is public/),
-// NOT from templates/default/ as in ILIAS 9. Using the wrong prefix 404s every font.
+// Since ILIAS 10 these web assets are served from public/assets/ (the docroot is
+// public/), NOT from templates/default/ as in ILIAS 9. Using the wrong prefix 404s every
+// font.
 $web-font-path: "#{$base-path}/assets/fonts/";
 $icon-font-path: "#{$base-path}/assets/fonts/bootstrap/";
 $background-images-path: "#{$base-path}/assets/images/";
 
 // Import base delos theme with custom variables
-// Path depth = 6 levels: from public/Customizing/skin/luh/LUH-Style/scss/ up to the ILIAS
+// Path depth = 6 levels: from public/Customizing/skin/LUH-Skin/LUH-Style/scss/ up to the ILIAS
 // root (/var/www/html), then into templates/default/. delos lives at the ROOT templates/
 // folder, not under public/. ILIAS 10 dropped the "global" segment but added the "public/"
 // parent, so the depth is unchanged from ILIAS 9 (still 6 levels).
