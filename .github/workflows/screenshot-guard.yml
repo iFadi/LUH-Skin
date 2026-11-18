@@ -13,6 +13,9 @@ on:
       - "components/ILIAS/Init/tpl.login.html"
       - "components/ILIAS/Init/tpl.login_form_shibboleth.html"
 
+permissions:
+  contents: read
+
 jobs:
   screenshot-guard:
     runs-on: ubuntu-latest

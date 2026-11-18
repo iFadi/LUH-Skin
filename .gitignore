@@ -1,7 +1,12 @@
 .idea/
+.DS_Store
+node_modules/
 
-# Transient build artifact created by update-skin.sh while compiling
+# Transient build artifacts created by update-skin.sh while compiling
 LUH-Style/scss/*.compiled.scss
+LUH-Style/scss/*.compiled.scss.bak
+LUH-Style/*.css.tmp
+LUH-Style/*.css.tmp.map
 
 # Source map from a dev build (`./update-skin.sh dev`). Never commit it: prod builds
 # are compiled with --no-source-map, and a map's "sources" are absolute build-host

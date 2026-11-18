@@ -1,9 +1,9 @@
 --- a/components/ILIAS/Registration/classes/class.ilAccountRegistrationGUI.php
 +++ b/components/ILIAS/Registration/classes/class.ilAccountRegistrationGUI.php
 @@ -320,6 +320,18 @@
-         $login = $this->form->getInput("username");
+         $login = $this->form->getInput('username');
          if (!ilUtil::isLogin($login)) {
-             $login_obj->setAlert($this->lng->txt("login_invalid"));
+             $login_obj->setAlert($this->lng->txt('login_invalid'));
 +            $form_valid = false;
 +        }
 +

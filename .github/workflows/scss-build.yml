@@ -11,11 +11,14 @@ on:
       - "release_*"
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   scss-build:
     runs-on: ubuntu-latest
     env:
-      ILIAS_BRANCH: release_10 # ILIAS branch to pull delos from
+      ILIAS_BRANCH: release_11 # ILIAS branch to pull delos from
     steps:
       - name: Checkout skin
         uses: actions/checkout@v4
@@ -34,7 +37,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
 
       - name: Install dart-sass
         run: npm install -g sass

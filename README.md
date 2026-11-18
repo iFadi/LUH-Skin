@@ -5,9 +5,9 @@ Dieser Skin wurde dem [LUH-Stil](https://www.uni-hannover.de/) entsprechend ange
 ---
 
 ## Version
-v2.4.2 — für **ILIAS 10** <!-- x-release-please-version -->
+v2.4.2 — für **ILIAS 11** <!-- x-release-please-version -->
 
-**Kompiliert gegen ILIAS `v10.12`.**
+**Kompiliert gegen ILIAS `v11.5`.**
 
 Die ausgelieferte `LUH-Style/LUH-Style.css` **enthält die delos-Basis genau dieser
 ILIAS-Version** – der Skin wird vorkompiliert aus Git deployt (siehe
@@ -21,16 +21,17 @@ ILIAS-Update daher `./update-skin.sh prod` ausführen und die neue CSS mitcommit
 > geschrieben; die **ILIAS Version Guard**-CI stellt sicher, dass diese README-Angabe
 > nicht davon abweicht.
 
-> Der ILIAS-9-Stand bleibt auf den `v1.x`-Tags erhalten (zuletzt `v1.3.0`).
+> Ältere ILIAS-Versionen bleiben auf ihren Tags erhalten: **ILIAS 10** auf `v2.x`
+> (zuletzt `v2.4.2`), **ILIAS 9** auf `v1.x` (zuletzt `v1.3.0`).
 
 * [CHANGELOG](CHANGELOG.md)
 
 ---
 
 ## 📸 Screenshot
-![Screenshot](screenshots/luh-skin-release_10-1.png)
+![Screenshot](screenshots/luh-skin-release_11-1.png)
 
-*LUH-Login auf ILIAS 10.12*
+*LUH-Login auf ILIAS 11.5*
 
 ---
 
@@ -64,10 +65,28 @@ außer Englisch.
 
 ## 📁 Installation
 
+### Mit Ansible
+
+Die Rolle `ilias` in `ansible-site-ilias` rollt Skins als Archiv eines Release-Tags aus
+(`web_sites[].skins`, Tag `skin`). Der Server spricht dabei nicht mit GitHub, und alles,
+was in [`.gitattributes`](.gitattributes) als `export-ignore` markiert ist (SCSS-Quellen,
+Werkzeuge, CI), bleibt außerhalb des Web-Roots:
+
+```yaml
+skins:
+  - name: LUH-Skin                                  # Ordnername = Skin-ID
+    repo: https://github.com/iFadi/LUH-Skin.git
+    version: v2.4.2   # x-release-please-version
+```
+
+### Von Hand
+
 ### Schritt 1: Zur ILIAS-Root-Installation wechseln
 
-> **ILIAS 10:** Der Skin liegt jetzt unter `public/Customizing/skin/` – das
-> Segment `global` aus ILIAS 9 entfällt.
+> **Seit ILIAS 10** liegt der Skin unter `public/Customizing/skin/` – das Segment
+> `global` aus ILIAS 9 entfällt. Der Ordnername ist die Skin-ID: Auf den LUH-Servern
+> heißt er `LUH-Skin` und muss so bleiben, sonst zeigen die gespeicherten
+> Skin-Einstellungen ins Leere.
 
 ```bash
 cd /srv/ilias-luh/ILIAS/
@@ -123,7 +142,7 @@ Zur Anpassung des Skins müssen die `.scss`-Dateien bearbeitet werden. Anschlie�
 ändert nur die **Font-/Bild-URLs**, nicht diesen Import. Daher gibt es zwei Wege:
 
 **A) Innerhalb einer ILIAS-Installation (Standard, z. B. Produktiv-/Testsystem):**
-Der Skin liegt unter `public/Customizing/skin/luh/`, der relative Pfad löst sich automatisch auf.
+Der Skin liegt unter `public/Customizing/skin/LUH-Skin/`, der relative Pfad löst sich automatisch auf.
 
 ```bash
 ./update-skin.sh prod
@@ -133,16 +152,16 @@ Der Skin liegt unter `public/Customizing/skin/luh/`, der relative Pfad löst sic
 Den Pfad zur ILIAS-Wurzel (Ordner mit `templates/default/`) per 3. Argument **oder** `ILIAS_ROOT` angeben:
 
 ```bash
-# z. B. templates aus einem laufenden ILIAS-10-Container holen:
-docker cp ilias10:/var/www/html/templates /pfad/zu/ilias10/templates
+# z. B. templates aus einem laufenden ILIAS-11-Container holen:
+docker cp ilias11:/var/www/html/templates /pfad/zu/ilias11/templates
 
 # ilias_version.php gleich mitkopieren: daraus liest update-skin.sh die ILIAS-Version
 # und schreibt sie nach ILIAS_BUILD_VERSION. Fehlt die Datei, warnt das Skript und
 # lässt ILIAS_BUILD_VERSION unverändert — die Angabe muss dann von Hand stimmen.
-docker cp ilias10:/var/www/html/ilias_version.php /pfad/zu/ilias10/ilias_version.php
+docker cp ilias11:/var/www/html/ilias_version.php /pfad/zu/ilias11/ilias_version.php
 
-ILIAS_ROOT=/pfad/zu/ilias10 ./update-skin.sh prod
-# oder:  ./update-skin.sh prod "" /pfad/zu/ilias10
+ILIAS_ROOT=/pfad/zu/ilias11 ./update-skin.sh prod
+# oder:  ./update-skin.sh prod "" /pfad/zu/ilias11
 ```
 
 ### 📌 Hinweise:
@@ -150,6 +169,8 @@ ILIAS_ROOT=/pfad/zu/ilias10 ./update-skin.sh prod
 * Das Skript verwendet die **Systemzeit**, um die generierten CSS-Dateien mit einer **eindeutigen ID** zu versehen.
 * Diese ID wird an den Hauptdateinamen `LUH-Style.css` angehängt. → Dadurch wird ein **automatisches Neuladen im Browser** erzwungen (Cache-Busting).
 * Sollte auf dem produktiven System `dart-sass` **nicht installiert** sein, kann das Skript **nicht ausgeführt** werden.
+* Das Skript kompiliert zuerst in eine temporäre Datei: Schlägt der Build fehl, bleiben
+  `LUH-Style.css` und die Version-ID in `template.xml` unverändert.
 
 ### 🗺️ Source Maps
 
@@ -212,9 +233,14 @@ Releases werden **nicht mehr von Hand getaggt**. Den Ablauf übernimmt
 
 ## ✅ Kompatibilität
 
-Dieses Release ist für **ILIAS v10.x** vorgesehen.
+Dieses Release ist für **ILIAS v11.x** vorgesehen (geprüft mit 11.5).
 
+* Für **ILIAS 10** den Tag `v2.4.2` verwenden.
 * Für **ILIAS 9** den Tag `v1.3.0` verwenden.
+
+Von ILIAS 10 nach 11 hat sich an den überschriebenen Vorlagen (Login, WebSSO-Formular,
+Mail) nichts geändert, was den Skin betrifft. Neu abgeleitet werden musste der
+Registrierungs-Patch, und die CSS enthält jetzt die delos-Basis von ILIAS 11.
 
 ---
 
