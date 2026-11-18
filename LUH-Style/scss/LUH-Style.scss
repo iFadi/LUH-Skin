@@ -6,6 +6,12 @@
 // Sass colour module (replaces the deprecated global darken()/lighten() functions)
 @use "sass:color";
 
+// Approach: the brand is fed INTO delos through its own settings variables, so links,
+// buttons, hover and highlight states stay consistent everywhere ILIAS uses them. Custom
+// rules are kept to the accents delos has no variable for. The less CSS this skin adds on
+// top of delos, the less can break with an ILIAS update.
+@use "settings/colors" as luh;
+
 // Define the base path for static files
 // Default: "" for production
 // This value is dynamically replaced in dev by the update script
@@ -33,9 +39,22 @@ $background-images-path: "#{$base-path}/assets/images/";
   // public/Customizing/skin/<skin>/<style>/, where it points into the skin folder
   // and 404s — most visibly the Explorer tree icons (nav/jstree.svg).
   $il-background-images-path: $background-images-path,
-  $il-mainbar-btn-bg-color: color.adjust(#00509b, $lightness: -10%),
-  $il-footer-bg-color: #cccccc,
-  $il-standard-page-header-bg-color: #f7f7f7
+
+  // Colours. $il-main-color drives standard buttons and accents; delos derives the link
+  // colour from it. The primary button (the one important action of a page) keeps
+  // delos's green: the LUH green is too light to carry a white label.
+  $il-main-color: luh.$il-brand-primary,
+  $il-link-hover-color: luh.$il-brand-primary-dark-blue,
+  $il-highlight-bg: luh.$il-brand-primary-luh-lighter,
+
+  // Main bar: dark blue bar; the hovered and the open entry turn white with a dark blue
+  // label (the green marker is added in settings/_mainbar.scss).
+  $il-mainbar-btn-bg-color: color.adjust(luh.$il-brand-primary, $lightness: -10%),
+  $il-mainbar-btn-color-hover: luh.$il-brand-primary-dark-blue,
+  $il-mainbar-btn-color-engaged: luh.$il-brand-primary-dark-blue,
+
+  $il-footer-bg-color: luh.$il-brand-gray-luh-lighter,
+  $il-standard-page-header-bg-color: luh.$il-brand-gray-luh-3
 );
 
 // Import custom modules in correct order

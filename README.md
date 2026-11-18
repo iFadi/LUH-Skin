@@ -135,6 +135,21 @@ git pull
 
 ## 🔧 Für die Implementierung
 
+### Farben
+
+Die Markenfarben stehen an **einer** Stelle, in
+[`LUH-Style/scss/settings/_colors.scss`](LUH-Style/scss/settings/_colors.scss). Von dort
+gehen sie über die Einstellungsvariablen von delos in die ILIAS-Basis ein (siehe
+`LUH-Style.scss`): Das LUH-Blau ist die Hauptfarbe, also die Farbe der Standard-Buttons
+und Links im ganzen System, nicht nur dort, wo der Skin eigene Regeln hat. Eigene
+CSS-Regeln gibt es nur für das, wofür delos keine Variable anbietet (grüne Linie unter
+der Breadcrumb, grüne Markierung im Hauptmenü, Loginmaske, Hintergrundbild).
+
+Der primäre Button (die eine wichtige Aktion einer Seite) behält das Grün von delos: Das
+LUH-Grün ist zu hell für eine weiße Beschriftung.
+
+### Kompilieren
+
 Zur Anpassung des Skins müssen die `.scss`-Dateien bearbeitet werden. Anschließend ist das Skript `update-skin.sh` auszuführen, um die **SCSS-Dateien zu kompilieren**.
 
 **Wichtig:** Das Skript importiert die ILIAS-Basis (`delos`) über einen relativen Pfad
