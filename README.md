@@ -5,7 +5,7 @@ Dieser Skin wurde dem [LUH-Stil](https://www.uni-hannover.de/) entsprechend ange
 ---
 
 ## Version
-v2.4.2 — für **ILIAS 11** <!-- x-release-please-version -->
+v3.0.0 — für **ILIAS 11** <!-- x-release-please-version -->
 
 **Kompiliert gegen ILIAS `v11.5`.**
 
@@ -76,7 +76,7 @@ Werkzeuge, CI), bleibt außerhalb des Web-Roots:
 skins:
   - name: LUH-Skin                                  # Ordnername = Skin-ID
     repo: https://github.com/iFadi/LUH-Skin.git
-    version: v2.4.2   # x-release-please-version
+    version: v3.0.0   # x-release-please-version
 ```
 
 ### Von Hand
@@ -112,7 +112,7 @@ cd LUH-Skin
 Beispiel für einen stabilen Release-Tag:
 
 ```bash
-git checkout tags/v2.4.2   # x-release-please-version
+git checkout tags/v3.0.0   # x-release-please-version
 ```
 
 Falls du dich auf dem `main`-Branch befindest, kannst du einfach ein Pull durchführen:
