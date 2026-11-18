@@ -1,8 +1,8 @@
 @use "../settings/colors" as *;
 
+// Green marker on the hovered entry of the main bar. Its colours (white background,
+// dark blue label) come from delos through $il-mainbar-btn-*-hover in LUH-Style.scss.
 .il-mainbar-triggers .btn-bulky:hover, .il-mainbar-triggers .il-link.link-bulky:hover {
     transition: all 0.15s ease-in;
     border-left: 5px solid $il-brand-green-luh;
-    background-color: white;
-    color: $il-brand-primary-dark-blue;
 }

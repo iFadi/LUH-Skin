@@ -45,5 +45,15 @@ jobs:
       - name: Compile LUH-Style against ILIAS delos
         run: ILIAS_ROOT="${{ github.workspace }}/ilias-src" ./update-skin.sh prod
 
-      - name: Confirm CSS was produced
-        run: test -s LUH-Style/LUH-Style.css
+      - name: Confirm CSS was produced and carries the brand
+        run: |
+          set -euo pipefail
+          test -s LUH-Style/LUH-Style.css
+          # The LUH blue is fed into delos as its main colour. If delos renames that
+          # settings variable the override silently stops applying, and delos's own
+          # default (#4c6586) comes back in standard buttons and links.
+          grep -qi '00509b' LUH-Style/LUH-Style.css
+          if grep -qi '4c6586' LUH-Style/LUH-Style.css; then
+            echo "::error::delos's default main colour (#4c6586) is in the compiled CSS: the brand colour no longer reaches delos."
+            exit 1
+          fi
